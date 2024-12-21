@@ -17,7 +17,7 @@ const Navbar = () => {
             to={"/"}
             className={({ isActive }) =>
               isActive
-                ? "font-bold text-lg text-primary flex gap-1 rounded-xl"
+                ? "font-extrabold tracking-wider text-base text-primary flex gap-1 rounded-xl"
                 : "text-base font-semibold hover:text-primary hover:underline"
             }
           >
@@ -27,7 +27,7 @@ const Navbar = () => {
             to={"/available-cars"}
             className={({ isActive }) =>
               isActive
-                ? "font-bold text-lg text-primary flex gap-1 rounded-xl"
+                ? "font-extrabold tracking-wider text-base text-primary flex gap-1 rounded-xl"
                 : "text-base font-semibold hover:text-primary hover:underline"
             }
           >
@@ -41,7 +41,7 @@ const Navbar = () => {
                 to={"/add-car"}
                 className={({ isActive }) =>
                   isActive
-                    ? "font-bold text-lg text-primary flex gap-1 rounded-xl"
+                    ? "font-extrabold tracking-wider text-base text-primary flex gap-1 rounded-xl"
                     : "text-base font-semibold hover:text-primary hover:underline"
                 }
               >
@@ -51,7 +51,7 @@ const Navbar = () => {
                 to={"/my-cars"}
                 className={({ isActive }) =>
                   isActive
-                    ? "font-bold text-lg text-primary flex gap-1 rounded-xl"
+                    ? "font-extrabold tracking-wider text-base text-primary flex gap-1 rounded-xl"
                     : "text-base font-semibold hover:text-primary hover:underline"
                 }
               >
@@ -61,7 +61,7 @@ const Navbar = () => {
                 to={"/my-bookings"}
                 className={({ isActive }) =>
                   isActive
-                    ? "font-bold text-lg text-primary flex gap-1 rounded-xl"
+                    ? "font-extrabold tracking-wider text-base text-primary flex gap-1 rounded-xl"
                     : "text-base font-semibold hover:text-primary hover:underline"
                 }
               >
