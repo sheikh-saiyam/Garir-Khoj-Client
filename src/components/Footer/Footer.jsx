@@ -1,4 +1,3 @@
-import React from "react";
 import {
   FaFacebook,
   FaInstagram,
@@ -9,6 +8,7 @@ import { IoMdSend } from "react-icons/io";
 import { IoCall } from "react-icons/io5";
 import { MdEmail } from "react-icons/md";
 import logo from "../../assets/logoWhite.png";
+
 const Footer = () => {
   return (
     <footer className="text-white px-8 py-12 mx-auto w-11/12 md:w-10/12 max-w-screen-2xl">
@@ -55,6 +55,7 @@ const Footer = () => {
             <p className="text-lg font-medium">Dhaka, Bangladesh</p>
           </div>
         </div>
+
         {/* Quick Links */}
         <div>
           <h3 className="text-xl font-bold mb-4">Quick Links</h3>
@@ -65,6 +66,7 @@ const Footer = () => {
             <li className="hover:text-white cursor-pointer">Contact</li>
           </ul>
         </div>
+
         {/* Legal Links */}
         <div>
           <h3 className="text-xl font-bold mb-4">Legal</h3>
@@ -77,6 +79,7 @@ const Footer = () => {
             <li className="hover:text-white cursor-pointer">FAQ</li>
           </ul>
         </div>
+
         {/* Subscribe */}
         <div className="lg:w-4/12">
           <h3 className="text-xl font-bold mb-4">Subscribe</h3>
