@@ -66,6 +66,7 @@ const AuthProvider = ({ children }) => {
       unSubscribe();
     };
   });
+  // for save the user
 
   const authInfo = {
     user,
