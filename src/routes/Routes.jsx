@@ -3,8 +3,9 @@ import MainLayout from "../layouts/MainLayout";
 import HomeLayout from "../layouts/HomeLayout";
 import Login from "../authentication/Login";
 import Register from "../authentication/Register";
-import AddCar from "../pages/AddCar";
 import PrivateRoute from "./PrivateRoute";
+import AvailableCars from "../pages/AvailableCars";
+import AddCar from "../pages/AddCar";
 
 const router = createBrowserRouter([
   {
@@ -16,6 +17,10 @@ const router = createBrowserRouter([
         element: <HomeLayout></HomeLayout>,
       },
       // Car Related Routes
+      {
+        path: "/available-cars",
+        element: <AvailableCars></AvailableCars>,
+      },
       {
         path: "/add-car",
         element: (
