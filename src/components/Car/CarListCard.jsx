@@ -34,12 +34,10 @@ const CarListCard = ({ car }) => {
         </p>
         <hr className="border my-3" />
         <div>
-          {added_date && (
-            <h3 className="flex items-center gap-2 text-[#212121] font-semibold my-1">
-              <IoCalendarNumberOutline className="text-primary" />
-              Added-Date: {format(new Date(added_date), "P")}
-            </h3>
-          )}
+          <h3 className="flex items-center gap-2 text-[#212121] font-semibold my-1">
+            <IoCalendarNumberOutline className="text-primary" />
+            Added-Date: {format(new Date(added_date), "P")}
+          </h3>
           <h3 className="flex items-center gap-2 text-[#111111] font-semibold my-1">
             <FaSearchLocation className="text-primary" />
             {location}
