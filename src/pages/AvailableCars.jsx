@@ -29,7 +29,8 @@ const AvailableCars = () => {
     };
     fetchCars();
   }, [api_url, search, sortByPrice]);
-
+  
+  // for reset function 
   const handleReset = () => {
     setSearch("");
     setSortByDate("");
