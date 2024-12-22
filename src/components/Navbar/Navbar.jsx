@@ -17,7 +17,7 @@ const Navbar = () => {
             to={"/"}
             className={({ isActive }) =>
               isActive
-                ? "font-extrabold tracking-wider text-base text-primary flex gap-1 rounded-xl"
+                ? "font-extrabold tracking-wider text-base text-primary rounded-xl"
                 : "text-base font-semibold hover:text-primary hover:underline"
             }
           >
@@ -27,7 +27,7 @@ const Navbar = () => {
             to={"/available-cars"}
             className={({ isActive }) =>
               isActive
-                ? "font-extrabold tracking-wider text-base text-primary flex gap-1 rounded-xl"
+                ? "font-extrabold tracking-wider text-base text-primary rounded-xl"
                 : "text-base font-semibold hover:text-primary hover:underline"
             }
           >
@@ -41,7 +41,7 @@ const Navbar = () => {
                 to={"/add-car"}
                 className={({ isActive }) =>
                   isActive
-                    ? "font-extrabold tracking-wider text-base text-primary flex gap-1 rounded-xl"
+                    ? "font-extrabold tracking-wider text-base text-primary rounded-xl"
                     : "text-base font-semibold hover:text-primary hover:underline"
                 }
               >
@@ -51,7 +51,7 @@ const Navbar = () => {
                 to={"/my-cars"}
                 className={({ isActive }) =>
                   isActive
-                    ? "font-extrabold tracking-wider text-base text-primary flex gap-1 rounded-xl"
+                    ? "font-extrabold tracking-wider text-base text-primary rounded-xl"
                     : "text-base font-semibold hover:text-primary hover:underline"
                 }
               >
@@ -61,7 +61,7 @@ const Navbar = () => {
                 to={"/my-bookings"}
                 className={({ isActive }) =>
                   isActive
-                    ? "font-extrabold tracking-wider text-base text-primary flex gap-1 rounded-xl"
+                    ? "font-extrabold tracking-wider text-base text-primary rounded-xl"
                     : "text-base font-semibold hover:text-primary hover:underline"
                 }
               >
@@ -90,7 +90,7 @@ const Navbar = () => {
               </div>
               <ul
                 tabIndex={0}
-                className="dropdown-content menu bg-base-100 rounded-box z-[1] w-max p-4 shadow"
+                className="dropdown-content menu bg-base-100 rounded-box z-[1] w-max p-4 shadow border"
               >
                 <div>
                   <img
@@ -99,22 +99,22 @@ const Navbar = () => {
                     alt=""
                   />
                 </div>
-                <li>
-                  <a className="font-semibold">Name: {user.displayName}</a>
-                </li>
-                <li>
-                  <a className="font-semibold">Email: {user.email}</a>
-                </li>
+                <p className="font-semibold text-center my-1">
+                  {user.displayName}
+                </p>
+                <p className="font-semibold text-center my-1">{user.email}</p>
                 <div className="mt-2">
                   <button
                     onClick={logOut}
-                    className="btn w-full btn-sm bg-transparent hover:bg-primary hover:text-white hover:bg-transparent text-primary border-primary border-2 hover:border-none tracking-wide text-lg font-semibold"
+                    className="btn w-full btn-sm bg-primary text-white hover:bg-transparent hover:text-primary hover:border-primary hover:border-2 border-primary tracking-wide text-lg font-semibold"
                   >
                     Logout
                   </button>
                 </div>
               </ul>
             </div>
+          ) : loading ? (
+            <span className="loading loading-spinner loading-md text-primary"></span>
           ) : (
             <div>
               <NavLink
@@ -132,7 +132,10 @@ const Navbar = () => {
       {/* Navbar for mobile (md and below) */}
       <div className="dropdown dropdown-end md:hidden">
         <div>
-          <label tabIndex={0} className="btn btn-primary btn-circle">
+          <label
+            tabIndex={0}
+            className="btn bg-primary text-white font-bold text-xl btn-circle"
+          >
             <svg
               xmlns="http://www.w3.org/2000/svg"
               className="h-5 w-5"
@@ -150,14 +153,14 @@ const Navbar = () => {
           </label>
           <ul
             tabIndex={0}
-            className="dropdown-content menu bg-base-100 rounded-box w-fit p-4 shadow"
+            className="dropdown-content menu menu-vertical text-center bg-base-100 rounded-box w-64 p-4 mt-2 border shadow"
           >
             <NavLink
               to={"/"}
               className={({ isActive }) =>
                 isActive
-                  ? "font-bold text-lg text-primary flex gap-1 rounded-xl"
-                  : "text-base font-semibold hover:text-primary hover:underline"
+                  ? "font-bold text-lg text-white rounded-xl bg-primary border my-1 border-primary"
+                  : "text-base font-semibold text-primary rounded-xl bg-transparent border my-1 border-primary hover:text-white hover:bg-primary hover:underline"
               }
             >
               Home
@@ -166,8 +169,8 @@ const Navbar = () => {
               to={"/available-cars"}
               className={({ isActive }) =>
                 isActive
-                  ? "font-bold text-lg text-primary flex gap-1 rounded-xl"
-                  : "text-base font-semibold hover:text-primary hover:underline"
+                  ? "font-bold text-lg text-white rounded-xl bg-primary border my-1 border-primary"
+                  : "text-base font-semibold text-primary rounded-xl bg-transparent border my-1 border-primary hover:text-white hover:bg-primary hover:underline"
               }
             >
               Available Cars
@@ -180,8 +183,8 @@ const Navbar = () => {
                   to={"/add-car"}
                   className={({ isActive }) =>
                     isActive
-                      ? "font-bold text-lg text-primary flex gap-1 rounded-xl"
-                      : "text-base font-semibold hover:text-primary hover:underline"
+                      ? "font-bold text-lg text-white rounded-xl bg-primary border my-1 border-primary"
+                      : "text-base font-semibold text-primary rounded-xl bg-transparent border my-1 border-primary hover:text-white hover:bg-primary hover:underline"
                   }
                 >
                   Add Car
@@ -190,8 +193,8 @@ const Navbar = () => {
                   to={"/my-cars"}
                   className={({ isActive }) =>
                     isActive
-                      ? "font-bold text-lg text-primary flex gap-1 rounded-xl"
-                      : "text-base font-semibold hover:text-primary hover:underline"
+                      ? "font-bold text-lg text-white rounded-xl bg-primary border my-1 border-primary"
+                      : "text-base font-semibold text-primary rounded-xl bg-transparent border my-1 border-primary hover:text-white hover:bg-primary hover:underline"
                   }
                 >
                   My Cars
@@ -200,8 +203,8 @@ const Navbar = () => {
                   to={"/my-bookings"}
                   className={({ isActive }) =>
                     isActive
-                      ? "font-bold text-lg text-primary flex gap-1 rounded-xl"
-                      : "text-base font-semibold hover:text-primary hover:underline"
+                      ? "font-bold text-lg text-white rounded-xl bg-primary border my-1 border-primary"
+                      : "text-base font-semibold text-primary rounded-xl bg-transparent border my-1 border-primary hover:text-white hover:bg-primary hover:underline"
                   }
                 >
                   My Bookings
@@ -216,24 +219,28 @@ const Navbar = () => {
                 <div className="dropdown dropdown-end">
                   <div>
                     <img
-                      className="mx-auto w-20 h-20 rounded-full my-4"
+                      className="mx-auto w-14 h-14 rounded-full my-4"
                       src={user.photoURL}
                       alt=""
                     />
                   </div>
-                  <li>
-                    <a className="font-semibold">Name: {user.displayName}</a>
-                  </li>
-                  <li>
-                    <a className="font-semibold">Email: {user.email}</a>
-                  </li>
+                  <p className="text-center font-semibold my-1">
+                    {user.displayName}
+                  </p>
+                  <p className="text-center font-semibold my-1">{user.email}</p>
                 </div>
-                <button className="btn w-full btn-sm hover:bg-primary hover:text-white hover:bg-transparent text-primary border-primary border-2 hover:border-none tracking-wide text-lg font-semibold">
+                <button
+                  onClick={logOut}
+                  className="btn mt-2 w-full btn-sm hover:bg-primary hover:text-white hover:bg-transparent text-primary border-primary border-2 hover:border-none tracking-wide text-lg font-semibold"
+                >
                   Logout
                 </button>
               </div>
             ) : (
-              <NavLink className="btn bg-primary text-white hover:bg-transparent hover:text-primary hover:border-primary hover:border-2 tracking-wide text-lg font-semibold">
+              <NavLink
+                to={"/login"}
+                className="btn mt-2 btn-sm bg-primary text-white hover:bg-transparent hover:text-primary hover:border-primary hover:border-2 tracking-wide text-lg font-semibold"
+              >
                 Login
               </NavLink>
             )}

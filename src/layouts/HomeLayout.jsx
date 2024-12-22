@@ -1,10 +1,11 @@
+import Slider from "../components/Banner/Slider";
 
 const HomeLayout = () => {
-    return (
-        <div className="min-h-screen">
-            HomeLayout
-        </div>
-    );
+  return (
+    <div className="min-h-screen">
+      <Slider></Slider>
+    </div>
+  );
 };
 
 export default HomeLayout;

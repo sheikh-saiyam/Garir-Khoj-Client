@@ -7,7 +7,6 @@ const MainLayout = () => {
     <div>
       <div className="mx-auto w-11/12 max-w-screen-2xl py-4">
         <Navbar></Navbar>
-        <hr className="border mt-4" />
       </div>
       <Outlet></Outlet>
       <div className="bg-[#1b1b1b]">
