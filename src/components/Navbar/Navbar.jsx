@@ -83,7 +83,8 @@ const Navbar = () => {
               >
                 <div className="w-10 rounded-full">
                   <img
-                    alt="Tailwind CSS Navbar component"
+                    referrerPolicy="no-referrer"
+                    alt={user.name}
                     src={user?.photoURL}
                   />
                 </div>
@@ -94,9 +95,10 @@ const Navbar = () => {
               >
                 <div>
                   <img
+                    referrerPolicy="no-referrer"
                     className="mx-auto w-20 h-20 rounded-full my-4"
-                    src={user.photoURL}
-                    alt=""
+                    src={user?.photoURL}
+                    alt={user.name}
                   />
                 </div>
                 <p className="font-semibold text-center my-1">

@@ -5,13 +5,14 @@ const CarCard = ({ car }) => {
   const {
     car_model,
     daily_rental_price,
+    availability,
     description,
     car_image,
     added_date,
     location,
   } = car;
   return (
-    <div className="w-full bg-white p-4 rounded-xl shadow">
+    <div className="w-full bg-white p-5 rounded-xl shadow">
       <div className="relative">
         <img
           className="rounded-lg border h-[250px] w-full"
@@ -23,9 +24,19 @@ const CarCard = ({ car }) => {
             ${daily_rental_price} / Daily
           </button>
         </div>
+        {/* Floating button at top-left */}
+        {availability === "Yes" ? (
+          <button className="absolute p-2 top-[-29px] left-[-30px] z-10 bg-blue-400 text-white rounded-full btn btn-sm shadow-lg hover:bg-white hover:text-blue-400 border-blue-400 border">
+            Available
+          </button>
+        ) : (
+          <button className="absolute p-1 top-[-29px] left-[-30px] z-10 bg-yellow-400 text-white rounded-full btn btn-sm shadow-lg hover:bg-white hover:text-yellow-400 border-yellow-400 border">
+            Unavailable
+          </button>
+        )}
       </div>
-
-      <div className="">
+      {/* Floating button at top-left */}
+      <div>
         <h5 className="my-2 font-bold text-[#313131] text-[27px]">
           {car_model}
         </h5>

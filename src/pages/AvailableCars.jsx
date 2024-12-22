@@ -29,8 +29,8 @@ const AvailableCars = () => {
     };
     fetchCars();
   }, [api_url, search, sortByPrice]);
-  
-  // for reset function 
+
+  // for reset function
   const handleReset = () => {
     setSearch("");
     setSortByDate("");
@@ -40,7 +40,7 @@ const AvailableCars = () => {
   return (
     <div className="bg-[#f9f9f9]">
       <div className="mx-auto w-11/12 py-12 space-y-6 lg:space-y-0 lg:flex gap-8">
-        <div className="w-full lg:w-3/12 h-fit bg-white rounded-xl shadow px-4 pt-4 pb-6">
+        <div className="w-full lg:w-3/12 h-max grid place-content-stretch bg-white rounded-xl shadow px-4 pt-4 pb-6">
           {/* Layout toggle */}
           <div className="flex items-center justify-between">
             <h1 className="text-xl font-bold text-[#2a2a2a] my-2">Layout</h1>
@@ -84,11 +84,11 @@ const AvailableCars = () => {
             </div>
           </div>
           <div>
-            <h1 className="text-xl font-bold text-[#2a2a2a] mt-8 mb-4">
+            <h1 className="text-xl font-bold text-[#2a2a2a] mt-2 mb-4">
               Sort By
             </h1>
           </div>
-          <div className="mt-2">
+          <div>
             <select
               value={sortByDate}
               onChange={(e) => setSortByDate(e.target.value)}
@@ -117,7 +117,7 @@ const AvailableCars = () => {
           <div>
             <button
               onClick={handleReset}
-              className="mt-6 btn btn-sm w-5/12 float-end bg-black text-white text-lg font-semibold"
+              className="mt-4 btn btn-sm w-5/12 float-end bg-black text-white text-lg font-semibold"
             >
               Reset
             </button>
@@ -128,7 +128,7 @@ const AvailableCars = () => {
             loader ? (
               <Loader></Loader>
             ) : (
-              <div className="grid gap-4 grid-cols-1 lg:grid-cols-2">
+              <div className="grid gap-6 grid-cols-1 lg:grid-cols-2">
                 {cars.map((car) => (
                   <CarCard key={car._id} car={car}></CarCard>
                 ))}

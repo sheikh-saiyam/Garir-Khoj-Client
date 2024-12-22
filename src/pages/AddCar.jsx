@@ -1,10 +1,11 @@
 import useAuth from "../hooks/useAuth";
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
-import Swal from "sweetalert2";
 
 const AddCar = () => {
   const { user } = useAuth();
+  const navigate = useNavigate();
   // Add Car To DB Functionality
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -39,13 +40,9 @@ const AddCar = () => {
     // Post Request To DB
     try {
       await axios.post(`${api_url}/add-car`, newCarData).then(() => {
-        Swal.fire({
-          title: "Congratulation!",
-          text: "Car Added Successfully",
-          icon: "success",
-          timer: 2000,
-        });
+        toast.success("Congratulation! . Car Added Successfully");
         form.reset();
+        navigate("/my-cars");
       });
     } catch (error) {
       toast.error(error.massage);

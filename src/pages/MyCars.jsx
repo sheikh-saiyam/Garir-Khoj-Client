@@ -2,24 +2,31 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import { Typewriter } from "react-simple-typewriter";
 import useAuth from "../hooks/useAuth";
-import { TbRuler2 } from "react-icons/tb";
 import Loader from "../components/Loader/Loader";
 import MyCarsTable from "../components/Tables/MyCarsTable";
 
 const MyCars = () => {
+  useEffect(() => {
+    window.scroll({
+      top: 0,
+      behavior: "smooth",
+    });
+  });
+
   const { user } = useAuth();
   const api_url = import.meta.env.VITE_API_URL;
   const [myCars, setMyCars] = useState([]);
   const [loader, setLoader] = useState(true);
+  const fetchMyCars = async () => {
+    const { data } = await axios.get(`${api_url}/cars/${user.email}`);
+    setMyCars(data);
+    setLoader(false);
+  };
   useEffect(() => {
-    const fetchMyCars = async () => {
-      const { data } = await axios.get(`${api_url}/cars/${user.email}`);
-      setMyCars(data);
-      setLoader(false);
-    };
     fetchMyCars();
   }, [api_url, user.email]);
-  console.log(myCars);
+
+  // console.log(myCars);
   return (
     <div className="w-11/12 mx-auto md:w-10/12 max-w-screen-2xl py-10">
       {/* {myCars.length === 0 ? (
@@ -61,11 +68,12 @@ const MyCars = () => {
                 <thead>
                   <tr>
                     <th></th>
-                    <th className="px-0">Image</th>
+                    <th className="px-0">Car Image</th>
                     <th>Car Model</th>
-                    <th>Daily Rental Price</th>
+                    <th>Rental Price</th>
                     <th>Availability</th>
                     <th>Date Added</th>
+                    <th>Booking Count</th>
                     <th>Actions</th>
                   </tr>
                 </thead>
@@ -75,6 +83,7 @@ const MyCars = () => {
                       key={myCar._id}
                       myCar={myCar}
                       idx={idx}
+                      fetchMyCars={fetchMyCars}
                     ></MyCarsTable>
                   ))}
                 </tbody>
