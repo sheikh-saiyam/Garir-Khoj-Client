@@ -52,7 +52,7 @@ const AddCar = () => {
   };
   // Add Car To DB Functionality
   return (
-    <div className="mx-auto w-11/12 md:w-10/12 lg:w-9/12 min-h-screen my-8 border-2 rounded-xl">
+    <div className="mx-auto w-11/12 md:w-10/12 lg:w-9/12 max-w-[1140px] my-8 border-2 rounded-xl">
       <div className="text-center">
         <h1 className="text-3xl md:text-4xl font-bold py-4">
           Add{" "}
@@ -96,7 +96,10 @@ const AddCar = () => {
           <div className="mt-3 grid grid-cols-1 gap-4 lg:grid-cols-2">
             <div>
               <label className="text-lg font-semibold text-gray-800">
-                Availability
+                Availability /
+                <span className="text-xs font-medium text-red-500">
+                  (Value Must Be Yes Or No)
+                </span>
               </label>
               <input
                 type="text"
@@ -126,7 +129,10 @@ const AddCar = () => {
           <div className="mt-3">
             <div>
               <label className="text-lg font-semibold text-gray-800">
-                Features
+                Features /
+                <span className="text-xs font-medium text-red-500">
+                  (Put Each Feature In A New Line)
+                </span>
               </label>
               <textarea
                 name="features"

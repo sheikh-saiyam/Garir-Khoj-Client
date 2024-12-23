@@ -39,7 +39,7 @@ const AvailableCars = () => {
   console.log(cars);
   return (
     <div className="bg-[#f9f9f9]">
-      <div className="mx-auto w-11/12 py-12 space-y-6 lg:space-y-0 lg:flex gap-8">
+      <div className="mx-auto w-11/12 max-w-[1400px] py-12 space-y-6 lg:space-y-0 lg:flex gap-8">
         <div className="w-full lg:w-3/12 h-max grid place-content-stretch bg-white rounded-xl shadow px-4 pt-4 pb-6">
           {/* Layout toggle */}
           <div className="flex items-center justify-between">
@@ -64,12 +64,13 @@ const AvailableCars = () => {
             </div>
           </div>
           {/* Layout toggle */}
+          {/* Search */}
           <div>
             <h1 className="text-xl font-bold text-[#2a2a2a] my-2">Search</h1>
           </div>
           <div>
             <input
-              className="px-4 py-3 text-gray-500 placeholder-gray-500 bg-background outline-none border-primary border rounded-lg w-full focus:placeholder-transparent"
+              className="px-4 py-3 text-gray-500 placeholder-gray-500 bg-red-100/20 outline-none border-primary border rounded-lg w-full focus:placeholder-transparent"
               type="search"
               name="search"
               value={search}
@@ -83,11 +84,14 @@ const AvailableCars = () => {
               </button>
             </div>
           </div>
+          {/* Search */}
+          {/* Sort By Date & Price */}
           <div>
             <h1 className="text-xl font-bold text-[#2a2a2a] mt-2 mb-4">
               Sort By
             </h1>
           </div>
+          {/* Sort by date */}
           <div>
             <select
               value={sortByDate}
@@ -101,6 +105,7 @@ const AvailableCars = () => {
               <option value={"asc"}>Oldest First</option>
             </select>
           </div>
+          {/* sort by price */}
           <div className="mt-4">
             <select
               value={sortByPrice}
@@ -114,6 +119,8 @@ const AvailableCars = () => {
               <option value={"dsc"}>Highest First</option>
             </select>
           </div>
+          {/* Sort By Date & Price */}
+          {/* Reset Button */}
           <div>
             <button
               onClick={handleReset}
@@ -122,7 +129,9 @@ const AvailableCars = () => {
               Reset
             </button>
           </div>
+          {/* Reset Button */}
         </div>
+        {/* Car Grid Card & Car List Card div */}
         <div className="w-full lg:w-9/12">
           {layout ? (
             loader ? (
@@ -144,6 +153,7 @@ const AvailableCars = () => {
             </div>
           )}
         </div>
+        {/* Car Grid Card & Car List Card div */}
       </div>
     </div>
   );

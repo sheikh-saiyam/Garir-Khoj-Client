@@ -15,7 +15,7 @@ const Slide = ({ image, text }) => {
           </h1>
           <br />
           <Link
-            to="/add-car"
+            to="/available-cars"
             className="w-full px-5 py-4 text-sm font-medium text-white capitalize transition-colors duration-300 transform bg-opacity-30 backdrop-blur-md bg-white rounded-md lg:w-auto hover:bg-opacity-50 focus:outline-none focus:ring-2 focus:ring-gray-300"
           >
             View Available Cars
