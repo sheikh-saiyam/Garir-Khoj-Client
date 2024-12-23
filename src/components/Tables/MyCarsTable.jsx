@@ -64,7 +64,6 @@ const MyCarsTable = ({ myCar, idx, fetchMyCars }) => {
       description,
       car_image,
       location,
-      added_date: new Date(),
     };
     // Update Request Functionality
     try {

@@ -3,6 +3,7 @@ import Slider from "../components/Banner/Slider";
 import RecentListings from "../components/HomeSections/RecentListings";
 import UserTestimonials from "../components/HomeSections/UserTestimonials";
 import WhyChooseUs from "../components/HomeSections/WhyChooseUs";
+import SpecialOffers from "../components/HomeSections/SpecialOffers";
 
 const HomeLayout = () => {
   useEffect(() => {
@@ -20,9 +21,14 @@ const HomeLayout = () => {
       <div className="mx-auto w-11/12 max-w-[1400px] pb-20">
         <WhyChooseUs></WhyChooseUs>
       </div>
-      <RecentListings></RecentListings>
+      <div>
+        <RecentListings></RecentListings>
+      </div>
       <div>
         <UserTestimonials></UserTestimonials>
+      </div>
+      <div className="w-11/12 mx-auto max-w-[1400px]">
+        <SpecialOffers></SpecialOffers>
       </div>
     </div>
   );
