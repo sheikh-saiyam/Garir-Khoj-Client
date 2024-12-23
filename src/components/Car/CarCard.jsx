@@ -1,8 +1,10 @@
 import { IoCalendarNumberOutline } from "react-icons/io5";
 import { format } from "date-fns";
 import { FaSearchLocation } from "react-icons/fa";
+import { Link } from "react-router-dom";
 const CarCard = ({ car }) => {
   const {
+    _id,
     car_model,
     daily_rental_price,
     availability,
@@ -12,7 +14,7 @@ const CarCard = ({ car }) => {
     location,
   } = car;
   return (
-    <div className="w-full bg-white p-5 rounded-xl shadow">
+    <div className="w-full bg-white p-5 rounded-xl shadow grid place-content-stretch">
       <div className="relative">
         <img
           className="rounded-lg border h-[250px] w-full"
@@ -55,9 +57,12 @@ const CarCard = ({ car }) => {
           </h3>
         </div>
         <div className="mt-4">
-          <button className="bg-primary btn w-1/2 flex float-end text-white font-semibold text-lg hover:bg-white hover:text-primary border-primary border hover:border-primary">
+          <Link
+            to={`/car-details/${_id}`}
+            className="bg-primary btn w-1/2 flex float-end text-white font-semibold text-lg hover:bg-white hover:text-primary border-primary border hover:border-primary"
+          >
             Book Now
-          </button>
+          </Link>
         </div>
       </div>
     </div>

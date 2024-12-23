@@ -7,6 +7,7 @@ import PrivateRoute from "./PrivateRoute";
 import AvailableCars from "../pages/AvailableCars";
 import AddCar from "../pages/AddCar";
 import MyCars from "../pages/MyCars";
+import CarDetails from "../pages/CarDetails";
 
 const router = createBrowserRouter([
   {
@@ -37,6 +38,10 @@ const router = createBrowserRouter([
             <MyCars></MyCars>
           </PrivateRoute>
         ),
+      },
+      {
+        path: "/car-details/:id",
+        element: <CarDetails></CarDetails>,
       },
       // Car Related Routes
       // Authentication

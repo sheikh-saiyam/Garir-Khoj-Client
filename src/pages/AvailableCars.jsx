@@ -8,6 +8,13 @@ import CarListCard from "../components/Car/CarListCard";
 import Loader from "../components/Loader/Loader";
 
 const AvailableCars = () => {
+  useEffect(() => {
+    window.scroll({
+      top: 0,
+      behavior: "smooth",
+    });
+  });
+
   const [layout, setLayout] = useState(true);
   const [loader, setLoader] = useState(true);
   const [search, setSearch] = useState("");
@@ -19,7 +26,7 @@ const AvailableCars = () => {
     const fetchCars = async () => {
       try {
         const { data } = await axios.get(
-          `${api_url}/available-cars?search=${search}&sortByPrice=${sortByPrice}`
+          `${api_url}/available-cars?search=${search}&sortByPrice=${sortByPrice}&sortByDate=${sortByDate}`
         );
         setCars(data);
         setLoader(false);
@@ -28,7 +35,7 @@ const AvailableCars = () => {
       }
     };
     fetchCars();
-  }, [api_url, search, sortByPrice]);
+  }, [api_url, search, sortByDate, sortByPrice]);
 
   // for reset function
   const handleReset = () => {
@@ -36,7 +43,7 @@ const AvailableCars = () => {
     setSortByDate("");
     setSortByPrice("");
   };
-  console.log(cars);
+  // console.log(cars);
   return (
     <div className="bg-[#f9f9f9]">
       <div className="mx-auto w-11/12 max-w-[1400px] py-12 space-y-6 lg:space-y-0 lg:flex gap-8">

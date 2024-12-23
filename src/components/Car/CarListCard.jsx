@@ -1,9 +1,11 @@
 import { format } from "date-fns";
 import { FaSearchLocation } from "react-icons/fa";
 import { IoCalendarNumberOutline } from "react-icons/io5";
+import { Link } from "react-router-dom";
 
 const CarListCard = ({ car }) => {
   const {
+    _id,
     car_model,
     daily_rental_price,
     availability,
@@ -55,9 +57,12 @@ const CarListCard = ({ car }) => {
           </h3>
         </div>
         <div className="mt-4">
-          <button className="bg-primary btn w-1/2 md:w-2/5 flex float-end text-white font-semibold text-lg hover:bg-white hover:text-primary border-primary border hover:border-primary">
+          <Link
+            to={`/car-details/${_id}`}
+            className="bg-primary btn w-1/2 md:w-2/5 flex float-end text-white font-semibold text-lg hover:bg-white hover:text-primary border-primary border hover:border-primary"
+          >
             Book Now
-          </button>
+          </Link>
         </div>
       </div>
     </div>

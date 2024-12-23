@@ -91,7 +91,7 @@ const Navbar = () => {
               </div>
               <ul
                 tabIndex={0}
-                className="dropdown-content menu bg-base-100 rounded-box z-[1] w-max p-4 shadow border"
+                className="dropdown-content menu bg-base-100 rounded-box z-10 w-max p-4 shadow border"
               >
                 <div>
                   <img

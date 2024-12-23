@@ -106,7 +106,7 @@ const MyCarsTable = ({ myCar, idx, fetchMyCars }) => {
           )}
         </td>
         <td>{format(new Date(added_date), "P")}</td>
-        <td>Total Count: {bookingCount}</td>
+        <td>Total Booking Count: {bookingCount}</td>
         <td>
           <div className="flex sm:flex-row sm:flex flex-col gap-3 items-center">
             <button
