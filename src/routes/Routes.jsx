@@ -8,11 +8,13 @@ import AvailableCars from "../pages/AvailableCars";
 import AddCar from "../pages/AddCar";
 import MyCars from "../pages/MyCars";
 import CarDetails from "../pages/CarDetails";
+import ErrorPage from "../components/ErrorPage/ErrorPage";
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <MainLayout></MainLayout>,
+    errorElement: <ErrorPage></ErrorPage>,
     children: [
       {
         path: "/",

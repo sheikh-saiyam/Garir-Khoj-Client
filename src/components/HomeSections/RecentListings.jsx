@@ -18,7 +18,7 @@ const RecentListings = () => {
     fetchCars();
   }, [api_url]);
   return (
-    <div className="pb-24 w-11/12 mx-auto max-w-[1400px]">
+    <div className="pb-20 w-11/12 mx-auto max-w-[1400px]">
       <div className="text-center">
         <button className="text-xl font-semibold py-3 px-6 rounded-full text-primary bg-red-100/60 border-primary border-2">
           Recent Listings
