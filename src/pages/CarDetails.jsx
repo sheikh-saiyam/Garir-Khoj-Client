@@ -4,9 +4,11 @@ import { useEffect, useState } from "react";
 import { CiBoxList } from "react-icons/ci";
 import { FaCashRegister, FaSearchLocation } from "react-icons/fa";
 import { IoCalendarNumberOutline } from "react-icons/io5";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import { toast } from "react-toastify";
 import Loader from "../components/Loader/Loader";
+import useAuth from "../hooks/useAuth";
+import Swal from "sweetalert2";
 
 const CarDetails = () => {
   useEffect(() => {
@@ -17,9 +19,12 @@ const CarDetails = () => {
   });
 
   const { id } = useParams();
+  const { user } = useAuth();
+  const navigate = useNavigate();
   const api_url = import.meta.env.VITE_API_URL;
   const [carDetails, setCarDetails] = useState([]);
   const [loader, setLoader] = useState(true);
+
   useEffect(() => {
     const fetchCarDetails = async () => {
       try {
@@ -49,7 +54,49 @@ const CarDetails = () => {
     added_date,
   } = carDetails;
 
-  // console.log(carDetails);
+  const handleBookCar = async () => {
+    const bookingInformation = {
+      car_id: _id,
+      car_image,
+      car_model,
+      daily_rental_price,
+      booking_date: new Date(),
+      booking_status: "Pending",
+      booked_user_email: user.email,
+    };
+    // Post Request To DB
+    try {
+      await axios.post(`${api_url}/booking`, bookingInformation).then(() => {
+        document.getElementById("booking_modal").close();
+        toast.success("Congratulation! . Car Booked Successfully");
+      });
+    } catch (error) {
+      toast.error(error.message);
+    }
+    // Post Request To DB
+
+    // console.table(bookingInformation);
+  };
+
+  // If User Is logOut then show toast modal
+  const handleBlockToBooking = () => {
+    Swal.fire({
+      title: "Login Required",
+      text: "You need to login to booked a car",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonText: "Login",
+      cancelButtonText: "OK",
+      reverseButtons: true,
+    }).then((result) => {
+      if (result.isConfirmed) {
+        // Navigate to the login page
+        navigate("/login");
+      }
+    });
+  };
+  // If User Is logOut then show toast modal
+
   return (
     <div>
       {loader ? (
@@ -119,7 +166,16 @@ const CarDetails = () => {
                 </h1>
               </div>
               <div className="">
-                <button className="bg-primary btn  flex float-end text-white font-semibold text-lg hover:bg-white hover:text-primary border-primary border hover:border-primary">
+                <button
+                  onClick={() => {
+                    if (user && user.email) {
+                      document.getElementById("booking_modal").showModal();
+                    } else {
+                      handleBlockToBooking();
+                    }
+                  }}
+                  className="bg-primary btn  flex float-end text-white font-semibold text-lg hover:bg-white hover:text-primary border-primary border hover:border-primary"
+                >
                   Book Now
                 </button>
               </div>
@@ -128,6 +184,43 @@ const CarDetails = () => {
           {/* Text Div */}
         </div>
       )}
+      {/* Booking Confirmation Modal */}
+      <dialog id="booking_modal" className="modal">
+        <div className="modal-box">
+          <div>
+            <div>
+              <img src={car_image} alt="" />
+            </div>
+            <h3 className="font-bold text-3xl my-3">{car_model}</h3>
+            <h3 className="flex items-center gap-2 text-[#111111] font-semibold my-1">
+              <FaSearchLocation className="text-primary" />
+              Location: {location}
+            </h3>
+            <h3 className="flex items-center gap-2 text-[#111111] font-semibold my-1">
+              <FaCashRegister className="text-primary" />
+              Registration Number: {registration_number}
+            </h3>
+          </div>
+          <div className="flex items-center justify-between gap-4 mt-3">
+            <div className="w-2/3">
+              <button
+                onClick={handleBookCar}
+                className="bg-primary btn w-full text-white font-semibold text-lg hover:bg-white hover:text-primary border-primary border hover:border-primary"
+              >
+                Book This Car
+              </button>
+            </div>
+            <div className="w-1/3">
+              <form method="dialog">
+                <button className="btn w-full bg-black text-white text-lg">
+                  Close
+                </button>
+              </form>
+            </div>
+          </div>
+        </div>
+      </dialog>
+      {/* Booking Confirmation Modal */}
     </div>
   );
 };

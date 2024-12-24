@@ -1,13 +1,13 @@
-import axios from "axios";
 import { useEffect, useState } from "react";
-import { Typewriter } from "react-simple-typewriter";
 import useAuth from "../hooks/useAuth";
+import axios from "axios";
 import Loader from "../components/Loader/Loader";
-import MyCarsTable from "../components/Tables/MyCarsTable";
-import logo from "../assets/logo.png";
+import { Typewriter } from "react-simple-typewriter";
 import { Link } from "react-router-dom";
+import logo from "../assets/logo.png";
+import MyBookingsTable from "../components/Tables/MyBookingsTable";
 
-const MyCars = () => {
+const MyBookings = () => {
   useEffect(() => {
     window.scroll({
       top: 0,
@@ -17,21 +17,22 @@ const MyCars = () => {
 
   const { user } = useAuth();
   const api_url = import.meta.env.VITE_API_URL;
-  const [myCars, setMyCars] = useState([]);
+  const [myBookings, setMyBookings] = useState([]);
   const [loader, setLoader] = useState(true);
-  const fetchMyCars = async () => {
-    const { data } = await axios.get(`${api_url}/cars/${user.email}`);
-    setMyCars(data);
+  const fetchMyBookings = async () => {
+    const { data } = await axios.get(`${api_url}/bookings/${user.email}`);
+    setMyBookings(data);
     setLoader(false);
   };
   useEffect(() => {
-    fetchMyCars();
+    fetchMyBookings();
   }, [api_url, user.email]);
 
-  // console.log(myCars);
+  // console.log(myBookings);
+
   return (
     <div className="w-11/12 mx-auto md:w-10/12 max-w-[1400px] pb-12 pt-6">
-      {myCars.length === 0 ? (
+      {myBookings.length === 0 ? (
         loader ? (
           <Loader></Loader>
         ) : (
@@ -42,16 +43,16 @@ const MyCars = () => {
               </div>
               <div>
                 <h1 className="font-bold text-2xl md:text-3xl lg:text-4xl text-center font-serif">
-                  No cars have been added yet
+                  No cars have been booked yet
                 </h1>
                 <h3 className="font-semibold text-[#353535] text-xl md:text-2xl lg:text-3xl my-4 text-center font-serif">
-                  Add a car to get started!
+                  Book a car to get started!
                 </h3>
                 <Link
-                  to={"/add-car"}
+                  to={"/available-cars"}
                   className="btn btn-wide bg-primary text-white text-lg font-semibold border-2 border-primary hover:bg-white hover:text-primary hover:border-primary"
                 >
-                  Add A Car
+                  Book A Car
                 </Link>
               </div>
             </div>
@@ -65,9 +66,9 @@ const MyCars = () => {
             <>
               <div>
                 <h1 className="mb-6 font-bold text-2xl md:text-3xl lg:text-4xl text-center font-serif">
-                  My Added All{" "}
+                  My{" "}
                   <Typewriter
-                    words={["Cars"]}
+                    words={["Booked Cars"]}
                     loop={false}
                     cursor
                     cursorStyle="_"
@@ -86,20 +87,19 @@ const MyCars = () => {
                       <th className="px-0 font-bold">Car Image</th>
                       <th className="text-md font-bold">Car Model</th>
                       <th className="text-md font-bold">Rental Price</th>
-                      <th className="text-md font-bold">Availability</th>
-                      <th className="text-md font-bold">Date Added</th>
-                      <th className="text-md font-bold">Booking Count</th>
+                      <th className="text-md font-bold">Booking Date</th>
+                      <th className="text-md font-bold">Booking Status</th>
                       <th className="text-md font-bold">Actions</th>
                     </tr>
                   </thead>
                   <tbody>
-                    {myCars.map((myCar, idx) => (
-                      <MyCarsTable
-                        key={myCar._id}
-                        myCar={myCar}
+                    {myBookings.map((myBooking, idx) => (
+                      <MyBookingsTable
+                        key={myBooking._id}
+                        myBooking={myBooking}
                         idx={idx}
-                        fetchMyCars={fetchMyCars}
-                      ></MyCarsTable>
+                        fetchMyBookings={fetchMyBookings}
+                      ></MyBookingsTable>
                     ))}
                   </tbody>
                 </table>
@@ -112,4 +112,4 @@ const MyCars = () => {
   );
 };
 
-export default MyCars;
+export default MyBookings;

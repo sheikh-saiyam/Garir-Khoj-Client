@@ -17,6 +17,7 @@ const MyCarsTable = ({ myCar, idx, fetchMyCars }) => {
     added_date,
     bookingCount,
   } = myCar;
+
   // Delete Car Function
   const api_url = import.meta.env.VITE_API_URL;
   const handleDeleteCar = (id) => {
@@ -49,7 +50,6 @@ const MyCarsTable = ({ myCar, idx, fetchMyCars }) => {
     const form = e.target;
     const car_model = form.car_model.value;
     const daily_rental_price = parseInt(form.daily_rental_price.value);
-    const availability = form.availability.value;
     const registration_number = form.registration_number.value;
     const features = form.features.value.split("\n");
     const description = form.description.value;
@@ -169,24 +169,7 @@ const MyCarsTable = ({ myCar, idx, fetchMyCars }) => {
                     {/* Car Model & Daily Rental Price */}
 
                     {/* Availability & Vehicle Registration Number */}
-                    <div className="mt-3 grid grid-cols-1 gap-4 lg:grid-cols-2">
-                      <div>
-                        <label className="text-lg font-semibold text-gray-800">
-                          Availability /
-                          <span className="text-xs font-medium text-red-500">
-                            (Value Must Be Yes Or No)
-                          </span>
-                        </label>
-                        <input
-                          type="text"
-                          name="availability"
-                          defaultValue={availability}
-                          placeholder="Enter Availability . Value Must Be Yes Or No"
-                          required
-                          className="mt-2 w-full input input-bordered"
-                        />
-                      </div>
-
+                    <div className="mt-3">
                       <div>
                         <label className="text-lg font-semibold text-gray-800">
                           Vehicle Registration Number

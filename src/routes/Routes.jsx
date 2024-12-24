@@ -9,6 +9,7 @@ import AddCar from "../pages/AddCar";
 import MyCars from "../pages/MyCars";
 import CarDetails from "../pages/CarDetails";
 import ErrorPage from "../components/ErrorPage/ErrorPage";
+import MyBookings from "../pages/MyBookings";
 
 const router = createBrowserRouter([
   {
@@ -44,6 +45,14 @@ const router = createBrowserRouter([
       {
         path: "/car-details/:id",
         element: <CarDetails></CarDetails>,
+      },
+      {
+        path: "/my-bookings",
+        element: (
+          <PrivateRoute>
+            <MyBookings></MyBookings>
+          </PrivateRoute>
+        ),
       },
       // Car Related Routes
       // Authentication
