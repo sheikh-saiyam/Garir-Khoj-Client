@@ -73,6 +73,7 @@ const CarDetails = () => {
   const totalPriceOfEntireBookingPeriod =
     daily_rental_price * dateDifferenceInDays;
   // Calculate the total price for the booking period
+  
   const handleBookCar = async () => {
     const bookingInformation = {
       car_id: _id,

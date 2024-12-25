@@ -5,6 +5,8 @@ import { toast } from "react-toastify";
 import Swal from "sweetalert2";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
+import { useState } from "react";
+import { GiConfirmed } from "react-icons/gi";
 
 const MyBookingsTable = ({ myBooking, idx, fetchMyBookings }) => {
   const {
@@ -21,6 +23,7 @@ const MyBookingsTable = ({ myBooking, idx, fetchMyBookings }) => {
   } = myBooking;
 
   const api_url = import.meta.env.VITE_API_URL;
+
   // Function for change status
   const handleUpdateBookingStatus = async (id, updatedStatus) => {
     // console.table({ id, updatedStatus });
@@ -38,7 +41,7 @@ const MyBookingsTable = ({ myBooking, idx, fetchMyBookings }) => {
         if (result.isConfirmed) {
           await axios.patch(`${api_url}/update-booking-status/${id}`, {
             booking_status: updatedStatus,
-            car_id: car_id, // Include car_id if required
+            car_id: car_id,
           });
           fetchMyBookings().then(() => {
             Swal.fire({
@@ -56,7 +59,52 @@ const MyBookingsTable = ({ myBooking, idx, fetchMyBookings }) => {
   // Function for change status
 
   // Functionality for modify booking date //
-  
+
+  // date-picking states
+  const [startDate, setStartDate] = useState(booking_start_date);
+  const [endDate, setEndDate] = useState(booking_end_date);
+  // date-picking states
+
+  // Calculate the total price for the new booking period
+  const dateDifferenceInMilliseconds = endDate - startDate;
+
+  let dateDifferenceInDays = Math.ceil(
+    dateDifferenceInMilliseconds / (1000 * 60 * 60 * 24)
+  );
+
+  // if (dateDifferenceInDays <= 0) {
+  //   dateDifferenceInDays = 1;
+  // }
+
+  const totalPriceOfEntireNewBookingPeriod =
+    daily_rental_price * dateDifferenceInDays;
+  // Calculate the total price for the new booking period
+
+  const handleModifyBookingDate = async (id) => {
+    console.log(id);
+    const modifiedBookingData = {
+      booking_start_date: startDate,
+      booking_end_date: endDate,
+      booking_days_difference: dateDifferenceInDays,
+      totalPriceOfEntireBookingPeriod: totalPriceOfEntireNewBookingPeriod,
+    };
+
+    // Put Request To Server //
+    try {
+      await axios.put(
+        `${api_url}/modify-booking-date/${id}`,
+        modifiedBookingData
+      );
+      fetchMyBookings();
+      document.getElementById(_id).close();
+      toast.success("Date Modified");
+    } catch (error) {
+      toast.error(error.message);
+    }
+    // Put Request To Server //
+    console.table({ modifiedBookingData });
+  };
+
   // Functionality for modify booking date //
   return (
     <>
@@ -82,7 +130,7 @@ const MyBookingsTable = ({ myBooking, idx, fetchMyBookings }) => {
             {booking_days_difference === 0 ? "Day" : "Days"})
           </sub>
         </td>
-        <td>
+        <td className="text-center">
           <span
             className={`px-3 py-2 rounded-full text-center font-semibold ${
               bookingStatus === "Confirmed" &&
@@ -108,7 +156,8 @@ const MyBookingsTable = ({ myBooking, idx, fetchMyBookings }) => {
               Cancel
             </button>
             <button
-              onClick={() => document.getElementById("my_modal_5").showModal()}
+              disabled={bookingStatus === "Canceled"}
+              onClick={() => document.getElementById(_id).showModal()}
               className="btn btn-sm text-white font-semibold text-md bg-blue-500 border-none"
             >
               🗓 Modify Date
@@ -117,24 +166,82 @@ const MyBookingsTable = ({ myBooking, idx, fetchMyBookings }) => {
         </td>
 
         {/* Modify-Date Modal */}
-        <div>
-          <dialog
-            id="my_modal_5"
-            className="modal modal-bottom sm:modal-middle"
-          >
-            <div className="modal-box">
-              <h3 className="font-bold text-xl text-center">Modify Booking Date 🗓</h3>
-              <p className="py-4">
-                Press ESC key or click the button below to close
-              </p>
-              <div className="modal-action">
-                <form method="dialog">
-                  <button className="btn">Close</button>
-                </form>
+        <td>
+          <dialog id={_id} className="modal">
+            <div className="modal-box py-16 rounded-lg shadow-xl">
+              <div>
+                <h3 className="font-bold text-2xl">Modify Booking Date 🗓</h3>
+                <div className="text-lg font-semibold space-y-1 my-4">
+                  <p>
+                    Previous Start Date:{" "}
+                    {format(new Date(booking_start_date), "P")}
+                  </p>
+                  <p>
+                    Previous End Date: {format(new Date(booking_end_date), "P")}
+                  </p>
+                </div>
+              </div>
+              {/* Date picking div */}
+              <div className="my-5">
+                <div className="flex flex-col">
+                  <label className="text-lg text-gray-800">
+                    Pick New Booking Start Date
+                  </label>
+                  <DatePicker
+                    className="border p-2 rounded-md w-full mt-2"
+                    selected={startDate}
+                    onChange={(date) => setStartDate(date)}
+                  />
+                </div>
+              </div>
+              <div className="my-5">
+                <div className="flex flex-col">
+                  <label className="text-lg text-gray-800">
+                    Pick New Booking End Date
+                  </label>
+                  <DatePicker
+                    className="border p-2 rounded-md w-full mt-2"
+                    selected={endDate}
+                    onChange={(date) => setEndDate(date)}
+                  />
+                </div>
+              </div>
+              <div>
+                <h1 className="text-lg font-semibold text-gray-800">
+                  Previous Price Of Entire Booking Period:{" "}
+                  <span className="font-normal">
+                    ${totalPriceOfEntireBookingPeriod}
+                  </span>
+                </h1>
+                <h1 className="text-lg font-semibold text-gray-800">
+                  New Price Of Entire Booking Period:{" "}
+                  <span className="font-normal">
+                    ${totalPriceOfEntireNewBookingPeriod}
+                  </span>
+                </h1>
+              </div>
+              {/* Date picking div */}
+              <div className="flex items-center justify-between gap-4 mt-6">
+                <div className="w-2/3">
+                  <button
+                    onClick={() => handleModifyBookingDate(_id)}
+                    className="bg-primary btn w-full text-white font-semibold text-lg hover:bg-white hover:text-primary border-primary border hover:border-primary flex items-center gap-1"
+                  >
+                    <GiConfirmed className="text-md" />
+                    Confirm Updated Date
+                  </button>
+                </div>
+                <div className="w-1/3">
+                  <form method="dialog">
+                    <button className="btn w-full bg-black text-white text-lg">
+                      Close
+                    </button>
+                  </form>
+                </div>
               </div>
             </div>
           </dialog>
-        </div>
+        </td>
       </tr>
     </>
   );

@@ -95,7 +95,9 @@ const MyBookings = () => {
                       <th className="text-md font-bold">
                         Booking Date Start to End
                       </th>
-                      <th className="text-md font-bold">Booking Status</th>
+                      <th className="text-md font-bold text-center">
+                        Booking Status
+                      </th>
                       <th className="text-md font-bold">Actions</th>
                     </tr>
                   </thead>
