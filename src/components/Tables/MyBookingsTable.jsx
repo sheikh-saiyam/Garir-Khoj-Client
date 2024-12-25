@@ -60,25 +60,42 @@ const MyBookingsTable = ({ myBooking, idx, fetchMyBookings }) => {
 
   // Functionality for modify booking date //
 
-  // date-picking states
-  const [startDate, setStartDate] = useState(booking_start_date);
-  const [endDate, setEndDate] = useState(booking_end_date);
-  // date-picking states
+  // Date-picking states
+  const [startDate, setStartDate] = useState(new Date(booking_start_date));
+  const [endDate, setEndDate] = useState(new Date(booking_end_date));
+
+  // Ensure both startDate and endDate are valid Date objects
+  const handleDateChange = (dateType, dateValue) => {
+    if (dateType === "start") {
+      setStartDate(new Date(dateValue));
+    } else if (dateType === "end") {
+      setEndDate(new Date(dateValue));
+    }
+  };
 
   // Calculate the total price for the new booking period
-  const dateDifferenceInMilliseconds = endDate - startDate;
+  const calculatePrice = () => {
+    if (!startDate || !endDate)
+      return { totalPrice: 0, dateDifferenceInDays: 0 };
 
-  let dateDifferenceInDays = Math.ceil(
-    dateDifferenceInMilliseconds / (1000 * 60 * 60 * 24)
-  );
+    const dateDifferenceInMilliseconds = endDate - startDate;
 
-  // if (dateDifferenceInDays <= 0) {
-  //   dateDifferenceInDays = 1;
-  // }
+    // Ensure difference is at least 1 day
+    let dateDifferenceInDays = Math.ceil(
+      dateDifferenceInMilliseconds / (1000 * 60 * 60 * 24)
+    );
 
-  const totalPriceOfEntireNewBookingPeriod =
-    daily_rental_price * dateDifferenceInDays;
+    if (dateDifferenceInDays <= 0) {
+      dateDifferenceInDays = 1;
+    }
+
+    const totalPrice = daily_rental_price * dateDifferenceInDays;
+    return { totalPrice, dateDifferenceInDays }; // Return both values
+  };
   // Calculate the total price for the new booking period
+
+  const { totalPrice, dateDifferenceInDays } = calculatePrice();
+  const totalPriceOfEntireNewBookingPeriod = totalPrice;
 
   const handleModifyBookingDate = async (id) => {
     console.log(id);
@@ -88,7 +105,6 @@ const MyBookingsTable = ({ myBooking, idx, fetchMyBookings }) => {
       booking_days_difference: dateDifferenceInDays,
       totalPriceOfEntireBookingPeriod: totalPriceOfEntireNewBookingPeriod,
     };
-
     // Put Request To Server //
     try {
       await axios.put(
@@ -174,45 +190,50 @@ const MyBookingsTable = ({ myBooking, idx, fetchMyBookings }) => {
                 <div className="text-lg font-semibold space-y-1 my-4">
                   <p>
                     Previous Start Date:{" "}
-                    {format(new Date(booking_start_date), "P")}
+                    <span className="font-normal">
+                      {format(new Date(booking_start_date), "P")}
+                    </span>
                   </p>
                   <p>
-                    Previous End Date: {format(new Date(booking_end_date), "P")}
-                  </p>
+                    Previous End Date:{" "}
+                    <span className="font-normal">
+                      {format(new Date(booking_end_date), "P")}
+                    </span>
+                  </p>{" "}
+                  <h1 className="text-lg font-semibold text-gray-800">
+                    Previous Price Of Entire Booking Period:{" "}
+                    <span className="font-normal">
+                      ${totalPriceOfEntireBookingPeriod}
+                    </span>
+                  </h1>
                 </div>
               </div>
               {/* Date picking div */}
               <div className="my-5">
                 <div className="flex flex-col">
-                  <label className="text-lg text-gray-800">
+                  <label className="text-lg font-semibold text-gray-800">
                     Pick New Booking Start Date
                   </label>
                   <DatePicker
                     className="border p-2 rounded-md w-full mt-2"
                     selected={startDate}
-                    onChange={(date) => setStartDate(date)}
+                    onChange={(date) => handleDateChange("start", date)}
                   />
                 </div>
               </div>
               <div className="my-5">
                 <div className="flex flex-col">
-                  <label className="text-lg text-gray-800">
+                  <label className="text-lg font-semibold text-gray-800">
                     Pick New Booking End Date
                   </label>
                   <DatePicker
                     className="border p-2 rounded-md w-full mt-2"
                     selected={endDate}
-                    onChange={(date) => setEndDate(date)}
+                    onChange={(date) => handleDateChange("end", date)}
                   />
                 </div>
               </div>
               <div>
-                <h1 className="text-lg font-semibold text-gray-800">
-                  Previous Price Of Entire Booking Period:{" "}
-                  <span className="font-normal">
-                    ${totalPriceOfEntireBookingPeriod}
-                  </span>
-                </h1>
                 <h1 className="text-lg font-semibold text-gray-800">
                   New Price Of Entire Booking Period:{" "}
                   <span className="font-normal">
