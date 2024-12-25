@@ -37,8 +37,13 @@ const Register = () => {
     createNewUser(email, password)
       .then((result) => {
         const currentUser = result.user;
-        setUser(currentUser);
-        updateUserProfile({ displayName: name, photoURL: photo });
+        updateUserProfile({ displayName: name, photoURL: photo }).then(() => {
+          setUser({
+            ...currentUser,
+            displayName: name,
+            photoURL: photo,
+          });
+        });
         navigate("/");
 
         // for account create modal

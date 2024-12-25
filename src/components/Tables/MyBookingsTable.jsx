@@ -124,7 +124,7 @@ const MyBookingsTable = ({ myBooking, idx, fetchMyBookings }) => {
   // Functionality for modify booking date //
   return (
     <>
-      <tr className="hover">
+      <tr className={`hover ${bookingStatus === "Canceled" && "bg-red-50"}`}>
         <th>{idx + 1}</th>
         <td className="px-0">
           <img
@@ -165,8 +165,9 @@ const MyBookingsTable = ({ myBooking, idx, fetchMyBookings }) => {
         <td>
           <div className="flex sm:flex-row sm:flex flex-col gap-4 items-center">
             <button
+              disabled={bookingStatus === "Canceled"}
               onClick={() => handleUpdateBookingStatus(_id, "Canceled")}
-              className="flex items-center text-md gap-1 btn btn-sm text-white font-semibold text-md bg-red-500 border-none hover:text-primary hover:bg-white hover:shadow-md"
+              className="disabled:text-[#5b5959] disabled:font-normal flex items-center text-md gap-1 btn btn-sm text-white font-semibold text-md bg-red-500 border-none hover:text-primary hover:bg-white hover:shadow-md"
             >
               <GoTrash className="text-xs font-extrabold" />
               Cancel
@@ -174,7 +175,7 @@ const MyBookingsTable = ({ myBooking, idx, fetchMyBookings }) => {
             <button
               disabled={bookingStatus === "Canceled"}
               onClick={() => document.getElementById(_id).showModal()}
-              className="btn btn-sm text-white font-semibold text-md bg-blue-500 border-none"
+              className="disabled:text-[#5b5959] disabled:font-normal btn btn-sm text-white font-semibold text-md bg-blue-500 border-none"
             >
               🗓 Modify Date
             </button>

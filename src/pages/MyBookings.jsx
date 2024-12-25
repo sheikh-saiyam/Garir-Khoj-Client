@@ -7,6 +7,7 @@ import { Link } from "react-router-dom";
 import logo from "../assets/logo.png";
 import MyBookingsTable from "../components/Tables/MyBookingsTable";
 import { toast } from "react-toastify";
+import DailyRentalPriceChart from "../components/Chart/DailyRentalPriceChart";
 
 const MyBookings = () => {
   useEffect(() => {
@@ -36,7 +37,7 @@ const MyBookings = () => {
   // console.log(myBookings);
 
   return (
-    <div className="w-11/12 mx-auto md:w-10/12 max-w-[1400px] pb-12 pt-6">
+    <div className="w-11/12 mx-auto md:w-10/12 max-w-[1400px] pb-10 pt-6">
       {myBookings.length === 0 ? (
         loader ? (
           <Loader></Loader>
@@ -93,7 +94,7 @@ const MyBookings = () => {
                       <th className="text-md font-bold">Car Model</th>
                       <th className="text-md font-bold">Total Booking Price</th>
                       <th className="text-md font-bold">
-                        Booking Date Start to End
+                        Booking Date Start To End
                       </th>
                       <th className="text-md font-bold text-center">
                         Booking Status
@@ -115,6 +116,31 @@ const MyBookings = () => {
               </div>
             </>
           )}
+
+          {/* Chart Base On Daily Rental Price */}
+          <div className="pt-20 pb-10">
+            <div>
+              <h1 className="mb-6 font-bold text-2xl md:text-3xl lg:text-4xl text-center font-serif">
+                Chart Based On Cars Daily{" "}
+                <Typewriter
+                  words={[" Rental Price"]}
+                  loop={false}
+                  cursor
+                  cursorStyle="_"
+                  typeSpeed={70}
+                  deleteSpeed={50}
+                  delaySpeed={1000}
+                />
+              </h1>
+            </div>
+
+            <div className="mt-10 border-l-4">
+              <DailyRentalPriceChart
+                chartData={myBookings}
+              ></DailyRentalPriceChart>
+            </div>
+          </div>
+          {/* Chart Base On Daily Rental Price */}
         </>
       )}
     </div>
