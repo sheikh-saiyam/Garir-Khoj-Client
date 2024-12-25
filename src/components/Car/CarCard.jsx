@@ -29,11 +29,11 @@ const CarCard = ({ car }) => {
         </div>
         {/* Floating button at top-left */}
         {availability === "Yes" ? (
-          <button className="absolute p-2 top-[-29px] left-[-30px] z-10 bg-blue-400 text-white rounded-full btn btn-sm shadow-lg hover:bg-white hover:text-blue-400 border-blue-400 border">
+          <button className="absolute p-2 top-0 sm:top-[-29px] sm:left-[-30px] z-10 bg-blue-400 text-white rounded-lg sm:rounded-full btn btn-sm shadow-lg hover:bg-white hover:text-blue-400 border-blue-400 border">
             <span className="animate-bounce mt-[2px]">Available</span>
           </button>
         ) : (
-          <button className="absolute p-1 top-[-29px] left-[-30px] z-10 bg-yellow-400 text-white rounded-full btn btn-sm shadow-lg hover:bg-white hover:text-yellow-400 border-yellow-400 border">
+          <button className="absolute p-1 top-0sm:top-[-29px] sm:left-[-30px] z-10 bg-yellow-400 text-white rounded-lg sm:rounded-full btn btn-sm shadow-lg hover:bg-white hover:text-yellow-400 border-yellow-400 border">
             Unavailable
           </button>
         )}
@@ -60,7 +60,7 @@ const CarCard = ({ car }) => {
         <div className="mt-4 flex items-center justify-between">
           <div>
             <h1 className="text-[#111111] font-semibold ">
-              Total Booking Count: {bookingCount}
+              Booking Count: {bookingCount}
             </h1>
           </div>
           <Link
