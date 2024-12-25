@@ -9,6 +9,9 @@ import { toast } from "react-toastify";
 import Loader from "../components/Loader/Loader";
 import useAuth from "../hooks/useAuth";
 import Swal from "sweetalert2";
+import DatePicker from "react-datepicker";
+import "react-datepicker/dist/react-datepicker.css";
+import { GiConfirmed } from "react-icons/gi";
 
 const CarDetails = () => {
   useEffect(() => {
@@ -54,25 +57,46 @@ const CarDetails = () => {
     added_date,
   } = carDetails;
 
+  // date-picking states
+  const [startDate, setStartDate] = useState(new Date());
+  const [endDate, setEndDate] = useState(new Date());
+  // date-picking states
+
+  // Calculate the total price for the booking period
+  const dateDifferenceInMilliseconds = endDate - startDate;
+  let dateDifferenceInDays = Math.ceil(
+    dateDifferenceInMilliseconds / (1000 * 60 * 60 * 24)
+  );
+  if (dateDifferenceInDays <= 0) {
+    dateDifferenceInDays = 1;
+  }
+  const totalPriceOfEntireBookingPeriod =
+    daily_rental_price * dateDifferenceInDays;
+  // Calculate the total price for the booking period
   const handleBookCar = async () => {
     const bookingInformation = {
       car_id: _id,
       car_image,
       car_model,
       daily_rental_price,
-      booking_date: new Date(),
-      booking_status: "Pending",
+      totalPriceOfEntireBookingPeriod,
+      bookingStatus: "Confirmed",
+      booking_days_difference: dateDifferenceInDays,
+      booking_start_date: startDate,
+      booking_end_date: endDate,
       booked_user_email: user.email,
     };
     // Post Request To DB
     try {
       await axios.post(`${api_url}/booking`, bookingInformation).then(() => {
         document.getElementById("booking_modal").close();
-        toast.success("Congratulation! . Car Booked Successfully");
+        navigate("/my-bookings");
+        toast.success("Congratulation! Car Booked");
       });
     } catch (error) {
       toast.error(error.message);
     }
+
     // Post Request To DB
 
     // console.table(bookingInformation);
@@ -169,7 +193,11 @@ const CarDetails = () => {
                 <button
                   onClick={() => {
                     if (user && user.email) {
-                      document.getElementById("booking_modal").showModal();
+                      if (availability !== "Yes") {
+                        toast.error("You Can't Book This Car . Already Booked");
+                      } else {
+                        document.getElementById("booking_modal").showModal();
+                      }
                     } else {
                       handleBlockToBooking();
                     }
@@ -186,28 +214,52 @@ const CarDetails = () => {
       )}
       {/* Booking Confirmation Modal */}
       <dialog id="booking_modal" className="modal">
-        <div className="modal-box">
+        <div className="modal-box py-16">
           <div>
-            <div>
-              <img src={car_image} alt="" />
-            </div>
-            <h3 className="font-bold text-3xl my-3">{car_model}</h3>
-            <h3 className="flex items-center gap-2 text-[#111111] font-semibold my-1">
-              <FaSearchLocation className="text-primary" />
-              Location: {location}
-            </h3>
-            <h3 className="flex items-center gap-2 text-[#111111] font-semibold my-1">
-              <FaCashRegister className="text-primary" />
-              Registration Number: {registration_number}
-            </h3>
+            <h3 className="font-bold text-3xl mb-4">{car_model}</h3>
           </div>
-          <div className="flex items-center justify-between gap-4 mt-3">
+          {/* Date picking div */}
+          <div className="my-4">
+            <div className="flex flex-col">
+              <label className="text-lg font-semibold text-gray-800">
+                Pick Booking Start Date
+              </label>
+              <DatePicker
+                className="border p-2 rounded-md w-full mt-2"
+                selected={startDate}
+                onChange={(date) => setStartDate(date)}
+              />
+            </div>
+          </div>
+          <div className="my-4">
+            <div className="flex flex-col">
+              <label className="text-lg font-semibold text-gray-800">
+                Pick Booking End Date
+              </label>
+              <DatePicker
+                className="border p-2 rounded-md w-full mt-2"
+                selected={endDate}
+                onChange={(date) => setEndDate(date)}
+              />
+            </div>
+          </div>
+          <div>
+            <h1 className="text-lg font-semibold text-gray-800">
+              Total Price Of Entire Booking Period:{" "}
+              <span className="font-normal">
+                ${totalPriceOfEntireBookingPeriod}
+              </span>
+            </h1>
+          </div>
+          {/* Date picking div */}
+          <div className="flex items-center justify-between gap-4 mt-5">
             <div className="w-2/3">
               <button
                 onClick={handleBookCar}
-                className="bg-primary btn w-full text-white font-semibold text-lg hover:bg-white hover:text-primary border-primary border hover:border-primary"
+                className="bg-primary btn w-full text-white font-semibold text-lg hover:bg-white hover:text-primary border-primary border hover:border-primary flex items-center gap-1"
               >
-                Book This Car
+                <GiConfirmed className="text-md" />
+                Confirm Booking
               </button>
             </div>
             <div className="w-1/3">

@@ -6,6 +6,7 @@ import { Typewriter } from "react-simple-typewriter";
 import { Link } from "react-router-dom";
 import logo from "../assets/logo.png";
 import MyBookingsTable from "../components/Tables/MyBookingsTable";
+import { toast } from "react-toastify";
 
 const MyBookings = () => {
   useEffect(() => {
@@ -20,9 +21,13 @@ const MyBookings = () => {
   const [myBookings, setMyBookings] = useState([]);
   const [loader, setLoader] = useState(true);
   const fetchMyBookings = async () => {
-    const { data } = await axios.get(`${api_url}/bookings/${user.email}`);
-    setMyBookings(data);
-    setLoader(false);
+    try {
+      const { data } = await axios.get(`${api_url}/bookings/${user.email}`);
+      setMyBookings(data);
+      setLoader(false);
+    } catch (error) {
+      toast.error(error.message);
+    }
   };
   useEffect(() => {
     fetchMyBookings();
@@ -86,8 +91,10 @@ const MyBookings = () => {
                       <th></th>
                       <th className="px-0 font-bold">Car Image</th>
                       <th className="text-md font-bold">Car Model</th>
-                      <th className="text-md font-bold">Rental Price</th>
-                      <th className="text-md font-bold">Booking Date</th>
+                      <th className="text-md font-bold">Total Booking Price</th>
+                      <th className="text-md font-bold">
+                        Booking Date Start to End
+                      </th>
                       <th className="text-md font-bold">Booking Status</th>
                       <th className="text-md font-bold">Actions</th>
                     </tr>

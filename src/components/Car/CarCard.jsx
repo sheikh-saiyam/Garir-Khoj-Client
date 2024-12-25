@@ -11,6 +11,7 @@ const CarCard = ({ car }) => {
     description,
     car_image,
     added_date,
+    bookingCount,
     location,
   } = car;
   return (
@@ -56,10 +57,15 @@ const CarCard = ({ car }) => {
             {location}
           </h3>
         </div>
-        <div className="mt-4">
+        <div className="mt-4 flex items-center justify-between">
+          <div>
+            <h1 className="text-[#111111] font-semibold ">
+              Total Booking Count: {bookingCount}
+            </h1>
+          </div>
           <Link
             to={`/car-details/${_id}`}
-            className="bg-primary btn w-1/2 flex float-end text-white font-semibold text-lg hover:bg-white hover:text-primary border-primary border hover:border-primary"
+            className="bg-primary btn w-1/2 text-white font-semibold text-lg hover:bg-white hover:text-primary border-primary border hover:border-primary"
           >
             Book Now
           </Link>

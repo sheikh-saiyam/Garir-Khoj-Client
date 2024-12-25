@@ -28,7 +28,7 @@ const AddCar = () => {
       car_image,
       location,
       bookingCount: 0,
-      bookingStatus: "",
+      bookingStatus: "Pending",
       added_date: new Date(),
       user_details: {
         name: user?.displayName,

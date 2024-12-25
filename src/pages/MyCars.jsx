@@ -6,6 +6,7 @@ import Loader from "../components/Loader/Loader";
 import MyCarsTable from "../components/Tables/MyCarsTable";
 import logo from "../assets/logo.png";
 import { Link } from "react-router-dom";
+import { toast } from "react-toastify";
 
 const MyCars = () => {
   useEffect(() => {
@@ -20,9 +21,13 @@ const MyCars = () => {
   const [myCars, setMyCars] = useState([]);
   const [loader, setLoader] = useState(true);
   const fetchMyCars = async () => {
-    const { data } = await axios.get(`${api_url}/cars/${user.email}`);
-    setMyCars(data);
-    setLoader(false);
+    try {
+      const { data } = await axios.get(`${api_url}/cars/${user.email}`);
+      setMyCars(data);
+      setLoader(false);
+    } catch (error) {
+      toast.error(error.message);
+    }
   };
   useEffect(() => {
     fetchMyCars();
