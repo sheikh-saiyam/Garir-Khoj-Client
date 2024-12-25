@@ -73,7 +73,7 @@ const CarDetails = () => {
   const totalPriceOfEntireBookingPeriod =
     daily_rental_price * dateDifferenceInDays;
   // Calculate the total price for the booking period
-  
+
   const handleBookCar = async () => {
     const bookingInformation = {
       car_id: _id,
@@ -186,7 +186,7 @@ const CarDetails = () => {
             <hr className="border my-3" />
             <div className="flex items-center justify-between">
               <div className="">
-                <h1 className="text-3xl  font-semibold text-primary">
+                <h1 className="text-xl md:text-2xl lg:text-3xl font-semibold text-primary">
                   ${daily_rental_price} / Daily
                 </h1>
               </div>
@@ -203,7 +203,7 @@ const CarDetails = () => {
                       handleBlockToBooking();
                     }
                   }}
-                  className="bg-primary btn  flex float-end text-white font-semibold text-lg hover:bg-white hover:text-primary border-primary border hover:border-primary"
+                  className="bg-primary btn h-full flex float-end text-white font-semibold text-lg hover:bg-white hover:text-primary border-primary border hover:border-primary"
                 >
                   Book Now
                 </button>

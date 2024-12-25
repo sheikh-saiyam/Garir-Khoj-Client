@@ -16,16 +16,16 @@ const WhyChooseUs = () => {
       </h2>
       <section className="flex flex-col-reverse lg:flex lg:flex-row justify-between items-center gap-8">
         <div className="w-full lg:w-1/2">
-          <div className="grid grid-cols-5 gap-6">
+          <div className="grid grid-cols-4 md:grid-cols-5 gap-6">
             {/* Wide Variety of Cars */}
-            <div className="bg-red-100/5 border-primary col-span-3 p-4 border rounded-lg shadow">
+            <div className="bg-red-100/5 border-primary col-span-2 md:col-span-3 p-4 border rounded-lg shadow">
               <div className="text-4xl text-indigo-600 mb-4">
                 <FaCar />
               </div>
-              <h3 className="text-xl font-semibold text-gray-700 mb-2">
+              <h3 className="text-base md:text-lg lg:text-xl font-semibold text-gray-700 mb-2">
                 Wide Variety of Cars
               </h3>
-              <p className="text-gray-500">
+              <p className="text-gray-500 text-sm md:text-base">
                 From budget-friendly options to luxury vehicles, we offer a wide
                 range of cars to suit all needs.
               </p>
@@ -36,10 +36,10 @@ const WhyChooseUs = () => {
               <div className="text-4xl text-green-600 mb-4">
                 <FaDollarSign />
               </div>
-              <h3 className="text-xl font-semibold text-gray-700 mb-2">
+              <h3 className="text-base md:text-lg lg:text-xl font-semibold text-gray-700 mb-2">
                 Affordable Prices
               </h3>
-              <p className="text-gray-500">
+              <p className="text-gray-500 text-sm md:text-base">
                 Competitive daily rates you can count on, ensuring you get great
                 value for your money.
               </p>
@@ -50,24 +50,24 @@ const WhyChooseUs = () => {
               <div className="text-4xl text-blue-600 mb-4">
                 <FaCalendarCheck />
               </div>
-              <h3 className="text-xl font-semibold text-gray-700 mb-2">
+              <h3 className="text-base md:text-lg lg:text-xl font-semibold text-gray-700 mb-2">
                 Easy Booking Process
               </h3>
-              <p className="text-gray-500">
+              <p className="text-gray-500 text-sm md:text-base">
                 Book your ride in just a few clicks with our simple and seamless
                 booking platform.
               </p>
             </div>
 
             {/* Customer Support */}
-            <div className="bg-red-100/5 border-primary col-span-3 p-4 border rounded-lg shadow">
+            <div className="bg-red-100/5 border-primary col-span-2 md:col-span-3 p-4 border rounded-lg shadow">
               <div className="text-4xl text-purple-600 mb-4">
                 <FaHeadset />
               </div>
-              <h3 className="text-xl font-semibold text-gray-700 mb-2">
+              <h3 className="text-base md:text-lg lg:text-xl font-semibold text-gray-700 mb-2">
                 Customer Support
               </h3>
-              <p className="text-gray-500">
+              <p className="text-gray-500 text-sm md:text-base">
                 Get 24/7 assistance for all your queries and enjoy a smooth
                 experience throughout your journey.
               </p>

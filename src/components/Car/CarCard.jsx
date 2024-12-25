@@ -33,33 +33,33 @@ const CarCard = ({ car }) => {
             <span className="animate-bounce mt-[2px]">Available</span>
           </button>
         ) : (
-          <button className="absolute p-1 top-0sm:top-[-29px] sm:left-[-30px] z-10 bg-yellow-400 text-white rounded-lg sm:rounded-full btn btn-sm shadow-lg hover:bg-white hover:text-yellow-400 border-yellow-400 border">
+          <button className="absolute p-1 top-0 sm:top-[-29px] sm:left-[-30px] z-10 bg-yellow-400 text-white rounded-lg sm:rounded-full btn btn-sm shadow-lg hover:bg-white hover:text-yellow-400 border-yellow-400 border">
             Unavailable
           </button>
         )}
       </div>
       {/* Floating button at top-left */}
       <div>
-        <h5 className="my-2 font-bold text-[#313131] text-[27px]">
+        <h5 className="my-2 font-bold text-[#313131] text-2xl sm:text-[27px]">
           {car_model}
         </h5>
-        <p className="font-semibold text-lg">
+        <p className="font-semibold text-sm sm:text-lg">
           {description.substring(0, 60)}...
         </p>
         <hr className="border my-3" />
         <div>
-          <h3 className="flex items-center gap-2 text-[#212121] font-semibold my-1">
+          <h3 className="flex items-center gap-2 text-[#212121] text-sm sm:text-base font-semibold my-1">
             <IoCalendarNumberOutline className="text-primary" />
             Added-Date: {format(new Date(added_date), "P")}
           </h3>
-          <h3 className="flex items-center gap-2 text-[#111111] font-semibold my-1">
+          <h3 className="flex items-center gap-2 text-[#111111] text-sm sm:text-base font-semibold my-1">
             <FaSearchLocation className="text-primary" />
             {location}
           </h3>
         </div>
-        <div className="mt-4 flex items-center justify-between">
+        <div className="mt-4 flex items-center gap-2 justify-between">
           <div>
-            <h1 className="text-[#111111] font-semibold ">
+            <h1 className="text-[#111111] font-semibold text-sm sm:text-base">
               Booking Count: {bookingCount}
             </h1>
           </div>

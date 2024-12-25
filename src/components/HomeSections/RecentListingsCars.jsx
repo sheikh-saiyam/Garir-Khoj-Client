@@ -40,19 +40,19 @@ const RecentListingsCars = ({ car }) => {
         </div>
         {/* Floating button at top-left */}
         <div>
-          <h5 className="my-2 font-bold text-[#313131] text-[27px]">
+          <h5 className="my-2 font-bold text-[#313131] text-xl md:text-[27px]">
             {car_model}
           </h5>
-          <p className="font-semibold text-lg">
+          <p className="font-semibold text-base md:text-lg">
             {description.substring(0, 60)}...
           </p>
           <hr className="border my-3" />
           <div>
-            <h3 className="flex items-center gap-2 text-[#212121] font-semibold my-1">
+            <h3 className="flex items-center gap-2 text-[#212121] text-sm md:text-base font-semibold my-1">
               <IoCalendarNumberOutline className="text-primary" />
               Added-Date: {format(new Date(added_date), "P")}
             </h3>
-            <h3 className="flex items-center gap-2 text-[#111111] font-semibold my-1">
+            <h3 className="flex items-center gap-2 text-[#111111] text-sm md:text-base font-semibold my-1">
               <FaSearchLocation className="text-primary" />
               {location}
             </h3>

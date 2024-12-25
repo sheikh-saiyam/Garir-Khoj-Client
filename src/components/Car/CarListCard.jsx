@@ -16,7 +16,7 @@ const CarListCard = ({ car }) => {
   } = car;
   return (
     <div className="w-full bg-white p-5 flex items-center gap-4 rounded-xl shadow">
-      <div className="relative w-4/12 md:w-4/12">
+      <div className="relative w-5/12 md:w-4/12">
         <img
           className="rounded-lg border h-[180px] sm:h-[230px] w-full"
           src={car_image}
@@ -38,11 +38,11 @@ const CarListCard = ({ car }) => {
           </button>
         )}
       </div>
-      <div className="w-8/12 md:w-8/12">
-        <h5 className="my-2 font-bold text-[#313131] text-xl sm:text-[27px]">
+      <div className="w-7/12 md:w-8/12">
+        <h5 className="my-2 font-bold text-[#313131] text-lg sm:text-[27px]">
           {car_model}
         </h5>
-        <p className="font-semibold text-sm sm:text-lg">
+        <p className="font-semibold text-xs sm:text-lg">
           {description.substring(0, 100)}...
         </p>
         <hr className="border my-3" />
