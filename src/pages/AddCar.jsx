@@ -45,7 +45,7 @@ const AddCar = () => {
         navigate("/my-cars");
       });
     } catch (error) {
-      toast.error(error.massage);
+      toast.error(error.message);
     }
     // Post Request To DB
     console.table(newCarData);

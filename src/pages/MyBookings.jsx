@@ -8,6 +8,8 @@ import logo from "../assets/logo.png";
 import MyBookingsTable from "../components/Tables/MyBookingsTable";
 import { toast } from "react-toastify";
 import DailyRentalPriceChart from "../components/Chart/DailyRentalPriceChart";
+import { FaRegChartBar } from "react-icons/fa";
+import useAxiosSecure from "../hooks/useAxiosSecure";
 
 const MyBookings = () => {
   useEffect(() => {
@@ -19,11 +21,14 @@ const MyBookings = () => {
 
   const { user } = useAuth();
   const api_url = import.meta.env.VITE_API_URL;
+  const axiosSecure = useAxiosSecure();
   const [myBookings, setMyBookings] = useState([]);
   const [loader, setLoader] = useState(true);
   const fetchMyBookings = async () => {
     try {
-      const { data } = await axios.get(`${api_url}/bookings/${user.email}`);
+      const { data } = await axiosSecure.get(
+        `${api_url}/bookings/${user.email}`
+      );
       setMyBookings(data);
       setLoader(false);
     } catch (error) {
@@ -120,10 +125,11 @@ const MyBookings = () => {
           {/* Chart Base On Daily Rental Price */}
           <div className="pt-20 pb-10">
             <div>
-              <h1 className="mb-6 font-bold text-2xl md:text-3xl lg:text-4xl text-center font-serif">
-                Chart Based On Cars Daily{" "}
+              <h1 className="mb-6 flex items-center gap-1 justify-center font-bold text-2xl md:text-3xl lg:text-4xl text-center font-serif">
+                <FaRegChartBar className="text-accent" />
+                Cars Daily Rental{" "}
                 <Typewriter
-                  words={[" Rental Price"]}
+                  words={["Price Chart"]}
                   loop={false}
                   cursor
                   cursorStyle="_"

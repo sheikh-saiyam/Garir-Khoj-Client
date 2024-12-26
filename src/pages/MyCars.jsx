@@ -7,6 +7,7 @@ import MyCarsTable from "../components/Tables/MyCarsTable";
 import logo from "../assets/logo.png";
 import { Link } from "react-router-dom";
 import { toast } from "react-toastify";
+import useAxiosSecure from "../hooks/useAxiosSecure";
 
 const MyCars = () => {
   useEffect(() => {
@@ -18,11 +19,12 @@ const MyCars = () => {
 
   const { user } = useAuth();
   const api_url = import.meta.env.VITE_API_URL;
+  const axiosSecure = useAxiosSecure();
   const [myCars, setMyCars] = useState([]);
   const [loader, setLoader] = useState(true);
   const fetchMyCars = async () => {
     try {
-      const { data } = await axios.get(`${api_url}/cars/${user.email}`);
+      const { data } = await axiosSecure.get(`${api_url}/cars/${user.email}`);
       setMyCars(data);
       setLoader(false);
     } catch (error) {

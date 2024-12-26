@@ -118,7 +118,8 @@ const MyBookingsTable = ({ myBooking, idx, fetchMyBookings }) => {
       toast.error(error.message);
     }
     // Put Request To Server //
-    console.table({ modifiedBookingData });
+    
+    // console.table({ modifiedBookingData });
   };
 
   // Functionality for modify booking date //
@@ -138,12 +139,12 @@ const MyBookingsTable = ({ myBooking, idx, fetchMyBookings }) => {
           ${totalPriceOfEntireBookingPeriod}/
           <sub className="text-xs">({daily_rental_price}) daily</sub>
         </td>
-        <td>
-          {format(new Date(booking_start_date), "P")} -{" "}
-          {format(new Date(booking_end_date), "P")}{" "}
-          <sub className="text-xs">
+        <td className="text-[13px]">
+          {format(new Date(booking_start_date), "dd-MM-yyyy HH:mm")} -{" "}
+          {format(new Date(booking_end_date), "dd-MM-yyyy HH:mm")}{" "}
+          <sub className="text-[9px]">
             ({booking_days_difference}{" "}
-            {booking_days_difference === 0 ? "Day" : "Days"})
+            {booking_days_difference === 1 ? "Day" : "Days"})
           </sub>
         </td>
         <td className="text-center">

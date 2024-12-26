@@ -11,6 +11,7 @@ import {
 } from "firebase/auth";
 import app from "../firebase/firebase.init";
 import { toast } from "react-toastify";
+import axios from "axios";
 
 export const AuthContext = createContext();
 
@@ -53,12 +54,22 @@ const AuthProvider = ({ children }) => {
 
   // for save the user
   useEffect(() => {
-    const unSubscribe = onAuthStateChanged(auth, (currentUser) => {
-      if (currentUser) {
+    const unSubscribe = onAuthStateChanged(auth, async (currentUser) => {
+      if (currentUser?.email) {
         setUser(currentUser);
+        // For Set Token In Cookies
+        await axios.post(
+          `${import.meta.env.VITE_API_URL}/jwt`,
+          { email: currentUser?.email },
+          { withCredentials: true }
+        );
         setLoading(false);
       } else {
         setUser(null);
+        // For Clear Token From Cookies
+        await axios.get(`${import.meta.env.VITE_API_URL}/logout`, {
+          withCredentials: true,
+        });
         setLoading(false);
       }
     });
