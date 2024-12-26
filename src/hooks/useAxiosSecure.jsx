@@ -24,7 +24,7 @@ const useAxiosSecure = () => {
             // Display a message after logout
             toast.error(
               `(${error.response.status}), Your session has expired. Please log in again.`,
-              { autoClose: 5000 }
+              { autoClose: 3000 }
             );
           });
           // After logout navigate to login page

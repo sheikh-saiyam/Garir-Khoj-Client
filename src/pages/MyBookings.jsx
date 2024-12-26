@@ -1,6 +1,5 @@
 import { useEffect, useState } from "react";
 import useAuth from "../hooks/useAuth";
-import axios from "axios";
 import Loader from "../components/Loader/Loader";
 import { Typewriter } from "react-simple-typewriter";
 import { Link } from "react-router-dom";

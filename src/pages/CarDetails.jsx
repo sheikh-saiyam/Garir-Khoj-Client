@@ -216,44 +216,50 @@ const CarDetails = () => {
       {/* Booking Confirmation Modal */}
       <dialog id="booking_modal" className="modal">
         <div className="modal-box py-16">
-          <div>
-            <h3 className="font-bold text-3xl mb-4">{car_model}</h3>
+          <div className="text-center bg-white rounded-xl shadow border p-4">
+            <h3 className="font-bold text-3xl tracking-wider mb-4">
+              {car_model}
+            </h3>
+            <h1 className="text-lg font-semibold text-gray-800">
+              Total Price Of Entire Booking Period:{" "}
+              <span className="font-normal">${daily_rental_price} / Daily</span>
+            </h1>
           </div>
           {/* Date picking div */}
-          <div className="my-4">
+          <div className="mt-6 mb-4 text-center">
             <div className="flex flex-col">
-              <label className="text-lg font-semibold text-gray-800">
+              <label className="text-lg tracking-wider font-semibold text-gray-800">
                 Pick Booking Start Date
               </label>
               <DatePicker
-                className="border p-2 rounded-md w-full mt-2"
+                className="border p-2 text-center rounded-md w-4/5 mt-2"
                 selected={startDate}
                 onChange={(date) => setStartDate(date)}
               />
             </div>
           </div>
-          <div className="my-4">
+          <div className="my-4 text-center">
             <div className="flex flex-col">
-              <label className="text-lg font-semibold text-gray-800">
+              <label className="text-lg tracking-wider font-semibold text-gray-800">
                 Pick Booking End Date
               </label>
               <DatePicker
-                className="border p-2 rounded-md w-full mt-2"
+                className="border p-2 text-center rounded-md w-4/5 mt-2"
                 selected={endDate}
                 onChange={(date) => setEndDate(date)}
               />
             </div>
           </div>
           <div>
-            <h1 className="text-lg font-semibold text-gray-800">
-              Total Price Of Entire Booking Period:{" "}
+            <h1 className="text-lg text-center tracking-wider font-semibold text-gray-800">
+              Total Price Of <br /> Entire  Booking Period:{" "}
               <span className="font-normal">
                 ${totalPriceOfEntireBookingPeriod}
               </span>
             </h1>
           </div>
           {/* Date picking div */}
-          <div className="flex items-center justify-between gap-4 mt-5">
+          <div className="flex items-center w-4/5 mx-auto justify-between gap-4 mt-5">
             <div className="w-2/3">
               <button
                 onClick={handleBookCar}

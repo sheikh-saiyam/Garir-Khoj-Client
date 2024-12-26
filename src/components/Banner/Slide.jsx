@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 const Slide = ({ image, text }) => {
   return (
     <div
-      className="w-full bg-center bg-cover bg-no-repeat h-[400px] md:h-[500px] lg:h-[550px]"
+      className="w-full bg-center bg-cover bg-no-repeat h-[450px] md:h-[500px] lg:h-[550px]"
       style={{
         backgroundImage: `url(${image})`,
       }}

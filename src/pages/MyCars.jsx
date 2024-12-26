@@ -1,4 +1,3 @@
-import axios from "axios";
 import { useEffect, useState } from "react";
 import { Typewriter } from "react-simple-typewriter";
 import useAuth from "../hooks/useAuth";

@@ -15,7 +15,7 @@ const HomeLayout = () => {
 
   return (
     <div>
-      <div className="pb-20 mx-auto max-w-screen-2xl">
+      <div className="pb-20 w-11/12 mx-auto max-w-screen-2xl">
         <Slider></Slider>
       </div>
       <div className="mx-auto w-11/12 max-w-[1400px] pb-20">

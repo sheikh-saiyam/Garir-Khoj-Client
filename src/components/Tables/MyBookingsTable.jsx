@@ -118,7 +118,7 @@ const MyBookingsTable = ({ myBooking, idx, fetchMyBookings }) => {
       toast.error(error.message);
     }
     // Put Request To Server //
-    
+
     // console.table({ modifiedBookingData });
   };
 
@@ -186,24 +186,24 @@ const MyBookingsTable = ({ myBooking, idx, fetchMyBookings }) => {
         {/* Modify-Date Modal */}
         <td>
           <dialog id={_id} className="modal">
-            <div className="modal-box py-16 rounded-lg shadow-xl">
-              <div>
+            <div className="modal-box py-10 rounded-lg shadow-xl">
+              <div className="text-center bg-white shadow border p-5 rounded-xl">
                 <h3 className="font-bold text-2xl">Modify Booking Date 🗓</h3>
-                <div className="text-lg font-semibold space-y-1 my-4">
+                <div className="text-lg font-semibold space-y-1 mt-2">
                   <p>
                     Previous Start Date:{" "}
-                    <span className="font-normal">
+                    <span className="font-normal tracking-widest">
                       {format(new Date(booking_start_date), "P")}
                     </span>
                   </p>
                   <p>
                     Previous End Date:{" "}
-                    <span className="font-normal">
+                    <span className="font-normal tracking-widest">
                       {format(new Date(booking_end_date), "P")}
                     </span>
-                  </p>{" "}
-                  <h1 className="text-lg font-semibold text-gray-800">
-                    Previous Price Of Entire Booking Period:{" "}
+                  </p>
+                  <h1 className="text-lg font-semibold text-gray-800 tracking-wider">
+                    Previous Total Price Of Entire <br /> Booking Period:{" "}
                     <span className="font-normal">
                       ${totalPriceOfEntireBookingPeriod}
                     </span>
@@ -211,47 +211,47 @@ const MyBookingsTable = ({ myBooking, idx, fetchMyBookings }) => {
                 </div>
               </div>
               {/* Date picking div */}
-              <div className="my-5">
+              <div className="my-5 text-center">
                 <div className="flex flex-col">
-                  <label className="text-lg font-semibold text-gray-800">
+                  <label className="text-lg tracking-widest font-semibold text-gray-800">
                     Pick New Booking Start Date
                   </label>
                   <DatePicker
-                    className="border p-2 rounded-md w-full mt-2"
+                    className="border p-2 text-center rounded-md w-4/5 mt-2"
                     selected={startDate}
                     onChange={(date) => handleDateChange("start", date)}
                   />
                 </div>
               </div>
-              <div className="my-5">
+              <div className="my-5 text-center">
                 <div className="flex flex-col">
-                  <label className="text-lg font-semibold text-gray-800">
+                  <label className="text-lg tracking-widest font-semibold text-gray-800">
                     Pick New Booking End Date
                   </label>
                   <DatePicker
-                    className="border p-2 rounded-md w-full mt-2"
+                    className="border p-2 text-center rounded-md w-4/5 mt-2"
                     selected={endDate}
                     onChange={(date) => handleDateChange("end", date)}
                   />
                 </div>
               </div>
               <div>
-                <h1 className="text-lg font-semibold text-gray-800">
-                  New Price Of Entire Booking Period:{" "}
+                <h1 className="text-lg font-semibold tracking-wider text-center text-gray-800">
+                  New Total Price Of <br /> Entire Booking Period:{" "}
                   <span className="font-normal">
                     ${totalPriceOfEntireNewBookingPeriod}
                   </span>
                 </h1>
               </div>
               {/* Date picking div */}
-              <div className="flex items-center justify-between gap-4 mt-6">
+              <div className="flex items-center w-4/5 mx-auto justify-between gap-4 mt-6">
                 <div className="w-2/3">
                   <button
                     onClick={() => handleModifyBookingDate(_id)}
                     className="bg-primary btn w-full text-white font-semibold text-lg hover:bg-white hover:text-primary border-primary border hover:border-primary flex items-center gap-1"
                   >
                     <GiConfirmed className="text-md" />
-                    Confirm Updated Date
+                    Confirm Date
                   </button>
                 </div>
                 <div className="w-1/3">

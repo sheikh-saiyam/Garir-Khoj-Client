@@ -7,7 +7,11 @@ const Navbar = () => {
     <div className="flex justify-between items-center">
       <div>
         <Link>
-          <img className="w-28 h-24" src={logo} alt="GarirKhoj.com" />
+          <img
+            className="w-28 h-24 border-l border-dashed"
+            src={logo}
+            alt="GarirKhoj.com"
+          />
         </Link>
       </div>
       <div className="flex gap-4 items-center">
