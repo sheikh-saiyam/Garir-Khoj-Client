@@ -67,9 +67,13 @@ const AuthProvider = ({ children }) => {
       } else {
         setUser(null);
         // For Clear Token From Cookies
-        await axios.post(`${import.meta.env.VITE_API_URL}/logout`, {}, {
-          withCredentials: true
-        });
+        await axios.post(
+          `${import.meta.env.VITE_API_URL}/logout`,
+          {},
+          {
+            withCredentials: true,
+          }
+        );
         setLoading(false);
       }
       setLoading(false);
