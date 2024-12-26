@@ -220,8 +220,8 @@ const CarDetails = () => {
             <h3 className="font-bold text-3xl tracking-wider mb-4">
               {car_model}
             </h3>
-            <h1 className="text-lg font-semibold text-gray-800">
-              Total Price Of Entire Booking Period:{" "}
+            <h1 className="text-lg font-semibold tracking-wider text-gray-800">
+              Car Daily Rental Price:{" "}
               <span className="font-normal">${daily_rental_price} / Daily</span>
             </h1>
           </div>
@@ -252,7 +252,7 @@ const CarDetails = () => {
           </div>
           <div>
             <h1 className="text-lg text-center tracking-wider font-semibold text-gray-800">
-              Total Price Of <br /> Entire  Booking Period:{" "}
+              Total Price Of <br /> Entire Booking Period:{" "}
               <span className="font-normal">
                 ${totalPriceOfEntireBookingPeriod}
               </span>
