@@ -1,4 +1,5 @@
 import { format } from "date-fns";
+import { CiDiscount1 } from "react-icons/ci";
 import { FaSearchLocation } from "react-icons/fa";
 import { IoCalendarNumberOutline } from "react-icons/io5";
 import { Link } from "react-router-dom";
@@ -12,6 +13,7 @@ const RecentListingsCars = ({ car }) => {
     car_image,
     added_date,
     location,
+    bookingCount,
   } = car;
   return (
     <Link to={"/available-cars"} className=" grid place-items-stretch">
@@ -55,6 +57,10 @@ const RecentListingsCars = ({ car }) => {
             <h3 className="flex items-center gap-2 text-[#111111] text-sm md:text-base font-semibold my-1">
               <FaSearchLocation className="text-primary" />
               {location}
+            </h3>
+            <h3 className="flex items-center gap-2 text-[#111111] text-sm md:text-base font-semibold my-1">
+              <CiDiscount1 className="text-primary font-extrabold" />
+              Total Booking Count: {bookingCount}
             </h3>
           </div>
         </div>
