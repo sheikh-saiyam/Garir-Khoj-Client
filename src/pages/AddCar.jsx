@@ -1,9 +1,17 @@
 import useAuth from "../hooks/useAuth";
 import axios from "axios";
+import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 
 const AddCar = () => {
+  useEffect(() => {
+    window.scroll({
+      top: 0,
+      behavior: "smooth",
+    });
+  });
+
   const { user } = useAuth();
   const navigate = useNavigate();
   // Add Car To DB Functionality

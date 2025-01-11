@@ -1,10 +1,17 @@
 import logo from "../../assets/logo.png";
 import { Link, NavLink } from "react-router-dom";
 import useAuth from "../../hooks/useAuth";
+import { IoIosArrowDropdown } from "react-icons/io";
+import { useState } from "react";
+import MobileNavbar from "./MobileNavbar";
+import { IoAddCircle } from "react-icons/io5";
+import { FaBookmark, FaCarSide } from "react-icons/fa";
 const Navbar = () => {
   const { user, logOut, loading } = useAuth();
+  const [isOpenMenu, setIsOpenMenu] = useState(false);
+  const [isOpen, setIsOpen] = useState(false);
   return (
-    <div className="flex justify-between items-center">
+    <div className="mx-auto w-11/12 max-w-screen-2xl pt-4 pb-8 md:py-4 flex justify-between items-center">
       <div>
         <Link>
           <img
@@ -37,44 +44,54 @@ const Navbar = () => {
           >
             Available Cars
           </NavLink>
+        </ul>
 
-          {/* Private Routes */}
-          {user && user.email && (
-            <>
+        {/* private routes */}
+        {user && user.email && (
+          <div className="hidden md:block relative group z-10">
+            <button className="flex gap-1 items-center text-base font-semibold hover:text-primary hover:underline">
+              Dashboard
+              <IoIosArrowDropdown className="text-xl" />
+            </button>
+            {/* Dropdown Menu */}
+            <div className="absolute right-0 mt-2 w-56 bg-white shadow-lg opacity-0 group-hover:opacity-100 invisible group-hover:visible transition-all duration-200 ease-in-out z-50 text-center tracking-wider font-medium border-2 border-primary">
               <NavLink
                 to={"/add-car"}
                 className={({ isActive }) =>
                   isActive
-                    ? "font-extrabold tracking-wider text-base text-primary rounded-xl"
-                    : "text-base font-semibold hover:text-primary hover:underline"
+                    ? "flex items-center justify-center py-2 px-4 gap-1 bg-primary text-white font-bold"
+                    : "bg-bgPrimary flex items-center justify-center py-2 px-4 gap-1 hover:bg-[#fff] hover:underline underline-offset-[3px] hover:text-primary hover:font-semibold duration-300"
                 }
               >
-                Add Car
+                <IoAddCircle />
+                Add A Car
               </NavLink>
               <NavLink
                 to={"/my-cars"}
                 className={({ isActive }) =>
                   isActive
-                    ? "font-extrabold tracking-wider text-base text-primary rounded-xl"
-                    : "text-base font-semibold hover:text-primary hover:underline"
+                    ? "flex items-center justify-center py-2 px-4 gap-1 bg-primary text-white font-bold"
+                    : "bg-bgPrimary flex items-center justify-center py-2 px-4 gap-1 hover:bg-[#fff] hover:underline underline-offset-[3px] hover:text-primary hover:font-semibold duration-300"
                 }
               >
-                My Cars
+                <FaCarSide />
+                My Added Cars
               </NavLink>
               <NavLink
                 to={"/my-bookings"}
                 className={({ isActive }) =>
                   isActive
-                    ? "font-extrabold tracking-wider text-base text-primary rounded-xl"
-                    : "text-base font-semibold hover:text-primary hover:underline"
+                    ? "flex items-center justify-center py-2 px-4 gap-1 bg-primary text-white font-bold"
+                    : "bg-bgPrimary flex items-center justify-center py-2 px-4 gap-1 hover:bg-[#fff] hover:underline underline-offset-[3px] hover:text-primary hover:font-semibold duration-300"
                 }
               >
+                <FaBookmark />
                 My Bookings
               </NavLink>
-            </>
-          )}
-          {/* Private Routes */}
-        </ul>
+            </div>
+          </div>
+        )}
+        {/* private routes */}
 
         {/* Conditional login btn & user dropdown with logout */}
         <div className="hidden md:flex">
@@ -95,7 +112,7 @@ const Navbar = () => {
               </div>
               <ul
                 tabIndex={0}
-                className="dropdown-content menu bg-base-100 rounded-box z-10 w-max p-4 shadow border"
+                className="dropdown-content menu bg-base-100 rounded mt-1 z-10 w-max p-4 shadow border"
               >
                 <div>
                   <img
@@ -112,7 +129,7 @@ const Navbar = () => {
                 <div className="mt-2">
                   <button
                     onClick={logOut}
-                    className="btn w-full btn-sm bg-primary text-white hover:bg-transparent hover:text-primary hover:border-primary hover:border-2 border-primary tracking-wide text-lg font-semibold"
+                    className="btn rounded w-full btn-sm bg-primary text-white hover:bg-transparent hover:text-primary hover:border-primary hover tracking-wide text-lg font-semibold"
                   >
                     Logout
                   </button>
@@ -136,123 +153,14 @@ const Navbar = () => {
       {/* Conditional login btn & user dropdown with logout */}
 
       {/* Navbar for mobile (md and below) */}
-      <div className="dropdown dropdown-end md:hidden">
-        <div>
-          <label
-            tabIndex={0}
-            className="btn bg-primary text-white font-bold text-xl btn-circle"
-          >
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              className="h-5 w-5"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke="currentColor"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth="2"
-                d="M4 6h16M4 12h16M4 18h16"
-              />
-            </svg>
-          </label>
-          <ul
-            tabIndex={0}
-            className="dropdown-content menu menu-vertical text-center bg-base-100 rounded-box z-10 w-64 p-4 mt-2 border shadow"
-          >
-            <NavLink
-              to={"/"}
-              className={({ isActive }) =>
-                isActive
-                  ? "font-bold text-lg text-white rounded-xl bg-primary border my-1 border-primary"
-                  : "text-base font-semibold text-primary rounded-xl bg-transparent border my-1 border-primary hover:text-white hover:bg-primary hover:underline"
-              }
-            >
-              Home
-            </NavLink>
-            <NavLink
-              to={"/available-cars"}
-              className={({ isActive }) =>
-                isActive
-                  ? "font-bold text-lg text-white rounded-xl bg-primary border my-1 border-primary"
-                  : "text-base font-semibold text-primary rounded-xl bg-transparent border my-1 border-primary hover:text-white hover:bg-primary hover:underline"
-              }
-            >
-              Available Cars
-            </NavLink>
-
-            {/* Private Routes */}
-            {user && user.email && (
-              <>
-                <NavLink
-                  to={"/add-car"}
-                  className={({ isActive }) =>
-                    isActive
-                      ? "font-bold text-lg text-white rounded-xl bg-primary border my-1 border-primary"
-                      : "text-base font-semibold text-primary rounded-xl bg-transparent border my-1 border-primary hover:text-white hover:bg-primary hover:underline"
-                  }
-                >
-                  Add Car
-                </NavLink>
-                <NavLink
-                  to={"/my-cars"}
-                  className={({ isActive }) =>
-                    isActive
-                      ? "font-bold text-lg text-white rounded-xl bg-primary border my-1 border-primary"
-                      : "text-base font-semibold text-primary rounded-xl bg-transparent border my-1 border-primary hover:text-white hover:bg-primary hover:underline"
-                  }
-                >
-                  My Cars
-                </NavLink>
-                <NavLink
-                  to={"/my-bookings"}
-                  className={({ isActive }) =>
-                    isActive
-                      ? "font-bold text-lg text-white rounded-xl bg-primary border my-1 border-primary"
-                      : "text-base font-semibold text-primary rounded-xl bg-transparent border my-1 border-primary hover:text-white hover:bg-primary hover:underline"
-                  }
-                >
-                  My Bookings
-                </NavLink>
-              </>
-            )}
-            {/* Private Routes */}
-
-            {/* Login button for mobile view */}
-            {user && user.email && user?.photoURL ? (
-              <div>
-                <div className="dropdown dropdown-end">
-                  <div>
-                    <img
-                      className="mx-auto w-14 h-14 rounded-full my-4"
-                      src={user.photoURL}
-                      alt=""
-                    />
-                  </div>
-                  <p className="text-center font-semibold my-1">
-                    {user.displayName}
-                  </p>
-                  <p className="text-center font-semibold my-1">{user.email}</p>
-                </div>
-                <button
-                  onClick={logOut}
-                  className="btn mt-2 w-full btn-sm hover:bg-primary hover:text-white hover:bg-transparent text-primary border-primary border-2 hover:border-none tracking-wide text-lg font-semibold"
-                >
-                  Logout
-                </button>
-              </div>
-            ) : (
-              <NavLink
-                to={"/login"}
-                className="btn mt-2 btn-sm bg-primary text-white hover:bg-transparent hover:text-primary hover:border-primary hover:border-2 tracking-wide text-lg font-semibold"
-              >
-                Login
-              </NavLink>
-            )}
-          </ul>
-        </div>
-      </div>
+      <MobileNavbar
+        user={user}
+        logOut={logOut}
+        isOpen={isOpen}
+        setIsOpen={setIsOpen}
+        isOpenMenu={isOpenMenu}
+        setIsOpenMenu={setIsOpenMenu}
+      />
       {/* Navbar for mobile (md and below) */}
     </div>
   );
