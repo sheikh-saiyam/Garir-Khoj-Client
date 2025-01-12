@@ -1,8 +1,10 @@
-## **Project Name** : GarirKhoj.com
+# GarirKhoj.com: Car Rental System 
 
-## **Purpose** : GarirKhoj.com aims to simplify car rentals with a seamless booking process, secure user authentication, and efficient inventory management. Leveraging modern technology, we provide a user-friendly platform that ensures convenience and reliability for all car rental needs. 🚗
+Welcome to **GarirKhoj.com**, a modern and feature-rich car rental platform where users can seamlessly rent cars, manage bookings, and enjoy a smooth, responsive user experience. Whether you're looking for a luxury car or a budget-friendly ride, GarirKhoj.com is the place to drive your dreams!
 
-## **Live link** : https://saiyam-assignment11.netlify.app/
+## 🔗 [Live Website Link Of **Game-Chill**](garir-khoj.netlify.app/)
+
+## 🔗 [Github Server Repository **Game-Chill**](https://github.com/sheikh-saiyam/Garir-Khoj-Server)
 
 ## Key features :
 
@@ -39,8 +41,8 @@
 
 ### **Hosting**:
 
-- Client-side: Netlify
-- Server-side: Vercel
+- **Client-side**: Netlify
+- **Server-side**: Vercel
 
 ## 📦 NPM Packages
 
