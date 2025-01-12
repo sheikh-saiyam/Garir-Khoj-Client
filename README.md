@@ -1,14 +1,65 @@
-# GarirKhoj.com: Car Rental System 
+# GarirKhoj.com: Car Rental System
 
 Welcome to **GarirKhoj.com**, a modern and feature-rich car rental platform where users can seamlessly rent cars, manage bookings, and enjoy a smooth, responsive user experience. Whether you're looking for a luxury car or a budget-friendly ride, GarirKhoj.com is the place to drive your dreams!
 
-## 🔗 [Live Website Link Of **Game-Chill**](garir-khoj.netlify.app/)
+## 🔗 [Live Website Link Of **Game-Chill**](https://garir-khoj.netlify.app/)
 
 ## 🔗 [Github Server Repository **Game-Chill**](https://github.com/sheikh-saiyam/Garir-Khoj-Server)
 
 ## Key features :
 
-**1. Car Management: Users can Add, Update, and Delete Cars listed for rental.**
+### **🔑 Authentication**:
+
+- **Secure Login & Registration**: Email/Password-based authentication using Firebase.
+- **Google Login**: Quick access via Google account.
+- **JWT Protection**: Secures private routes with JSON Web Tokens for session handling.
+- **Protected Routes**: Ensures only authenticated users can access private pages.
+
+### **🚗 Car Management**:
+
+- **Add Cars**: Authenticated users can add car details including model, price, features, and availability.
+- **Update Cars**: Modify existing car details through an intuitive form interface.
+- **Delete Cars**: Remove cars from the platform with real-time updates and confirmation prompts.
+- **Sort Cars**: Organize car listings by:
+  - Price: Low to High or High to Low.
+  - Date Added: Newest to Oldest or vice versa.
+- **Booking Count**: Track and display the number of bookings per car.
+
+### **📋 Booking Management**:
+
+- **Real-Time Availability**: Display updated car availability for seamless bookings.
+- **Booking Details**: Users can view all bookings with details like:
+  - Car Model
+  - Booking Period
+  - Total Price
+  - Booking Status (Confirmed, Pending, or Canceled)
+- **Cancel Booking**: Cancel existing bookings with confirmation prompts.
+- **Modify Booking Dates**: Update booking periods with a simple date picker.
+
+### **🔍 Search & Filters & Toggle**:
+
+- **Search Functionality**: Find cars by model, brand, or location.
+- **Advanced Filters**: Filter by price or date added to find the perfect car.
+- **Grid/List View Toggle**: Switch between grid and list layouts for browsing.
+- **Toggle Layout**: Switch between grid and list views for a personalized browsing experience.
+
+### **📊 Data Visualization**:
+
+- **Chart.js Integration**: Visualize booking trends and revenue stats in the dashboard.
+
+### **🌟 User Experience**:
+
+- **Responsive Design**: Optimized for mobile, tablet, and desktop views.
+- **SweetAlert2 Popups**: Beautiful popups for alerts and confirmations.
+- **React Toastify**: Notify users with elegant toast messages.
+- **Swiper Integration**: Smooth carousels for banners or special offers.
+- **Fast Loading**: Efficient code and caching for better performance.
+
+### **🔄 Loading Spinner**:
+
+- Displays a loading spinner when fetching data from the server, improving the user experience during data loading.
+
+<!-- **1. Car Management: Users can Add, Update, and Delete Cars listed for rental.**
 
 **2. Car Search & sorting : Users can Search based on car model & sort cars by added-date & rental price**
 
@@ -18,7 +69,7 @@ Welcome to **GarirKhoj.com**, a modern and feature-rich car rental platform wher
 
 **5. JWT Authentication : JWT-based secure sessions for users. and secure api's are protected**
 
-**6. Responsive Design: Fully responsive UI built with React.js and Tailwind CSS.Optimized for both mobile and desktop users**
+**6. Responsive Design: Fully responsive UI built with React.js and Tailwind CSS.Optimized for both mobile and desktop users** -->
 
 ## 🌐 Tech Stack
 
