@@ -37,7 +37,10 @@
 - **JWT**: Secure method for transmitting session data in JSON format.
 - **Environment variables**: Store sensitive credentials like Firebase and MongoDB keys securely.
 
-### Hosting**: Client-side: Netlify, Server-side: Vercel
+### **Hosting**:
+
+- Client-side: Netlify
+- Server-side: Vercel
 
 ## 📦 NPM Packages
 
@@ -45,7 +48,9 @@
 - **React-simple-typewriter**: Adds a typewriter effect to text for dynamic animations in React.
 - **React Fast Marquee**: Creates smooth, scrolling text for announcements or news feeds.
 - **React icons**: Provides customizable vector icons for React apps.
-- **SweetAlert2**: Provides beautiful, customizable popups for user interaction, such as alerts for success or errors.
 - **React-toastify**: Shows non-intrusive toast notifications with customizable messages.
+- **SweetAlert2**: Provides beautiful, customizable popups for user interaction, such as alerts for success or errors.
 - **Swiper**: A mobile-friendly carousel/slider component for React.
 - **Axios**: A promise-based HTTP client for making API requests in React.
+- **recharts**: A library for creating charts and visual data representations in React.
+- **date-fns**: A library for working with dates in JavaScript, providing functions for parsing, formatting, and manipulating dates.
