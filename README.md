@@ -250,6 +250,14 @@ Welcome to **GarirKhoj.com**, a modern and feature-rich car rental platform wher
 - **Recharts**: A library for creating charts and visual data representations in React.
 - **Date-fns**: A library for working with dates in JavaScript, providing functions for parsing, formatting, and manipulating dates.
 
+## 📸Home Page (`/`) Image
+
+![Project Image](<https://raw.githubusercontent.com/sheikh-saiyam/My-Portfolio/refs/heads/main/public/projects/garir-khoj%20(2).png>)
+
+## 📸Available Car Page (`/available-cars`) Image
+
+![Project Image](<https://raw.githubusercontent.com/sheikh-saiyam/My-Portfolio/refs/heads/main/public/projects/garir-khoj%20(1).png>)
+
 ## ⚙️ Installation & Setup
 
 **1. Clone the client repository**:
