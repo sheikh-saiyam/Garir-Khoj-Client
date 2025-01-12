@@ -18,6 +18,27 @@
 
 **6. Responsive Design: Fully responsive UI built with React.js and Tailwind CSS.Optimized for both mobile and desktop users**
 
+## 🌐 Tech Stack
+
+### **Frontend**:
+
+- React.js
+- React Router for routing
+- Tailwind CSS for styling
+- Firebase Authentication for user login
+- Chart.js for booking visualizations
+
+### **Backend**:
+
+- **Node.js**: JavaScript runtime for building fast, scalable server-side apps.
+- **Express.js**: Web framework for Node.js, ideal for building APIs and web apps.
+- **MongoDB**: NoSQL database for flexible, scalable data storage.
+- **Firebase Authentication**: Service for easy user authentication with multiple login options.
+- **JWT**: Secure method for transmitting session data in JSON format.
+- **Environment variables**: Store sensitive credentials like Firebase and MongoDB keys securely.
+
+- **Hosting**: Client-side: Netlify, Server-side: Vercel
+
 ## 📦 NPM Packages
 
 - **React-datepicker**: A customizable date picker component for React with date range and time selection.
