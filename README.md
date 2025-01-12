@@ -37,7 +37,7 @@
 - **JWT**: Secure method for transmitting session data in JSON format.
 - **Environment variables**: Store sensitive credentials like Firebase and MongoDB keys securely.
 
-- **Hosting**: Client-side: Netlify, Server-side: Vercel
+### Hosting**: Client-side: Netlify, Server-side: Vercel
 
 ## 📦 NPM Packages
 
