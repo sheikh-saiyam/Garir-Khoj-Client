@@ -18,20 +18,13 @@
 
 **6. Responsive Design: Fully responsive UI built with React.js and Tailwind CSS.Optimized for both mobile and desktop users**
 
-## npm packages used in this project :
+## 📦 NPM Packages
 
-**1. React-datepicker**
-
-**2. React-simple-typewriter**
-
-**3. React Fast Marquee**
-
-**4. React icons**
-
-**5. SweetAlert2**
-
-**6. React-toastify**
-
-**7. Swiper**
-
-**8. Axios**
+- **React-datepicker**: A customizable date picker component for React with date range and time selection.
+- **React-simple-typewriter**: Adds a typewriter effect to text for dynamic animations in React.
+- **React Fast Marquee**: Creates smooth, scrolling text for announcements or news feeds.
+- **React icons**: Provides customizable vector icons for React apps.
+- **SweetAlert2**: Provides beautiful, customizable popups for user interaction, such as alerts for success or errors.
+- **React-toastify**: Shows non-intrusive toast notifications with customizable messages.
+- **Swiper**: A mobile-friendly carousel/slider component for React.
+- **Axios**: A promise-based HTTP client for making API requests in React.
