@@ -160,6 +160,59 @@ Welcome to **GarirKhoj.com**, a modern and feature-rich car rental platform wher
 - **Cancel Booking**: Allow users to cancel a booking with a confirmation prompt.
 - **Modify Booking Dates**: Provide an option to adjust the rental period for confirmed bookings.
 
+## ⚙️ JSON Data Structure
+
+### **Car**:
+
+```json
+[
+  {
+    "_id": "6769359891f670b79892b5e2",
+    "car_model": "Honda HR-V 2023",
+    "daily_rental_price": 100,
+    "availability": "Yes",
+    "registration_number": "04957638934",
+    "features": [
+      "Touchscreen Display",
+      "Keyless Entry",
+      "Bluetooth Connectivity",
+      "Sunroof"
+    ],
+    "description": " A compact and stylish crossover SUV, offering a great balance of space and efficiency.",
+    "car_image": "https://www.motortrend.com/uploads/2022/06/16-2023-Honda-HR-V-Sport-1.jpg?w=768&width=768&q=75&format=webp",
+    "location": "Mirpur-11 , Dhaka , Bangladesh",
+    "bookingCount": 2,
+    "bookingStatus": "",
+    "added_date": "2024-12-23T10:04:08.260Z",
+    "user_details": {
+      "name": "user-name",
+      "email": "user-email@gmail.com",
+      "photo": "https://user-photo-url.com"
+    }
+  }
+]
+```
+
+### **Booking:**
+
+```json
+[
+  {
+    "_id": "676c09b295c2b592052dc689",
+    "car_id": "676bc354fa9018b5a982216c",
+    "car_image": "https://www.drivearabia.com/app/uploads/2020/09/Hyundai-Tucson-2021-1.jpg",
+    "car_model": "Hyundai Tucson 2021",
+    "daily_rental_price": 85,
+    "totalPriceOfEntireBookingPeriod": 255,
+    "bookingStatus": "Confirmed",
+    "booking_days_difference": 3,
+    "booking_start_date": "2024-12-28T13:33:22.000Z",
+    "booking_end_date": "2024-12-31T13:33:22.000Z",
+    "booked_user_email": "booked_user_email@gmail.com"
+  }
+]
+```
+
 ## 🌐 Tech Stack
 
 ### **Frontend**:
