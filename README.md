@@ -37,16 +37,17 @@ Welcome to **GarirKhoj.com**, a modern and feature-rich car rental platform wher
 - **Cancel Booking**: Cancel existing bookings with confirmation prompts.
 - **Modify Booking Dates**: Update booking periods with a simple date picker.
 
-### **🔍 Search & Filters & Toggle**:
+### **🔍 Search & Sort & Toggle**:
 
 - **Search Functionality**: Find cars by model, brand, or location.
-- **Advanced Filters**: Filter by price or date added to find the perfect car.
+- **Sort Cars**: Organize car listings by:
+  - Price: Low to High or High to Low.
+  - Date Added: Newest to Oldest or vice versa.
 - **Grid/List View Toggle**: Switch between grid and list layouts for browsing.
-- **Toggle Layout**: Switch between grid and list views for a personalized browsing experience.
 
 ### **📊 Data Visualization**:
 
-- **Chart.js Integration**: Visualize booking trends and revenue stats in the dashboard.
+- **Chart.js Integration**: Visualize booking trends and revenue stats in the /my-booking page.
 
 ### **🌟 User Experience**:
 
@@ -60,17 +61,104 @@ Welcome to **GarirKhoj.com**, a modern and feature-rich car rental platform wher
 
 - Displays a loading spinner when fetching data from the server, improving the user experience during data loading.
 
-<!-- **1. Car Management: Users can Add, Update, and Delete Cars listed for rental.**
+## 📄 Pages Overview
 
-**2. Car Search & sorting : Users can Search based on car model & sort cars by added-date & rental price**
+### 🏠 **Home Page** (`/`)
 
-**3. Car Booking : User can Book Cars based on their availability.**
+- **Hero Banner**: A visually appealing banner showcasing premium cars with call-to-action button named view available cars.
+- **Why Choose Us**: A section explaining platform advantages like:
+  - Wide Variety of Cars
+  - Affordable Prices
+  - Easy Booking Process
+  - Customer Support
+- 🚗 **Recent Listings**: Explore the newest cars on our platform! View **6-8 handpicked cars** with sleek designs, detailed specs, competitive pricing, and easy booking options. Your perfect car might be here—don’t miss out!
+- **Customer Reviews**: Display testimonials from users who have rented cars through the platform.
+- ✨ **Special Offers**: Discover deals tailored for every journey!
 
-**4. Real-time Updates : The system provides real-time updates on car availability and booking statuses.**
+### 🚗 **Available Cars** (`/available-cars`)
 
-**5. JWT Authentication : JWT-based secure sessions for users. and secure api's are protected**
+- **Search Functionality**: Find cars by model, brand, or location.
+- **Sort Cars**: Organize car listings by:
+  - Price: Low to High or High to Low.
+  - Date Added: Newest to Oldest or vice versa.
+- **Grid/List View Toggle**: Switch between grid and list layouts for browsing.
+- **Availability**: Only display cars ready for booking.
+- **Car Cards**:  
+  Display all available cars in a visually appealing card format with the following details:
+  - **Car Model**: Clearly mention the car's make and model.
+  - **Car Image**: A high-quality photo of the car.
+  - **Price Per Day**: Daily rental cost (e.g., `$50/day`).
+  - **Availability Status**: Indicate if the car is available for immediate booking.
+  - **Location**: e.g., _Dhaka, Bangladesh_.
+  - **Added Date**: e.g., _12/23/2024_.
+  - **Booking Count**: e.g., _Booked 2 times_.
+  - **Book Now Button**:
+    - A prominent button on each card, redirecting users to the **Car Details Page** for the selected car.
 
-**6. Responsive Design: Fully responsive UI built with React.js and Tailwind CSS.Optimized for both mobile and desktop users** -->
+### 🚘 **Car Details** (`/car-details/:id`)
+
+- **Overview**: This page provides detailed information about a selected car.displaying all the car's specifications and features.
+
+- **Car Information**:
+
+  - **Car Model**: Full name and model of the car (e.g., _Toyota Corolla 2023_).
+  - **Price Per Day**: Daily rental cost (e.g., `$50/day`).
+  - **Features**: List of car features, such as:
+    - GPS
+    - Air Conditioning
+    - Automatic Transmission
+  - **Availability Status**: Clearly indicate if the car is available for booking.
+  - **Car Image**: A high-quality, full-width image showcasing the car.
+  - **Added Date**: e.g., _Added on 12/23/2024_.
+  - **Location**: e.g., _Dhaka, Bangladesh_.
+  - **Booking Count**: e.g., _Booked 2 times_.
+  - **Description**: A detailed description of the car and its specifications.
+
+- **Booking Process**:
+  - **Book Now Button**:  
+    A clearly visible button that triggers a **Booking Modal**.
+  - **Booking Modal**:
+    - **Details in Modal**:
+      - **Car Model**: Name of the car being booked.
+      - **Price Per Day**: Rental cost.
+      - **Booking Period**:
+        - **Start Date**: Date picker for selecting the booking start date.
+        - **End Date**: Date picker for selecting the booking end date.
+      - **Total Price**: Calculate and display the total price based on the selected booking period.
+    - **Actions in Modal**:
+      - **Confirm Booking**: A button to finalize the booking process.
+      - **Cancel**: Close the modal without booking.
+
+### ➕ **Add Car** (`/add-car`) _(Private Route)_
+
+- **Form Layout**: A user-friendly form for adding new cars with fields for:
+  - Car Model
+  - Daily Rental Price
+  - Vehicle Registration Number
+  - Features (GPS, AC, etc.)
+  - Car Image
+  - Car Description
+  - Car Location
+- **Validation**: Ensure all required fields are completed before submission.
+- **Success Notification**: Show confirmation on successful car addition using Toastify or SweetAlert2.
+
+### 🚘 **My Cars** (`/my-cars`) _(Private Route)_
+
+- **Personal Inventory**: Display all cars added by the user.
+- **Edit Functionality**: Enable users to update details of their cars, such as price or availability.
+- **Delete Functionality**: Allow users to remove cars from their inventory with confirmation prompts.
+- **Real-Time Updates**: Reflect changes instantly without page reloads.
+
+### 📋 **My Bookings** (`/my-bookings`)
+
+- **Booking Overview**: Display a list of all bookings made by the user, including:
+  - Car Model
+  - Booking Period
+  - Total Price
+  - Booking Status:
+    - (Confirmed, Pending, or Canceled)
+- **Cancel Booking**: Allow users to cancel a booking with a confirmation prompt.
+- **Modify Booking Dates**: Provide an option to adjust the rental period for confirmed bookings.
 
 ## 🌐 Tech Stack
 
