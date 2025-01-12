@@ -32,7 +32,8 @@ Welcome to **GarirKhoj.com**, a modern and feature-rich car rental platform wher
   - Car Model
   - Booking Period
   - Total Price
-  - Booking Status (Confirmed, Pending, or Canceled)
+  - Booking Status:
+    - (Confirmed, Pending, or Canceled)
 - **Cancel Booking**: Cancel existing bookings with confirmation prompts.
 - **Modify Booking Dates**: Update booking periods with a simple date picker.
 
