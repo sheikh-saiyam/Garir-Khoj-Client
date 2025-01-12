@@ -52,5 +52,60 @@
 - **SweetAlert2**: Provides beautiful, customizable popups for user interaction, such as alerts for success or errors.
 - **Swiper**: A mobile-friendly carousel/slider component for React.
 - **Axios**: A promise-based HTTP client for making API requests in React.
-- **recharts**: A library for creating charts and visual data representations in React.
-- **date-fns**: A library for working with dates in JavaScript, providing functions for parsing, formatting, and manipulating dates.
+- **Recharts**: A library for creating charts and visual data representations in React.
+- **Date-fns**: A library for working with dates in JavaScript, providing functions for parsing, formatting, and manipulating dates.
+
+## ⚙️ Installation & Setup
+
+**1. Clone the client repository**:
+
+```
+git clone https://github.com/sheikh-saiyam/Garir-Khoj-Client
+cd Garir-Khoj-Client
+```
+
+**2. Clone the server repository**:
+
+```
+git clone https://github.com/sheikh-saiyam/Garir-Khoj-Server
+cd Garir-Khoj-Server
+```
+
+**3. Install dependencies on client & server:**
+
+```
+npm install
+```
+
+**4. Set up environment variables in .env.local on client**
+
+```
+apiKey: import.meta.env.VITE_apiKey,
+authDomain: import.meta.env.VITE_authDomain,
+projectId: import.meta.env.VITE_projectId,
+storageBucket: import.meta.env.VITE_storageBucket,
+messagingSenderId: import.meta.env.VITE_messagingSenderId,
+appId: import.meta.env.VITE_appId,
+```
+
+**5. Set up environment variables in .env on server**
+
+```
+DB_USER=your_db_user_name
+DB_PASS=your_db_password
+JWT_SECRET=jwt_secret_code
+```
+
+**6. Start the development:**
+
+- Garir Khoj Client
+
+```
+npm run build
+```
+
+- Garir Khoj Server
+
+```
+npm start
+```
