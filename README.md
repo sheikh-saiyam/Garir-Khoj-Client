@@ -2,9 +2,9 @@
 
 Welcome to **GarirKhoj.com**, a modern and feature-rich car rental platform where users can seamlessly rent cars, manage bookings, and enjoy a smooth, responsive user experience. Whether you're looking for a luxury car or a budget-friendly ride, GarirKhoj.com is the place to drive your dreams!
 
-## 🔗 [Live Website Link Of **Game-Chill**](https://garir-khoj.netlify.app/)
+## 🔗 [Live Website Link Of **GarirKhoj**](https://garir-khoj.netlify.app/)
 
-## 🔗 [Github Server Repository **Game-Chill**](https://github.com/sheikh-saiyam/Garir-Khoj-Server)
+## 🔗 [Github Server Repository **GarirKhoj**](https://github.com/sheikh-saiyam/Garir-Khoj-Server)
 
 ## Key features :
 
