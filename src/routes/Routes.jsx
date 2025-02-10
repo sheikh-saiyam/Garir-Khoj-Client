@@ -21,7 +21,7 @@ const router = createBrowserRouter([
         path: "/",
         element: <HomeLayout></HomeLayout>,
       },
-      // Car Related Routes
+      // Car Related Routes -->
       {
         path: "/available-cars",
         element: <AvailableCars></AvailableCars>,
@@ -54,8 +54,7 @@ const router = createBrowserRouter([
           </PrivateRoute>
         ),
       },
-      // Car Related Routes
-      // Authentication
+      // Authentication Route --->
       {
         path: "/login",
         element: <Login></Login>,
