@@ -45,6 +45,16 @@ const Navbar = () => {
           >
             Available Cars
           </NavLink>
+          <NavLink
+            to={"/service"}
+            className={({ isActive }) =>
+              isActive
+                ? "font-extrabold tracking-wider text-base text-primary rounded-xl"
+                : "text-base font-semibold hover:text-primary hover:underline"
+            }
+          >
+            Service
+          </NavLink>
         </ul>
 
         {/* private routes */}
@@ -129,7 +139,7 @@ const Navbar = () => {
                 <p className="font-semibold text-center my-1">{user.email}</p>
                 <div className="mt-2">
                   {location.pathname === "/my-cars" ||
-                   location.pathname === "/my-bookings" ? (
+                  location.pathname === "/my-bookings" ? (
                     <></>
                   ) : (
                     <button

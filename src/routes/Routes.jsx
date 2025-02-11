@@ -10,27 +10,28 @@ import MyCars from "../pages/MyCars";
 import CarDetails from "../pages/CarDetails";
 import ErrorPage from "../components/ErrorPage/ErrorPage";
 import MyBookings from "../pages/MyBookings";
+import Services from "../pages/Services";
 
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <MainLayout></MainLayout>,
-    errorElement: <ErrorPage></ErrorPage>,
+    element: <MainLayout />,
+    errorElement: <ErrorPage />,
     children: [
       {
         path: "/",
-        element: <HomeLayout></HomeLayout>,
+        element: <HomeLayout />,
       },
       // Car Related Routes -->
       {
         path: "/available-cars",
-        element: <AvailableCars></AvailableCars>,
+        element: <AvailableCars />,
       },
       {
         path: "/add-car",
         element: (
           <PrivateRoute>
-            <AddCar></AddCar>
+            <AddCar />
           </PrivateRoute>
         ),
       },
@@ -38,32 +39,36 @@ const router = createBrowserRouter([
         path: "/my-cars",
         element: (
           <PrivateRoute>
-            <MyCars></MyCars>
+            <MyCars />
           </PrivateRoute>
         ),
       },
       {
         path: "/car-details/:id",
-        element: <CarDetails></CarDetails>,
+        element: <CarDetails />,
       },
       {
         path: "/my-bookings",
         element: (
           <PrivateRoute>
-            <MyBookings></MyBookings>
+            <MyBookings />
           </PrivateRoute>
         ),
       },
       // Authentication Route --->
       {
         path: "/login",
-        element: <Login></Login>,
+        element: <Login />,
       },
       {
         path: "/register",
-        element: <Register></Register>,
+        element: <Register />,
       },
-      // Authentication
+      // Public Route --->
+      {
+        path: "/service",
+        element: <Services />,
+      },
     ],
   },
 ]);
