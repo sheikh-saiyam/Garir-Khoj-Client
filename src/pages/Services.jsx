@@ -2,7 +2,7 @@ import { FaArrowRight } from "react-icons/fa";
 
 const Services = () => {
   return (
-    <div className="pt-8 py-20 w-11/12 mx-auto max-w-screen-2xl">
+    <div className="pt-8 py-20 w-11/12 md:w-10/12 mx-auto max-w-screen-2xl">
       {/* Banner  */}
       <section className="relative rounded-2xl">
         <div className="rounded-2xl">
@@ -44,7 +44,8 @@ const Services = () => {
           <div className="mt-4">
             <h1 className="text-2xl font-semibold">Car Rental With Driver</h1>
             <h3 className="mt-2 font-normal tracking-wide text-[#444]">
-              Enhance your rental experience <br /> with additional options.
+              Enjoy a stress-free ride with our professional <br />{" "}
+              chauffeur-driven car rental service.
             </h3>
           </div>
           <div className="mt-3">
@@ -86,7 +87,8 @@ const Services = () => {
           <div className="mt-4">
             <h1 className="text-2xl font-semibold">Business Car Rental</h1>
             <h3 className="mt-2 font-normal tracking-wide text-[#444]">
-              Enhance your rental experience <br /> with additional options.
+              Reliable corporate car rentals for seamless <br /> business travel
+              and executive transport.
             </h3>
           </div>
           <div className="mt-3">
@@ -140,7 +142,8 @@ const Services = () => {
           <div className="mt-4">
             <h1 className="text-2xl font-semibold">Airport Transfer</h1>
             <h3 className="mt-2 font-normal tracking-wide text-[#444]">
-              Enhance your rental experience <br /> with additional options.
+              Punctual and comfortable airport pickup and <br /> drop-off
+              services for hassle-free travel.
             </h3>
           </div>
           <div className="mt-3">
@@ -220,7 +223,8 @@ const Services = () => {
           <div className="mt-4">
             <h1 className="text-2xl font-semibold">Chauffeur Services</h1>
             <h3 className="mt-2 font-normal tracking-wide text-[#444]">
-              Enhance your rental experience <br /> with additional options.
+              Luxury chauffeur-driven transport for <br /> business, events, and
+              city tours.
             </h3>
           </div>
           <div className="mt-3">
@@ -309,7 +313,8 @@ const Services = () => {
           <div className="mt-4">
             <h1 className="text-2xl font-semibold">Private Transfer</h1>
             <h3 className="mt-2 font-normal tracking-wide text-[#444]">
-              Enhance your rental experience <br /> with additional options.
+              Secure and comfortable private transfers <br /> tailored to your
+              schedule and needs.
             </h3>
           </div>
           <div className="mt-3">
@@ -395,7 +400,8 @@ const Services = () => {
           <div className="mt-4">
             <h1 className="text-2xl font-semibold">VIP Transfer</h1>
             <h3 className="mt-2 font-normal tracking-wide text-[#444]">
-              Enhance your rental experience <br /> with additional options.
+              Exclusive transportation with professional <br /> chauffeurs for a
+              premium experience.
             </h3>
           </div>
           <div className="mt-3">
@@ -437,7 +443,8 @@ const Services = () => {
           <div className="mt-4">
             <h1 className="text-2xl font-semibold">Roadside Assistance</h1>
             <h3 className="mt-2 font-normal tracking-wide text-[#444]">
-              Enhance your rental experience <br /> with additional options.
+              24/7 emergency roadside support for quick <br /> and reliable
+              assistance.
             </h3>
           </div>
           <div className="mt-3">
@@ -507,7 +514,8 @@ const Services = () => {
           <div className="mt-4">
             <h1 className="text-2xl font-semibold">Event Transportation</h1>
             <h3 className="mt-2 font-normal tracking-wide text-[#444]">
-              Enhance your rental experience <br /> with additional options.
+              Smooth and efficient transport solutions <br /> for events,
+              guests, and VIPs.
             </h3>
           </div>
           <div className="mt-3">
