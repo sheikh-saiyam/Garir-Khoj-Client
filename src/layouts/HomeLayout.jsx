@@ -4,6 +4,7 @@ import RecentListings from "../components/HomeSections/RecentListings";
 import UserTestimonials from "../components/HomeSections/UserTestimonials";
 import WhyChooseUs from "../components/HomeSections/WhyChooseUs";
 import SpecialOffers from "../components/HomeSections/SpecialOffers";
+import FAQ from "../components/HomeSections/FAQ";
 
 const HomeLayout = () => {
   useEffect(() => {
@@ -29,6 +30,9 @@ const HomeLayout = () => {
       </div>
       <div className="w-11/12 mx-auto max-w-[1400px]">
         <SpecialOffers></SpecialOffers>
+      </div>
+      <div className="pb-20 w-11/12 md:w-10/12 mx-auto max-w-screen-xl">
+        <FAQ></FAQ>
       </div>
     </div>
   );
