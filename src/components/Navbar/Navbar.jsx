@@ -1,4 +1,5 @@
 import logo from "../../assets/logo.png";
+import logoWhite from "../../assets/logoWhite.png";
 import { Link, NavLink, useLocation } from "react-router-dom";
 import useAuth from "../../hooks/useAuth";
 import { IoIosArrowDropdown } from "react-icons/io";
@@ -9,19 +10,30 @@ import { FaBookmark, FaCarSide } from "react-icons/fa";
 import ThemeToggle from "./ThemeToggle";
 const Navbar = () => {
   const location = useLocation();
+  const theme = localStorage.getItem("theme");
   const { user, logOut, loading } = useAuth();
   const [isOpenMenu, setIsOpenMenu] = useState(false);
   const [isOpen, setIsOpen] = useState(false);
   return (
     <div className="mx-auto w-11/12 max-w-screen-2xl pt-4 pb-8 md:py-4 flex justify-between items-center">
       <div>
-        <Link>
-          <img
-            className="w-28 h-24 border-l border-dashed"
-            src={logo}
-            alt="GarirKhoj.com"
-          />
-        </Link>
+        {theme === "dark" ? (
+          <Link>
+            <img
+              className="w-28 h-24 border-l border-dashed"
+              src={logoWhite}
+              alt="GarirKhoj.com"
+            />
+          </Link>
+        ) : (
+          <Link>
+            <img
+              className="w-28 h-24 border-l border-dashed"
+              src={logo}
+              alt="GarirKhoj.com"
+            />
+          </Link>
+        )}
       </div>
       <div className="flex gap-4 items-center">
         {/* Navbar for larger screens */}
@@ -31,7 +43,7 @@ const Navbar = () => {
             className={({ isActive }) =>
               isActive
                 ? "font-extrabold tracking-wider text-base text-primary rounded-xl"
-                : "text-base font-semibold hover:text-primary hover:underline"
+                : "text-base font-semibold hover:text-primary dark:text-white hover:underline"
             }
           >
             Home
@@ -41,7 +53,7 @@ const Navbar = () => {
             className={({ isActive }) =>
               isActive
                 ? "font-extrabold tracking-wider text-base text-primary rounded-xl"
-                : "text-base font-semibold hover:text-primary hover:underline"
+                : "text-base font-semibold hover:text-primary dark:text-white hover:underline"
             }
           >
             Available Cars
@@ -51,7 +63,7 @@ const Navbar = () => {
             className={({ isActive }) =>
               isActive
                 ? "font-extrabold tracking-wider text-base text-primary rounded-xl"
-                : "text-base font-semibold hover:text-primary hover:underline"
+                : "text-base font-semibold hover:text-primary dark:text-white hover:underline"
             }
           >
             Service
@@ -61,7 +73,7 @@ const Navbar = () => {
         {/* private routes */}
         {user && user.email && (
           <div className="hidden md:block relative group z-10">
-            <button className="flex gap-1 items-center text-base font-semibold hover:text-primary hover:underline">
+            <button className="flex gap-1 items-center text-base font-semibold hover:text-primary dark:text-white hover:underline">
               Dashboard
               <IoIosArrowDropdown className="text-xl" />
             </button>
@@ -72,7 +84,7 @@ const Navbar = () => {
                 className={({ isActive }) =>
                   isActive
                     ? "flex items-center justify-center py-2 px-4 gap-1 bg-primary text-white font-bold"
-                    : "bg-bgPrimary flex items-center justify-center py-2 px-4 gap-1 hover:bg-[#fff] hover:underline underline-offset-[3px] hover:text-primary hover:font-semibold duration-300"
+                    : "bg-bgPrimary flex items-center justify-center py-2 px-4 gap-1 hover:bg-[#fff] hover:underline underline-offset-[3px] hover:text-primary dark:text-black hover:font-semibold duration-300 "
                 }
               >
                 <IoAddCircle />
@@ -83,7 +95,7 @@ const Navbar = () => {
                 className={({ isActive }) =>
                   isActive
                     ? "flex items-center justify-center py-2 px-4 gap-1 bg-primary text-white font-bold"
-                    : "bg-bgPrimary flex items-center justify-center py-2 px-4 gap-1 hover:bg-[#fff] hover:underline underline-offset-[3px] hover:text-primary hover:font-semibold duration-300"
+                    : "bg-bgPrimary flex items-center justify-center py-2 px-4 gap-1 hover:bg-[#fff] hover:underline underline-offset-[3px] hover:text-primary dark:text-black hover:font-semibold duration-300 "
                 }
               >
                 <FaCarSide />
@@ -94,7 +106,7 @@ const Navbar = () => {
                 className={({ isActive }) =>
                   isActive
                     ? "flex items-center justify-center py-2 px-4 gap-1 bg-primary text-white font-bold"
-                    : "bg-bgPrimary flex items-center justify-center py-2 px-4 gap-1 hover:bg-[#fff] hover:underline underline-offset-[3px] hover:text-primary hover:font-semibold duration-300"
+                    : "bg-bgPrimary flex items-center justify-center py-2 px-4 gap-1 hover:bg-[#fff] hover:underline underline-offset-[3px] hover:text-primary dark:text-black hover:font-semibold duration-300 "
                 }
               >
                 <FaBookmark />
@@ -145,7 +157,7 @@ const Navbar = () => {
                   ) : (
                     <button
                       onClick={logOut}
-                      className="btn rounded w-full btn-sm bg-primary text-white hover:bg-transparent hover:text-primary hover:border-primary hover tracking-wide text-lg font-semibold"
+                      className="btn rounded w-full btn-sm bg-primary text-white hover:bg-transparent hover:text-primary dark:text-white hover:border-primary hover tracking-wide text-lg font-semibold"
                     >
                       Logout
                     </button>
@@ -159,7 +171,7 @@ const Navbar = () => {
             <div>
               <NavLink
                 to={"/login"}
-                className="btn bg-primary text-white hover:bg-transparent hover:text-primary hover:border-primary hover:border-2 tracking-wide text-lg font-semibold"
+                className="btn bg-primary text-white hover:bg-transparent hover:text-primary dark:text-white hover:border-primary hover:border-2 tracking-wide text-lg font-semibold"
               >
                 Login
               </NavLink>
