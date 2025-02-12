@@ -8,17 +8,17 @@ import whyChooseUs from "../../assets/WhyChooseUs.png";
 const WhyChooseUs = () => {
   return (
     <div>
-      <span className="font-normal text-md text-primary">
+      <span className="font-normal text-md text-primary dark:font-bold">
         --- OUR FEATURES ---
       </span>
-      <h2 className="mb-6 md:mb-4 text-3xl font-bold mt-2 text-gray-800">
+      <h2 className="mb-6 md:mb-4 text-3xl font-bold mt-2 text-gray-800 dark:text-white">
         Why Choose Us?
       </h2>
       <section className="flex flex-col-reverse lg:flex lg:flex-row justify-between items-center gap-8">
         <div className="w-full lg:w-1/2">
           <div className="grid grid-cols-4 md:grid-cols-5 gap-6">
             {/* Wide Variety of Cars */}
-            <div className="bg-red-100/5 border-primary col-span-2 md:col-span-3 p-4 border rounded-lg shadow">
+            <div className="dark:bg-white dark:border-2 dark:border-white dark:shadow bg-red-100/5 border-primary col-span-2 md:col-span-3 p-4 border rounded-lg shadow">
               <div className="text-4xl text-indigo-600 mb-4">
                 <FaCar />
               </div>
@@ -60,7 +60,7 @@ const WhyChooseUs = () => {
             </div>
 
             {/* Customer Support */}
-            <div className="bg-red-100/5 border-primary col-span-2 md:col-span-3 p-4 border rounded-lg shadow">
+            <div className="dark:bg-white dark:border-2 dark:border-white dark:shadow bg-red-100/5 border-primary col-span-2 md:col-span-3 p-4 border rounded-lg shadow">
               <div className="text-4xl text-purple-600 mb-4">
                 <FaHeadset />
               </div>

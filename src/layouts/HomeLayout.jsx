@@ -15,7 +15,7 @@ const HomeLayout = () => {
   });
 
   return (
-    <div>
+    <div className="dark:bg-black">
       <div className="pb-20 w-11/12 mx-auto max-w-screen-2xl">
         <Slider></Slider>
       </div>

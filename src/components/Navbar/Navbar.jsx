@@ -6,6 +6,7 @@ import { useState } from "react";
 import MobileNavbar from "./MobileNavbar";
 import { IoAddCircle } from "react-icons/io5";
 import { FaBookmark, FaCarSide } from "react-icons/fa";
+import ThemeToggle from "./ThemeToggle";
 const Navbar = () => {
   const location = useLocation();
   const { user, logOut, loading } = useAuth();
@@ -105,7 +106,7 @@ const Navbar = () => {
         {/* private routes */}
 
         {/* Conditional login btn & user dropdown with logout */}
-        <div className="hidden md:flex">
+        <div className="hidden md:flex gap-x-3">
           {user && user.email ? (
             <div className="dropdown hover:dropdown-open dropdown-end">
               <div
@@ -164,6 +165,7 @@ const Navbar = () => {
               </NavLink>
             </div>
           )}
+          <ThemeToggle />
         </div>
       </div>
       {/* Conditional login btn & user dropdown with logout */}
