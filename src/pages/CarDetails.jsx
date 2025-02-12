@@ -123,11 +123,11 @@ const CarDetails = () => {
   // If User Is logOut then show toast modal
 
   return (
-    <div>
+    <div className="dark:bg-black">
       {loader ? (
         <Loader></Loader>
       ) : (
-        <div className="mx-auto w-11/12 md:w-10/12 max-w-[1300px] my-12 lg:flex">
+        <div className="mx-auto w-11/12 md:w-10/12 max-w-[1300px] py-12 lg:flex">
           <div className="relative w-full lg:w-6/12">
             <img className="h-full w-full" src={car_image} alt="" />
             {availability === "Yes" ? (
@@ -141,41 +141,41 @@ const CarDetails = () => {
             )}
           </div>
           {/* Text Div */}
-          <div className="lg:border-l-0 border-2 p-6 border-primary w-full lg:w-6/12">
+          <div className="lg:border-l-0 border-2 p-6 border-primary dark:border-white w-full lg:w-6/12">
             <div>
-              <h1 className="text-2xl md:text-3xl lg:text-4xl font-bold ">
+              <h1 className="text-2xl md:text-3xl lg:text-4xl font-bold  dark:text-white ">
                 {car_model}
               </h1>
 
-              <p className="font-medium my-3 text-lg">
+              <p className="font-medium dark:font-normal my-3 text-lg  dark:text-white ">
                 Description: <span className="font-normal">{description}</span>
               </p>
             </div>
             <div>
               <div>
                 {added_date && (
-                  <h3 className="flex items-center gap-2 text-[#212121] font-semibold my-1">
-                    <IoCalendarNumberOutline className="text-primary" />
+                  <h3 className="flex items-center gap-2 text-[#212121] dark:text-white font-semibold dark:font-normal my-1">
+                    <IoCalendarNumberOutline className="text-primary dark:text-white" />
                     Added-Date: {format(new Date(added_date), "P")}
                   </h3>
                 )}
-                <h3 className="flex items-center gap-2 text-[#111111] font-semibold my-1">
-                  <FaSearchLocation className="text-primary" />
+                <h3 className="flex items-center gap-2 text-[#111111] dark:text-white font-semibold dark:font-normal my-1">
+                  <FaSearchLocation className="text-primary dark:text-white" />
                   Location: {location}
                 </h3>
-                <h3 className="flex items-center gap-2 text-[#111111] font-semibold my-1">
-                  <FaCashRegister className="text-primary" />
+                <h3 className="flex items-center gap-2 text-[#111111] dark:text-white font-semibold dark:font-normal my-1">
+                  <FaCashRegister className="text-primary dark:text-white" />
                   Registration Number: {registration_number}
                 </h3>
               </div>
               <div className="my-3">
-                <h1 className="text-xl font-bold flex gap-1 items-center">
+                <h1 className="text-xl font-bold dark:text-white dark:font-medium flex gap-1 items-center">
                   <CiBoxList className="text-2xl font-extrabold" />
                   Features:
                 </h1>
                 {(features || []).map((feature, index) => (
                   <li
-                    className="font-medium mt-2 text-md list-none"
+                    className="font-medium dark:text-white mt-2 text-md list-none"
                     key={index}
                   >
                     {index + 1}. {feature}
@@ -186,7 +186,7 @@ const CarDetails = () => {
             <hr className="border my-3" />
             <div className="flex items-center justify-between">
               <div className="">
-                <h1 className="text-xl md:text-2xl lg:text-3xl font-semibold text-primary">
+                <h1 className="text-xl md:text-2xl lg:text-3xl font-semibold text-primary dark:text-white">
                   ${daily_rental_price} / Daily
                 </h1>
               </div>
@@ -203,7 +203,7 @@ const CarDetails = () => {
                       handleBlockToBooking();
                     }
                   }}
-                  className="bg-primary btn h-full flex float-end text-white font-semibold text-lg hover:bg-white hover:text-primary border-primary border hover:border-primary"
+                  className="bg-primary btn h-full flex float-end text-white font-semibold text-lg hover:bg-white hover:text-primary border-primary border hover:border-primary dark:border-none"
                 >
                   Book Now
                 </button>

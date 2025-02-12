@@ -45,17 +45,19 @@ const AvailableCars = () => {
   };
   // console.log(cars);
   return (
-    <div className="bg-[#f9f9f9]">
+    <div className="bg-[#f9f9f9] dark:bg-black">
       <div className="mx-auto w-11/12 max-w-[1400px] py-12 space-y-6 lg:space-y-0 lg:flex gap-8">
-        <div className="w-full lg:w-3/12 h-max grid place-content-stretch bg-white rounded-xl shadow px-4 pt-4 pb-6">
+        <div className="w-full lg:w-3/12 h-max grid place-content-stretch bg-white rounded-xl shadow px-4 pt-4 pb-6 dark:bg-[#1b1b1b]">
           {/* Layout toggle */}
           <div className="flex items-center justify-between">
-            <h1 className="text-xl font-bold text-[#2a2a2a] my-2">Layout</h1>
+            <h1 className="text-xl font-bold text-[#2a2a2a] dark:text-white my-2">
+              Layout
+            </h1>
             <div className="flex items-center gap-2 bg-[#f9f9f9] p-2 border rounded-lg">
               <button
                 onClick={() => setLayout(true)}
                 className={` rounded-md ${
-                  layout ? "bg-primary text-white" : ""
+                  layout ? "bg-primary dark:bg-[#1b1b1b] text-white" : ""
                 } p-1`}
               >
                 <IoGrid className="text-xl" />
@@ -63,7 +65,7 @@ const AvailableCars = () => {
               <button
                 onClick={() => setLayout(false)}
                 className={` rounded-md ${
-                  !layout ? "bg-primary text-white" : ""
+                  !layout ? "bg-primary dark:bg-[#1b1b1b] text-white" : ""
                 } p-1`}
               >
                 <FaList className="text-xl" />
@@ -73,11 +75,13 @@ const AvailableCars = () => {
           {/* Layout toggle */}
           {/* Search */}
           <div>
-            <h1 className="text-xl font-bold text-[#2a2a2a] my-2">Search</h1>
+            <h1 className="text-xl font-bold text-[#2a2a2a]  dark:text-white  my-2">
+              Search
+            </h1>
           </div>
           <div>
             <input
-              className="px-4 py-3 text-gray-500 placeholder-gray-500 bg-red-100/20 outline-none border-primary border rounded-lg w-full focus:placeholder-transparent"
+              className="px-4 py-3 text-gray-500 placeholder-gray-500 bg-red-100/20 outline-none  dark:text-black dark:placeholder-black dark:border-none  dark:bg-white border-primary border rounded-lg w-full focus:placeholder-transparent"
               type="search"
               name="search"
               value={search}
@@ -86,7 +90,7 @@ const AvailableCars = () => {
               aria-label="Enter Job Title"
             />
             <div className="flex float-end my-2 w-5/12">
-              <button className="btn bg-primary text-lg text-white btn-sm w-full flex">
+              <button className="btn bg-primary dark:border-none text-lg text-white btn-sm w-full flex">
                 Search
               </button>
             </div>
@@ -94,7 +98,7 @@ const AvailableCars = () => {
           {/* Search */}
           {/* Sort By Date & Price */}
           <div>
-            <h1 className="text-xl font-bold text-[#2a2a2a] mt-2 mb-4">
+            <h1 className="text-xl font-bold text-[#2a2a2a]  dark:text-white  mt-2 mb-4">
               Sort By
             </h1>
           </div>
@@ -131,7 +135,7 @@ const AvailableCars = () => {
           <div>
             <button
               onClick={handleReset}
-              className="mt-4 btn btn-sm w-5/12 float-end bg-black text-white text-lg font-semibold"
+              className="mt-4 btn btn-sm w-5/12 float-end bg-black text-white text-lg font-semibold dark:bg-white dark:text-black"
             >
               Reset
             </button>

@@ -15,10 +15,10 @@ const CarCard = ({ car }) => {
     location,
   } = car;
   return (
-    <div className="w-full bg-white p-5 rounded-xl shadow grid place-content-stretch">
+    <div className="w-full bg-white dark:bg-[#1b1b1b] p-5 rounded-xl shadow grid place-content-stretch">
       <div className="relative">
         <img
-          className="rounded-lg border h-[250px] w-full"
+          className="rounded-lg border dark:border-none h-[250px] w-full"
           src={car_image}
           alt={car_model}
         />
@@ -40,32 +40,32 @@ const CarCard = ({ car }) => {
       </div>
       {/* Floating button at top-left */}
       <div>
-        <h5 className="my-2 font-bold text-[#313131] text-2xl sm:text-[27px]">
+        <h5 className="my-2 font-bold text-[#313131] dark:text-white text-2xl sm:text-[27px]">
           {car_model}
         </h5>
-        <p className="font-semibold text-sm sm:text-lg">
+        <p className="font-semibold dark:text-[#fff3f3] text-sm sm:text-lg">
           {description.substring(0, 60)}...
         </p>
         <hr className="border my-3" />
         <div>
-          <h3 className="flex items-center gap-2 text-[#212121] text-sm sm:text-base font-semibold my-1">
-            <IoCalendarNumberOutline className="text-primary" />
+          <h3 className="flex items-center gap-2 text-[#212121] text-sm sm:text-base font-semibold my-1 dark:text-white">
+            <IoCalendarNumberOutline className="text-primary dark:text-white" />
             Added-Date: {format(new Date(added_date), "P")}
           </h3>
-          <h3 className="flex items-center gap-2 text-[#111111] text-sm sm:text-base font-semibold my-1">
-            <FaSearchLocation className="text-primary" />
+          <h3 className="flex items-center gap-2 text-[#111111] text-sm sm:text-base font-semibold my-1 dark:text-white">
+            <FaSearchLocation className="text-primary dark:text-white" />
             {location}
           </h3>
         </div>
         <div className="mt-4 flex items-center gap-2 justify-between">
           <div>
-            <h1 className="text-[#111111] font-semibold text-sm sm:text-base">
+            <h1 className="text-[#111111] dark:text-white font-semibold text-sm sm:text-base">
               Booking Count: {bookingCount}
             </h1>
           </div>
           <Link
             to={`/car-details/${_id}`}
-            className="bg-primary btn w-1/2 text-white font-semibold text-lg hover:bg-white hover:text-primary border-primary border hover:border-primary"
+            className="bg-primary btn w-1/2 text-white font-semibold text-lg hover:bg-white hover:text-primary border-primary border hover:border-primary dark:border-none duration-300"
           >
             Book Now
           </Link>
