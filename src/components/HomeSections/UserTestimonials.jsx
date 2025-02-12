@@ -55,10 +55,10 @@ const UserTestimonials = () => {
   return (
     <div className="w-11/12 mx-auto max-w-[1400px] py-4 pb-20">
       <div className="mx-auto text-center">
-        <button className="text-base md:text-xl font-semibold py-3 px-6 rounded-full text-primary bg-red-100/60 border-primary border-2">
+        <button className="dark:text-primary dark:bg-white dark:border-none dark:font-bold text-base md:text-xl font-semibold py-3 px-6 rounded-full text-primary bg-red-100/60 border-primary border-2">
           Testimonials
         </button>
-        <h1 className="text-2xl md:text-3xl lg:text-4xl font-bold mt-5 mb-6 tracking-wider">
+        <h1 className="text-2xl dark:text-white md:text-3xl lg:text-4xl font-bold mt-5 mb-6 tracking-wider">
           Love From Clients
         </h1>
       </div>

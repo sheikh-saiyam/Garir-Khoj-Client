@@ -59,21 +59,21 @@ const FAQ = () => {
   return (
     <>
       <div className="text-center mb-10">
-        <button className="text-base md:text-xl font-semibold py-3 px-6 rounded-full text-primary bg-red-100/60 border-primary border-2">
+        <button className="dark:text-primary dark:bg-white dark:border-none dark:font-bold text-base md:text-xl font-semibold py-3 px-6 rounded-full text-primary bg-red-100/60 border-primary border-2">
           F A Q ?
         </button>
-        <p className="mt-6 font-medium mx-auto text-[#393939] text-sm md:text-lg max-w-3xl">
+        <p className="mt-6 font-medium mx-auto text-[#393939] text-sm md:text-lg max-w-3xl dark:text-white">
           Get all the answers you need about renting a car on GarirKhoj.com.
           From booking and pricing to cancellations and support, we’ve covered
           everything to ensure a smooth experience. Find the details below!
         </p>
       </div>
       {/* F A Q */}
-      <div className="join join-vertical w-full">
+      <div className="join join-vertical w-full dark:text-white">
         {faqs.map((faq, index) => (
           <div
             key={index}
-            className="collapse collapse-arrow join-item border-base-300 border"
+            className="collapse collapse-arrow join-item border-base-300 border dark:border-2"
           >
             <input
               type="radio"

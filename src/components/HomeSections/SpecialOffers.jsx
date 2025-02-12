@@ -47,10 +47,10 @@ const SpecialOffers = () => {
   return (
     <div className="pb-20">
       <div className="text-center">
-        <button className="text-base md:text-xl font-semibold py-3 px-6 rounded-full text-primary bg-red-100/60 border-primary border-2">
+        <button className="dark:text-primary dark:bg-white dark:border-none dark:font-bold text-base md:text-xl font-semibold py-3 px-6 rounded-full text-primary bg-red-100/60 border-primary border-2">
           Special Offers
         </button>
-        <p className="mt-6 font-medium mx-auto text-[#393939] text-sm md:text-lg max-w-3xl">
+        <p className="mt-6 font-medium mx-auto text-[#393939] dark:text-white text-sm md:text-lg max-w-3xl">
           Discover amazing car rental deals tailored just for you. Whether
           it&apos;s a weekend getaway or a luxury experience, we have the
           perfect ride for every occasion.
@@ -68,7 +68,7 @@ const SpecialOffers = () => {
                 src={offer.bgImage}
                 alt=""
               />
-              <button className="btn w-1/2 absolute bottom-0 left-1/2 transform -translate-x-1/2 translate-y-1/2 mt-4 hover:scale-105 transition-transform backdrop-blur-sm bg-transparent border-2 border-b-gray-300 border-white/40 rounded-lg text-[#2e2d2d] font-bold tracking-wider text-sm md:text-lg hover:!bg-transparent">
+              <button className="btn w-1/2 absolute bottom-0 left-1/2 transform -translate-x-1/2 translate-y-1/2 mt-4 hover:scale-105 transition-transform backdrop-blur-sm bg-transparent border-2 border-b-gray-300 border-white/40 rounded-lg text-[#2e2d2d] font-bold tracking-wider text-sm md:text-lg hover:!bg-transparent dark:text-white dark:border-white dark:border-4">
                 {offer.buttonText}
               </button>
             </div>
