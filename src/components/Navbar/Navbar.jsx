@@ -157,7 +157,7 @@ const Navbar = () => {
                   ) : (
                     <button
                       onClick={logOut}
-                      className="btn rounded w-full btn-sm bg-primary text-white hover:bg-transparent hover:text-primary dark:text-white hover:border-primary hover tracking-wide text-lg font-semibold"
+                      className="btn rounded w-full btn-sm bg-primary text-white hover:bg-transparent hover:text-primary dark:text-white hover:border-primary hover tracking-wide text-lg font-semibold dark:hover:text-primary"
                     >
                       Logout
                     </button>
@@ -183,14 +183,17 @@ const Navbar = () => {
       {/* Conditional login btn & user dropdown with logout */}
 
       {/* Navbar for mobile (md and below) */}
-      <MobileNavbar
-        user={user}
-        logOut={logOut}
-        isOpen={isOpen}
-        setIsOpen={setIsOpen}
-        isOpenMenu={isOpenMenu}
-        setIsOpenMenu={setIsOpenMenu}
-      />
+      <div className="flex md:hidden gap-2 items-center">
+        <MobileNavbar
+          user={user}
+          logOut={logOut}
+          isOpen={isOpen}
+          setIsOpen={setIsOpen}
+          isOpenMenu={isOpenMenu}
+          setIsOpenMenu={setIsOpenMenu}
+        />
+        <ThemeToggle />
+      </div>
       {/* Navbar for mobile (md and below) */}
     </div>
   );

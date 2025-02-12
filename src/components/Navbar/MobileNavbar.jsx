@@ -18,7 +18,7 @@ const MobileNavbar = ({
       <div>
         <label
           tabIndex={0}
-          className="btn bg-primary text-white  font-bold rounded duration-500"
+          className="btn bg-primary text-white  dark:border-none font-bold rounded duration-500"
           onClick={() =>
             isOpenMenu ? setIsOpenMenu(false) : setIsOpenMenu(true)
           }
