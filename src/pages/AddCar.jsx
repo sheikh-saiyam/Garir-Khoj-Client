@@ -60,144 +60,148 @@ const AddCar = () => {
   };
   // Add Car To DB Functionality
   return (
-    <div className="mx-auto w-11/12 md:w-10/12 lg:w-9/12 max-w-[1140px] my-8 border-2 rounded-xl">
-      <div className="text-center">
-        <h1 className="text-3xl md:text-4xl font-bold py-4">
-          Add{" "}
-          <span className="text-primary underline underline-offset-2">New</span>{" "}
-          Car
-        </h1>
-      </div>
-      <div className="mx-auto w-11/12 mt-6 mb-6">
-        <form onSubmit={handleSubmit}>
-          {/* Car Model & Daily Rental Price */}
-          <div className="grid grid-cols-1 gap-4 lg:grid-cols-2">
-            <div>
-              <label className="text-lg font-semibold text-gray-800">
-                Car Model
-              </label>
-              <input
-                type="text"
-                name="car_model"
-                placeholder="Enter Car Model"
-                required
-                className="mt-2 w-full input input-bordered"
-              />
-            </div>
+    <div className="dark:bg-black py-12">
+      <div className="mx-auto w-11/12 md:w-10/12 lg:w-9/12 max-w-[1140px] border-2 rounded-xl">
+        <div className="text-center">
+          <h1 className="text-3xl md:text-4xl font-bold py-4 dark:text-white">
+            Add{" "}
+            <span className="text-primary underline underline-offset-2">
+              New
+            </span>{" "}
+            Car
+          </h1>
+        </div>
+        <div className="mx-auto w-11/12 mt-6 mb-6">
+          <form onSubmit={handleSubmit}>
+            {/* Car Model & Daily Rental Price */}
+            <div className="grid grid-cols-1 gap-4 lg:grid-cols-2">
+              <div>
+                <label className="text-lg font-semibold text-gray-800 dark:text-white">
+                  Car Model
+                </label>
+                <input
+                  type="text"
+                  name="car_model"
+                  placeholder="Enter Car Model"
+                  required
+                  className="mt-2 w-full input input-bordered"
+                />
+              </div>
 
-            <div>
-              <label className="text-lg font-semibold text-gray-800">
-                Daily Rental Price
-              </label>
-              <input
-                type="number"
-                name="daily_rental_price"
-                placeholder="Enter Daily Rental Price"
-                required
-                className="mt-2 w-full input input-bordered"
-              />
+              <div>
+                <label className="text-lg font-semibold text-gray-800 dark:text-white">
+                  Daily Rental Price
+                </label>
+                <input
+                  type="number"
+                  name="daily_rental_price"
+                  placeholder="Enter Daily Rental Price"
+                  required
+                  className="mt-2 w-full input input-bordered"
+                />
+              </div>
             </div>
-          </div>
-          {/* Car Model & Daily Rental Price */}
+            {/* Car Model & Daily Rental Price */}
 
-          {/* Availability & Vehicle Registration Number */}
-          <div className="mt-3">
-            <div>
-              <label className="text-lg font-semibold text-gray-800">
-                Vehicle Registration Number
-              </label>
-              <input
-                type="number"
-                name="registration_number"
-                placeholder="Enter Vehicle Registration Number"
-                required
-                className="mt-2 w-full input input-bordered"
-              />
+            {/* Availability & Vehicle Registration Number */}
+            <div className="mt-3">
+              <div>
+                <label className="text-lg font-semibold text-gray-800 dark:text-white">
+                  Vehicle Registration Number
+                </label>
+                <input
+                  type="number"
+                  name="registration_number"
+                  placeholder="Enter Vehicle Registration Number"
+                  required
+                  className="mt-2 w-full input input-bordered"
+                />
+              </div>
             </div>
-          </div>
-          {/* Availability & Vehicle Registration Number */}
+            {/* Availability & Vehicle Registration Number */}
 
-          {/* Features */}
-          <div className="mt-3">
-            <div>
-              <label className="text-lg font-semibold text-gray-800">
-                Features /
-                <span className="text-xs font-medium text-red-500">
-                  (Put Each Feature In A New Line)
-                </span>
-              </label>
-              <textarea
-                name="features"
-                placeholder="Enter All Features Of The Car . Put Each Feature In A New Line"
-                required
-                rows="4"
-                className="mt-2 text-lg block w-full textarea textarea-bordered"
-              ></textarea>
+            {/* Features */}
+            <div className="mt-3">
+              <div>
+                <label className="text-lg font-semibold text-gray-800 dark:text-white">
+                  Features /
+                  <span className="text-xs font-medium text-red-500">
+                    (Put Each Feature In A New Line)
+                  </span>
+                </label>
+                <textarea
+                  name="features"
+                  placeholder="Enter All Features Of The Car . Put Each Feature In A New Line"
+                  required
+                  rows="4"
+                  className="mt-2 text-lg block w-full textarea textarea-bordered"
+                ></textarea>
+              </div>
             </div>
-          </div>
-          {/* Features */}
+            {/* Features */}
 
-          {/* Description */}
-          <div className="mt-3">
-            <div>
-              <label className="text-lg font-semibold text-gray-800">
-                Description
-              </label>
-              <textarea
-                name="description"
-                placeholder="Enter Description Of The Car"
-                required
-                rows="4"
-                className="mt-2 text-lg block w-full textarea textarea-bordered"
-              ></textarea>
+            {/* Description */}
+            <div className="mt-3">
+              <div>
+                <label className="text-lg font-semibold text-gray-800 dark:text-white">
+                  Description
+                </label>
+                <textarea
+                  name="description"
+                  placeholder="Enter Description Of The Car"
+                  required
+                  rows="4"
+                  className="mt-2 text-lg block w-full textarea textarea-bordered"
+                ></textarea>
+              </div>
             </div>
-          </div>
-          {/* Description */}
+            {/* Description */}
 
-          {/* Car Image react-dropzone */}
-          <div className="mt-3 container">
-            <div>
-              <label className="text-lg font-semibold text-gray-800">
-                Car Image
-              </label>
-              <input
-                type="text"
-                name="car_image"
-                placeholder="Enter Car Photo URL"
-                required
-                className="mt-2 w-full input input-bordered"
-              />
+            {/* Car Image react-dropzone */}
+            <div className="mt-3 container">
+              <div>
+                <label className="text-lg font-semibold text-gray-800 dark:text-white">
+                  Car Image
+                </label>
+                <input
+                  type="text"
+                  name="car_image"
+                  placeholder="Enter Car Photo URL"
+                  required
+                  className="mt-2 w-full input input-bordered"
+                />
+              </div>
             </div>
-          </div>
-          {/* Car Image react-dropzone */}
+            {/* Car Image react-dropzone */}
 
-          {/* Location */}
-          <div className="mt-3">
-            <div>
-              <label className="text-lg font-semibold text-gray-800">
-                Location
-              </label>
-              <input
-                type="text"
-                name="location"
-                placeholder="Enter Location"
-                required
-                className="mt-2 w-full input input-bordered"
-              />
+            {/* Location */}
+            <div className="mt-3">
+              <div>
+                <label className="text-lg font-semibold text-gray-800 dark:text-white">
+                  Location
+                </label>
+                <input
+                  type="text"
+                  name="location"
+                  placeholder="Enter Location"
+                  required
+                  className="mt-2 w-full input input-bordered"
+                />
+              </div>
             </div>
-          </div>
-          {/* Location */}
-          {/* Submit Button */}
-          <div className="mt-6">
-            <button
-              type="submit"
-              className="w-full btn bg-primary text-white font-bold text-lg"
-            >
-              Add Car
-            </button>
-          </div>
-          {/* Submit Button */}
-        </form>
+            {/* Location */}
+            {/* Submit Button */}
+            <div className="mt-6">
+              <button
+                type="submit"
+                className="w-full btn bg-primary dark:border-none text-white font-bold text-lg"
+              >
+                Add Car
+              </button>
+            </div>
+            {/* Submit Button */}
+          </form>
+        </div>
       </div>
     </div>
   );

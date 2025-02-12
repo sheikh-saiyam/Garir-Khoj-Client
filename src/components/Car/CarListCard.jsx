@@ -15,10 +15,10 @@ const CarListCard = ({ car }) => {
     location,
   } = car;
   return (
-    <div className="w-full bg-white p-5 flex items-center gap-4 rounded-xl shadow">
+    <div className="w-full bg-white dark:bg-[#1b1b1b] p-5 flex items-center gap-4 rounded-xl shadow">
       <div className="relative w-5/12 md:w-4/12">
         <img
-          className="rounded-lg border h-[180px] sm:h-[230px] w-full"
+          className="rounded-lg border dark:border-none h-[180px] sm:h-[230px] w-full"
           src={car_image}
           alt={car_model}
         />
@@ -39,27 +39,27 @@ const CarListCard = ({ car }) => {
         )}
       </div>
       <div className="w-7/12 md:w-8/12">
-        <h5 className="my-2 font-bold text-[#313131] text-lg sm:text-[27px]">
+        <h5 className="my-2 font-bold text-[#313131] dark:text-white text-lg sm:text-[27px]">
           {car_model}
         </h5>
-        <p className="font-semibold text-xs sm:text-lg">
+        <p className="font-semibold text-xs dark:text-[#fff3f3]  sm:text-lg">
           {description.substring(0, 100)}...
         </p>
         <hr className="border my-3" />
         <div>
-          <h3 className="flex text-xs sm:text-base items-center gap-2 text-[#212121] font-semibold my-1">
-            <IoCalendarNumberOutline className="text-primary" />
+          <h3 className="flex text-xs sm:text-base dark:text-[#fff3f3]  items-center gap-2 text-[#212121] font-semibold my-1">
+            <IoCalendarNumberOutline className="text-primary dark:text-[#fff3f3] " />
             Added-Date: {format(new Date(added_date), "P")}
           </h3>
-          <h3 className="flex text-xs sm:text-base items-center gap-2 text-[#111111] font-semibold my-1">
-            <FaSearchLocation className="text-primary" />
+          <h3 className="flex text-xs sm:text-base dark:text-[#fff3f3]  items-center gap-2 text-[#111111] font-semibold my-1">
+            <FaSearchLocation className="text-primary dark:text-[#fff3f3] " />
             {location}
           </h3>
         </div>
         <div className="mt-4">
           <Link
             to={`/car-details/${_id}`}
-            className="bg-primary h-full btn btn-sm w-1/2 md:w-2/5 flex float-end text-white font-semibold text-sm sm:text-lg hover:bg-white hover:text-primary border-primary border hover:border-primary"
+            className="bg-primary h-full btn btn-sm w-1/2 md:w-2/5 flex float-end text-white font-semibold text-sm sm:text-lg hover:bg-white hover:text-primary border-primary border hover:border-primary dark:border-none duration-300"
           >
             Book Now
           </Link>

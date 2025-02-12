@@ -4,6 +4,8 @@ import { toast } from "react-toastify";
 import Swal from "sweetalert2";
 
 const MyCarsTable = ({ myCar, idx, fetchMyCars }) => {
+  const theme = localStorage.getItem("theme");
+
   const {
     _id,
     car_model,
@@ -82,7 +84,7 @@ const MyCarsTable = ({ myCar, idx, fetchMyCars }) => {
   // Update Car Functionality
   return (
     <>
-      <tr className="hover">
+      <tr className={`${theme === "light" && "hover"} dark:text-white`}>
         <th>{idx + 1}</th>
         <td className="px-0">
           <img

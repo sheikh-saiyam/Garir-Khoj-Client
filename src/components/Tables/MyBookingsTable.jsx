@@ -9,6 +9,8 @@ import { useState } from "react";
 import { GiConfirmed } from "react-icons/gi";
 
 const MyBookingsTable = ({ myBooking, idx, fetchMyBookings }) => {
+  const theme = localStorage.getItem("theme");
+
   const {
     _id,
     car_id,
@@ -125,7 +127,11 @@ const MyBookingsTable = ({ myBooking, idx, fetchMyBookings }) => {
   // Functionality for modify booking date //
   return (
     <>
-      <tr className={`hover ${bookingStatus === "Canceled" && "bg-red-50"}`}>
+      <tr
+        className={`${theme === "light" && "hover"} dark:text-white ${
+          theme === "light" && bookingStatus === "Canceled" && "bg-red-50"
+        }`}
+      >
         <th>{idx + 1}</th>
         <td className="px-0">
           <img
