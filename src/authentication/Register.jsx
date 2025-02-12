@@ -96,7 +96,7 @@ const Register = () => {
   // for toggle password
   return (
     <div>
-      <div className="bg-base-200">
+      <div className="bg-base-200 dark:bg-black">
         <div className="w-11/12 mx-auto md:w-10/12 max-w-screen-2xl py-12 flex flex-col-reverse md:flex md:flex-row">
           <div className="bg-white py-12 px-8 md:w-7/12">
             <div className="mb-4">

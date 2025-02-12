@@ -67,7 +67,7 @@ const UserTestimonials = () => {
           {testimonials.map((testimonial) => (
             <div
               key={testimonial.id}
-              className="bg-white w-[400px] mr-6 h-full gird place-content-stretch p-6 rounded-lg shadow border"
+              className="bg-white w-[400px] mr-6 h-full gird place-content-stretch p-6 rounded-lg shadow border  dark:bg-[#1b1b1b] dark:text-white dark:border-none"
             >
               <div className="flex justify-between items-center">
                 <div className="flex items-center gap-4">
@@ -77,10 +77,12 @@ const UserTestimonials = () => {
                     className="w-16 h-16 rounded-full"
                   />
                   <div>
-                    <h3 className="text-lg font-semibold">
+                    <h3 className="text-lg font-semibold dark:text-white">
                       {testimonial.name}
                     </h3>
-                    <p className="text-md text-gray-500">{testimonial.role}</p>
+                    <p className="text-md  text-gray-500 dark:text-white">
+                      {testimonial.role}
+                    </p>
                   </div>
                 </div>
                 <div className="mt-4 flex text-yellow-500">
@@ -89,7 +91,9 @@ const UserTestimonials = () => {
                 </div>
               </div>
 
-              <p className="mt-4 text-gray-600">{testimonial.testimonial}</p>
+              <p className="mt-4 text-gray-600 dark:text-white">
+                {testimonial.testimonial}
+              </p>
             </div>
           ))}
         </Marquee>

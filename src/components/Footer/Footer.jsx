@@ -11,7 +11,9 @@ import logo from "../../assets/logoWhite.png";
 
 const Footer = () => {
   return (
-    <footer className="text-white py-12 mx-auto w-11/12 md:w-10/12 max-w-screen-2xl">
+    <footer
+      className={`text-white py-12 mx-auto w-11/12 md:w-10/12 max-w-screen-2xl`}
+    >
       <div className="mb-12">
         <div className="text-center">
           <img className="w-52 h-44 mx-auto" src={logo} alt="" />

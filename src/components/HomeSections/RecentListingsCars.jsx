@@ -17,10 +17,10 @@ const RecentListingsCars = ({ car }) => {
   } = car;
   return (
     <Link to={"/available-cars"} className=" grid place-items-stretch">
-      <div className="w-full bg-white p-5 rounded-xl border shadow transition-transform transform hover:scale-105 hover:shadow-xl hover:shadow-[#929292]">
+      <div className="w-full bg-white p-5 rounded-xl border shadow transition-transform transform hover:scale-105 hover:shadow-[#929292]  dark:bg-[#1b1b1b] dark:border-none">
         <div className="relative">
           <img
-            className="rounded-lg border h-[250px] w-full"
+            className="rounded-lg border h-[250px]  dark:border-none w-full"
             src={car_image}
             alt={car_model}
           />
@@ -42,24 +42,24 @@ const RecentListingsCars = ({ car }) => {
         </div>
         {/* Floating button at top-left */}
         <div>
-          <h5 className="my-2 font-bold text-[#313131] text-xl md:text-[27px]">
+          <h5 className="my-2 font-bold text-[#313131] dark:text-white text-xl md:text-[27px]">
             {car_model}
           </h5>
-          <p className="font-semibold text-base md:text-lg">
+          <p className="font-semibold text-base md:text-lg dark:text-white">
             {description.substring(0, 60)}...
           </p>
           <hr className="border my-3" />
           <div>
-            <h3 className="flex items-center gap-2 text-[#212121] text-sm md:text-base font-semibold my-1">
-              <IoCalendarNumberOutline className="text-primary" />
+            <h3 className="flex items-center gap-2 text-[#212121] dark:text-white text-sm md:text-base font-semibold my-1">
+              <IoCalendarNumberOutline className="text-primary dark:text-white" />
               Added-Date: {format(new Date(added_date), "P")}
             </h3>
-            <h3 className="flex items-center gap-2 text-[#111111] text-sm md:text-base font-semibold my-1">
-              <FaSearchLocation className="text-primary" />
+            <h3 className="flex items-center gap-2 text-[#111111] dark:text-white text-sm md:text-base font-semibold my-1">
+              <FaSearchLocation className="text-primary dark:text-white" />
               {location}
             </h3>
-            <h3 className="flex items-center gap-2 text-[#111111] text-sm md:text-base font-semibold my-1">
-              <CiDiscount1 className="text-primary font-extrabold" />
+            <h3 className="flex items-center gap-2 text-[#111111] dark:text-white text-sm md:text-base font-semibold my-1">
+              <CiDiscount1 className="text-primary dark:text-white font-extrabold" />
               Total Booking Count: {bookingCount}
             </h3>
           </div>

@@ -69,7 +69,7 @@ const FAQ = () => {
         </p>
       </div>
       {/* F A Q */}
-      <div className="join join-vertical w-full dark:text-white">
+      <div className="join join-vertical w-full dark:text-white dark:bg-[#1b1b1b]">
         {faqs.map((faq, index) => (
           <div
             key={index}
