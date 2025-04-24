@@ -11,12 +11,15 @@ const RecentListings = () => {
       try {
         const { data } = await axios.get(`${api_url}/recent-listings`);
         setCars(data);
-      } catch {
-        toast.error("Something Went Wrong");
+      } catch (error) {
+        toast.error(
+          `Error Caught: ${error?.message || "Error While Fetching Data!"}`
+        );
       }
     };
     fetchCars();
   }, [api_url]);
+
   return (
     <div className="pb-20 w-11/12 mx-auto max-w-[1400px]">
       <div className="text-center">
@@ -32,8 +35,8 @@ const RecentListings = () => {
       </div>
       <div className="mt-10">
         <div className="grid gap-8 grid-cols-1 md:grid-cols-2 xl:grid-cols-3">
-          {cars.map((car) => (
-            <RecentListingsCars key={car._id} car={car}></RecentListingsCars>
+          {cars?.map((car) => (
+            <RecentListingsCars key={car?._id} car={car}></RecentListingsCars>
           ))}
         </div>
       </div>

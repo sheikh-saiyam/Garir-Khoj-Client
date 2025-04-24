@@ -5,7 +5,7 @@ const Services = () => {
     <div className=" dark:bg-black ">
       <div className="pt-8 py-20 w-11/12 md:w-10/12 mx-auto max-w-screen-2xl">
         {/* Banner  */}
-        <section className="relative rounded-2xl">
+        <section className="relative rounded-2xl mx-auto w-full lg:w-11/12">
           <div className="rounded-2xl">
             <img
               src="https://images.pexels.com/photos/18231618/pexels-photo-18231618/free-photo-of-a-car-parked-outside.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
@@ -15,7 +15,7 @@ const Services = () => {
             <div className="absolute rounded-2xl inset-0 bg-gradient-to-r from-black/75 to-black/75" />
           </div>
           <h1 className="absolute inset-0 flex items-center justify-center text-5xl lg:text-7xl xl:text-9xl font-extrabold text-white tracking-widest">
-            Service
+            Services
           </h1>
         </section>
         {/* Service */}

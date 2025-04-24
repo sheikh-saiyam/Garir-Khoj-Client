@@ -66,7 +66,7 @@ const Navbar = () => {
                 : "text-base font-semibold hover:text-primary dark:text-white hover:underline"
             }
           >
-            Service
+            Services
           </NavLink>
         </ul>
 

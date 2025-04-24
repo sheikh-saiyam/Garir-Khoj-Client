@@ -14,7 +14,7 @@ const RecentListingsCars = ({ car }) => {
     added_date,
     location,
     bookingCount,
-  } = car;
+  } = car || {};
   return (
     <Link to={"/available-cars"} className=" grid place-items-stretch">
       <div className="w-full bg-white p-5 rounded-xl border shadow transition-transform transform hover:scale-105 hover:shadow-[#929292]  dark:bg-[#1b1b1b] dark:border-none">
