@@ -1,10 +1,10 @@
-import logo from "../assets/logoWhite.png";
 import { useEffect, useState } from "react";
-import useAuth from "../hooks/useAuth";
-import { Link, useLocation, useNavigate } from "react-router-dom";
-import { IoEyeOffSharp, IoEyeSharp } from "react-icons/io5";
 import { FaGoogle } from "react-icons/fa";
+import { IoMdArrowRoundBack } from "react-icons/io";
+import { IoEyeOffSharp, IoEyeSharp } from "react-icons/io5";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { LuLogIn } from "react-icons/lu";
+import useAuth from "../hooks/useAuth";
 import Swal from "sweetalert2";
 
 const Login = () => {
@@ -81,101 +81,87 @@ const Login = () => {
   // for toggle password
   return (
     <div className="bg-base-200 dark:bg-black">
-      <div className="w-11/12 mx-auto md:w-10/12 max-w-screen-2xl py-12 flex flex-col-reverse md:flex md:flex-row">
-        <div className="bg-white py-12 px-8 md:w-1/2">
+      <div className="w-11/12 mx-auto md:w-10/12 max-w-screen-2xl py-7 flex flex-col-reverse md:flex md:flex-row justify-center items-center h-screen">
+        <div className="bg-white border-2 dark:bg-[#1b1b1b] py-7 px-8 w-full md:w-10/12 lg:w-6/12">
           <div className="mb-4">
-            <h1 className="flex items-center gap-2 text-3xl font-bold">
+            <Link
+              to={"/"}
+              className="flex btn btn-sm w-fit rounded border border-gray-300 items-center gap-2 font-semibold text-lg text-[#494949] hover:bg-gray-200 hover:underline duration-700"
+            >
+              <IoMdArrowRoundBack size={30} />
+              Back To Home
+            </Link>
+            <h1 className="mt-4 flex items-center gap-2 text-3xl font-bold text-text dark:text-white">
               <LuLogIn />
-              Welcome Back !
+              Login To Start!
             </h1>
           </div>
-          <div>
-            <button
-              onClick={handleGoogleLogin}
-              className="btn bg-yellow-400 border-none w-full rounded-full 
-              flex gap-3 items-center text-lg text-white font-semibold"
-            >
-              <FaGoogle className="text-xl"></FaGoogle> Log in Google
-            </button>
-          </div>
-          <div className="divider font-semibold">
-            Or Login with Email & Password
-          </div>
-          <form onSubmit={handleLogin} className="card-body p-0 gap-0">
-            <div className="form-control">
-              <label className="label px-0">
-                <span className="font-semibold">Email</span>
-              </label>
-              <input
-                type="email"
-                name="email"
-                placeholder="Email"
-                className="input input-bordered"
-                required
-              />
-            </div>
-            <div className="form-control">
-              <label className="label px-0">
-                <span className="font-semibold">Password</span>
-              </label>
-              <div className="relative">
-                <input
-                  type={passwordVisible ? "text" : "password"}
-                  name="password"
-                  placeholder="Password"
-                  className="input input-bordered w-full"
-                  required
-                />
-                <label
-                  type="button"
-                  onClick={togglePasswordVisibility}
-                  className="absolute inset-y-0 right-3 flex items-center text-gray-500 text-xl"
-                  aria-label="Toggle password visibility"
-                >
-                  {passwordVisible ? <IoEyeSharp /> : <IoEyeOffSharp />}
-                </label>
-              </div>
-              <label className="label">
-                <p className="font-semibold underline link link-hover my-2">
-                  Forget password?
-                </p>
-              </label>
-            </div>
-            {error && (
-              <label className="block text-red-500 bg-red-100 p-2 rounded-lg text-center mb-6 text-lg font-semibold">
-                {error}
-              </label>
-            )}
-            <div className="form-control">
-              <button className="btn w-full text-lg font-bold text-white bg-primary">
-                Login
+          <div className="bg-white ">
+            <div>
+              <button
+                onClick={handleGoogleLogin}
+                className="btn bg-yellow-400 border-none w-full rounded-full 
+                flex gap-3 items-center text-lg text-white font-semibold"
+              >
+                <FaGoogle className="text-xl"></FaGoogle> Log in Google
               </button>
             </div>
-          </form>
-        </div>
-        {/* text div */}
-        <div className="bg-primary py-12 px-4 md:w-1/2 flex flex-col justify-center items-center text-center">
-          <div className="text-white space-y-2 md:space-y-6">
-            <div>
-              <img className="mx-auto h-44 w-fit" src={logo} alt="" />
+            <div className="divider font-semibold">
+              Or Login with Email & Password
             </div>
-            <h1 className="font-bold text-3xl md:text-4xl">
-              Welcome to Login Page
-            </h1>
-            <div className="w-full flex flex-wrap gap-2 items-center justify-center">
-              <h3 className="font-semibold text-lg md:text-xl">
-                Don&apos;t have an account
-              </h3>
-              <Link
-                to={"/register"}
-                className=" bg-transparent border-2  border-white btn w-fit text-lg font-bold rounded-full text-white"
-              >
-                Register
-              </Link>
-            </div>
+            <form onSubmit={handleLogin} className="card-body p-0 gap-0">
+              <div className="form-control">
+                <label className="label px-0">
+                  <span className="font-semibold">Email</span>
+                </label>
+                <input
+                  type="email"
+                  name="email"
+                  placeholder="Email"
+                  className="input input-bordered"
+                  required
+                />
+              </div>
+              <div className="form-control">
+                <label className="label px-0">
+                  <span className="font-semibold">Password</span>
+                </label>
+                <div className="relative">
+                  <input
+                    type={passwordVisible ? "text" : "password"}
+                    name="password"
+                    placeholder="Password"
+                    className="input input-bordered w-full"
+                    required
+                  />
+                  <label
+                    type="button"
+                    onClick={togglePasswordVisibility}
+                    className="absolute inset-y-0 right-3 flex items-center text-gray-500 text-xl"
+                    aria-label="Toggle password visibility"
+                  >
+                    {passwordVisible ? <IoEyeSharp /> : <IoEyeOffSharp />}
+                  </label>
+                </div>
+                <label className="label">
+                  <p className="font-semibold underline link link-hover my-2">
+                    Forget password?
+                  </p>
+                </label>
+              </div>
+              {error && (
+                <label className="block text-red-500 bg-red-100 p-2 rounded-lg text-center mb-6 text-lg font-semibold">
+                  {error}
+                </label>
+              )}
+              <div className="form-control">
+                <button className="btn w-full text-lg font-bold text-white bg-primary">
+                  Login
+                </button>
+              </div>
+            </form>
           </div>
         </div>
-        {/* text div */}
       </div>
     </div>
   );

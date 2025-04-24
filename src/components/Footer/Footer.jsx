@@ -8,8 +8,14 @@ import { IoMdSend } from "react-icons/io";
 import { IoCall } from "react-icons/io5";
 import { MdEmail } from "react-icons/md";
 import logo from "../../assets/logoWhite.png";
+import { useLocation } from "react-router-dom";
 
 const Footer = () => {
+  const location = useLocation();
+
+  if (location.pathname === "/login" || location.pathname === "/register")
+    return <></>;
+
   return (
     <footer
       className={`text-white py-12 mx-auto w-11/12 md:w-10/12 max-w-screen-2xl`}
