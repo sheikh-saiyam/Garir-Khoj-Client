@@ -15,8 +15,8 @@ const Navbar = () => {
   const [isOpenMenu, setIsOpenMenu] = useState(false);
   const [isOpen, setIsOpen] = useState(false);
 
-  if (location.pathname === "/login" || location.pathname === "/register")
-    return <></>;
+if (location.pathname === "/login" || location.pathname === "/register")
+    return null;
 
   return (
     <div className="mx-auto w-11/12 max-w-screen-2xl pt-4 pb-8 md:py-4 flex justify-between items-center">

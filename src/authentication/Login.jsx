@@ -160,6 +160,20 @@ const Login = () => {
                 </button>
               </div>
             </form>
+            {/* register navigate */}
+            <div className="text-text space-y-2 md:space-y-6 mt-6">
+              <div className="w-full flex flex-wrap gap-2 items-center justify-center">
+                <h3 className="font-medium text-base dark:text-white">
+                  Don&apos;t have an account
+                </h3>
+                <Link
+                  to={"/register"}
+                  className="font-semibold underline underline-offset-2 hover:text-primary duration-200 dark:text-primary"
+                >
+                  Register
+                </Link>
+              </div>
+            </div>
           </div>
         </div>
       </div>
