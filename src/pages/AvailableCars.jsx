@@ -1,11 +1,10 @@
-import { IoGrid } from "react-icons/io5";
-import CarCard from "../components/Car/CarCard";
-import { FaList } from "react-icons/fa";
-import { useEffect, useState } from "react";
 import axios from "axios";
+import { useEffect, useState } from "react";
+import { FaList } from "react-icons/fa";
+import { IoGrid } from "react-icons/io5";
 import { toast } from "react-toastify";
+import CarCard from "../components/Car/CarCard";
 import CarListCard from "../components/Car/CarListCard";
-import Loader from "../components/Loader/Loader";
 import CarCardSkeleton from "../components/Skeleton/CarCardSkeleton";
 import CarListCardSkeleton from "../components/Skeleton/CarListCardSkeleton";
 
@@ -164,7 +163,7 @@ const AvailableCars = () => {
               </div>
             )
           ) : loader ? (
-            <div className="grid gap-6 grid-cols-1 lg:grid-cols-2">
+            <div className="space-y-6">
               {[0, 1, 2, 3, 4, 5].map((_, i) => (
                 <CarListCardSkeleton key={i} />
               ))}
