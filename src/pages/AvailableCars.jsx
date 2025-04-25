@@ -6,6 +6,7 @@ import axios from "axios";
 import { toast } from "react-toastify";
 import CarListCard from "../components/Car/CarListCard";
 import Loader from "../components/Loader/Loader";
+import CarCardSkeleton from "../components/Skeleton/CarCardSkeleton";
 
 const AvailableCars = () => {
   useEffect(() => {
@@ -21,7 +22,9 @@ const AvailableCars = () => {
   const [sortByDate, setSortByDate] = useState("");
   const [sortByPrice, setSortByPrice] = useState("");
   const [cars, setCars] = useState([]);
+
   const api_url = import.meta.env.VITE_API_URL;
+
   useEffect(() => {
     const fetchCars = async () => {
       try {
@@ -30,8 +33,12 @@ const AvailableCars = () => {
         );
         setCars(data);
         setLoader(false);
-      } catch {
-        toast.error("Something Went Wrong");
+      } catch (error) {
+        toast.error(
+          `Error Caught: ${
+            error?.message || "Something Went Wrong While Fetching Data"
+          }`
+        );
       }
     };
     fetchCars();
@@ -43,7 +50,7 @@ const AvailableCars = () => {
     setSortByDate("");
     setSortByPrice("");
   };
-  // console.log(cars);
+
   return (
     <div className="bg-[#f9f9f9] dark:bg-black">
       <div className="mx-auto w-11/12 max-w-[1400px] py-12 space-y-6 lg:space-y-0 lg:flex gap-8">
@@ -146,7 +153,11 @@ const AvailableCars = () => {
         <div className="w-full lg:w-9/12">
           {layout ? (
             loader ? (
-              <Loader></Loader>
+              <div className="grid gap-6 grid-cols-1 lg:grid-cols-2">
+                {[0, 1, 2, 3, 4, 5].map((_, i) => (
+                  <CarCardSkeleton key={i} />
+                ))}
+              </div>
             ) : (
               <div className="grid gap-6 grid-cols-1 lg:grid-cols-2">
                 {cars.map((car) => (

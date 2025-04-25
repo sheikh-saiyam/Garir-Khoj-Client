@@ -19,7 +19,7 @@ const Navbar = () => {
     return null;
 
   return (
-    <div className="mx-auto w-11/12 max-w-screen-2xl pt-4 pb-8 md:py-4 flex justify-between items-center">
+    <div className="mx-auto w-11/12 lg:w-10/12 max-w-screen-2xl pt-4 pb-8 md:py-4 flex justify-between items-center">
       <div>
         {theme === "dark" ? (
           <Link>
