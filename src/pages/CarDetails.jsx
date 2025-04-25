@@ -129,7 +129,7 @@ const CarDetails = () => {
       ) : (
         <div className="mx-auto w-11/12 md:w-10/12 max-w-[1300px] py-12 lg:flex">
           <div className="relative w-full lg:w-6/12">
-            <img className="h-full w-full" src={car_image} alt="" />
+            <img className="h-full w-full" src={car_image} alt={car_model} />
             {availability === "Yes" ? (
               <button className="absolute p-2 top-[-0px] left-[-px] z-10 bg-blue-400 text-white rounded-tl-none btn btn-sm shadow-lg hover:bg-white hover:text-blue-400 border-blue-400 border hover:border-blue-400">
                 <span className="animate-bounce mt-[2px]">Available</span>

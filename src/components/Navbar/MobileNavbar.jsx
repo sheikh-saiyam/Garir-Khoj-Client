@@ -117,14 +117,14 @@ const MobileNavbar = ({
                 <div>
                   <img
                     className="mx-auto w-14 h-14 rounded-full my-4"
-                    src={user.photoURL}
-                    alt=""
+                    src={user?.photoURL}
+                    alt={user?.displayName}
                   />
                 </div>
                 <p className="text-center font-semibold my-1">
-                  {user.displayName}
+                  {user?.displayName}
                 </p>
-                <p className="text-center font-semibold my-1">{user.email}</p>
+                <p className="text-center font-semibold my-1">{user?.email}</p>
               </div>
               <button
                 onClick={logOut}

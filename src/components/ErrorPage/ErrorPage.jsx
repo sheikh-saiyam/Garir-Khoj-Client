@@ -6,7 +6,7 @@ const ErrorPage = () => {
       <div className="bg-primary">
         <div className="mx-auto w-11/12 flex flex-col items-center text-center justify-center min-h-screen py-12">
           {/* Error Image */}
-          <img src={errorLogo} className="w-72 h-72 border-2 rounded-xl" />
+          <img src={errorLogo} alt="Error Image" className="w-72 h-72 border-2 rounded-xl" />
           {/* Error Text */}
           <h1 className="text-5xl font-bold text-white mt-6">
             Oops! Page Not Found

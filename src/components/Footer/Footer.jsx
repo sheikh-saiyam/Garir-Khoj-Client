@@ -14,7 +14,7 @@ const Footer = () => {
   const location = useLocation();
 
   if (location.pathname === "/login" || location.pathname === "/register")
-    return <></>;
+    return null;
 
   return (
     <footer
@@ -22,7 +22,7 @@ const Footer = () => {
     >
       <div className="mb-12">
         <div className="text-center">
-          <img className="w-52 h-44 mx-auto" src={logo} alt="" />
+          <img className="w-52 h-44 mx-auto" src={logo} alt="GarirKhoj.com Logo" />
         </div>
         <div className="text-center w-11/12 md:w-10/12 mx-auto">
           <h1 className="mt-3 text-xl md:text-2xl lg:text-3xl font-bold ">

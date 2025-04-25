@@ -15,7 +15,7 @@ const Navbar = () => {
   const [isOpenMenu, setIsOpenMenu] = useState(false);
   const [isOpen, setIsOpen] = useState(false);
 
-if (location.pathname === "/login" || location.pathname === "/register")
+  if (location.pathname === "/login" || location.pathname === "/register")
     return null;
 
   return (
@@ -24,7 +24,7 @@ if (location.pathname === "/login" || location.pathname === "/register")
         {theme === "dark" ? (
           <Link>
             <img
-              className="w-28 h-24 border-l border-dashed"
+              className="w-20 h-16 border-l border-dashed"
               src={logoWhite}
               alt="GarirKhoj.com"
             />
@@ -32,7 +32,7 @@ if (location.pathname === "/login" || location.pathname === "/register")
         ) : (
           <Link>
             <img
-              className="w-28 h-24 border-l border-dashed"
+              className="w-20 h-16 border-l border-dashed"
               src={logo}
               alt="GarirKhoj.com"
             />
