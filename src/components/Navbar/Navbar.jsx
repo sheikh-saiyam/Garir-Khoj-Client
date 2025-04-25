@@ -15,7 +15,7 @@ const Navbar = () => {
   const [isOpenMenu, setIsOpenMenu] = useState(false);
   const [isOpen, setIsOpen] = useState(false);
 
-if (location.pathname === "/login" || location.pathname === "/register")
+  if (location.pathname === "/login" || location.pathname === "/register")
     return null;
 
   return (
