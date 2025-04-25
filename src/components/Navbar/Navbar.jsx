@@ -24,7 +24,7 @@ const Navbar = () => {
         {theme === "dark" ? (
           <Link>
             <img
-              className="w-28 h-24 border-l border-dashed"
+              className="w-20 h-16 border-l border-dashed"
               src={logoWhite}
               alt="GarirKhoj.com"
             />
@@ -32,7 +32,7 @@ const Navbar = () => {
         ) : (
           <Link>
             <img
-              className="w-28 h-24 border-l border-dashed"
+              className="w-20 h-16 border-l border-dashed"
               src={logo}
               alt="GarirKhoj.com"
             />
