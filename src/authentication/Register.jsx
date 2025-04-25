@@ -207,7 +207,7 @@ const Register = () => {
                   Already have an account
                 </h3>
                 <Link
-                  to={"/Login"}
+                  to={"/login"}
                   className=" bg-transparent border-2  border-white btn w-fit text-lg font-bold rounded-full text-white"
                 >
                   Login

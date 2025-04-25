@@ -14,6 +14,10 @@ const Navbar = () => {
   const { user, logOut, loading } = useAuth();
   const [isOpenMenu, setIsOpenMenu] = useState(false);
   const [isOpen, setIsOpen] = useState(false);
+
+if (location.pathname === "/login" || location.pathname === "/register")
+    return null;
+
   return (
     <div className="mx-auto w-11/12 max-w-screen-2xl pt-4 pb-8 md:py-4 flex justify-between items-center">
       <div>
@@ -66,7 +70,7 @@ const Navbar = () => {
                 : "text-base font-semibold hover:text-primary dark:text-white hover:underline"
             }
           >
-            Service
+            Services
           </NavLink>
         </ul>
 
@@ -171,7 +175,7 @@ const Navbar = () => {
             <div>
               <NavLink
                 to={"/login"}
-                className="btn bg-primary text-white hover:bg-transparent hover:text-primary dark:text-white hover:border-primary hover:border-2 tracking-wide text-lg font-semibold dark:border-none dark:hover:bg-white dark:hover:text-primary"
+                className="btn bg-primary text-white border-2 border-primary hover:bg-transparent hover:text-primary dark:text-white hover:border-primary hover:border-2 tracking-wide text-lg font-semibold dark:border-none dark:hover:bg-white dark:hover:text-primary"
               >
                 Login
               </NavLink>
