@@ -114,7 +114,7 @@ const Register = () => {
           <div>
             <button
               onClick={handleGoogleLogin}
-              className="btn bg-yellow-400 border-none w-full rounded-full 
+              className="btn bg-yellow-400 hover:bg-yellow-500 border-none w-full rounded-full 
                flex gap-3 items-center text-lg text-white font-semibold"
             >
               <FaGoogle className="text-xl"></FaGoogle> Register By Google
@@ -193,7 +193,7 @@ const Register = () => {
             )}
             {/* button div */}
             <div className="form-control mt-4">
-              <button className="btn w-full text-lg font-bold text-white bg-primary">
+              <button className="btn w-full text-lg font-bold text-white bg-primary dark:border-none hover:bg-[#ff0011]">
                 Register
               </button>
             </div>
