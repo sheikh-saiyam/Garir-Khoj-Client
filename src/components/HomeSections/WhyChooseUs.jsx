@@ -78,7 +78,7 @@ const WhyChooseUs = () => {
           <img
             className="h-[300px] md:h-[450px] w-full"
             src={whyChooseUs}
-            alt=""
+            alt="whyChooseUs Image"
           />
         </div>
       </section>

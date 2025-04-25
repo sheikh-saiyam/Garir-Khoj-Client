@@ -50,7 +50,7 @@ const MyBookings = () => {
             <div className="text-center min-h-[450px] flex items-center justify-center border-accent border-2 rounded-2xl bg-bgPrimary w-10/12 mx-auto">
               <div className="space-y-4">
                 <div>
-                  <img className="mx-auto h-44 w-fit" src={logo} alt="" />
+                  <img className="mx-auto h-44 w-fit" src={logo} alt="GarirKhoj.com Logo" />
                 </div>
                 <div>
                   <h1 className="font-bold text-2xl md:text-3xl lg:text-4xl text-center font-serif">

@@ -66,7 +66,7 @@ const SpecialOffers = () => {
               <img
                 className="h-[300px] w-full rounded-t-box"
                 src={offer.bgImage}
-                alt=""
+                alt="Offer Card Image"
               />
               <button className="btn w-1/2 absolute bottom-0 left-1/2 transform -translate-x-1/2 translate-y-1/2 mt-4 hover:scale-105 transition-transform backdrop-blur-sm bg-transparent border-2 border-b-gray-300 border-white/40 rounded-lg text-[#2e2d2d] font-bold tracking-wider text-sm md:text-lg hover:!bg-transparent dark:text-white dark:border-white dark:border-4">
                 {offer.buttonText}

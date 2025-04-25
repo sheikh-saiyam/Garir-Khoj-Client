@@ -137,7 +137,7 @@ const MyBookingsTable = ({ myBooking, idx, fetchMyBookings }) => {
           <img
             className="h-10 w-full sm:h-20 sm:w-44 border"
             src={car_image}
-            alt=""
+            alt={car_model}
           />
         </td>
         <td>{car_model}</td>
