@@ -1,11 +1,12 @@
-import { IoGrid } from "react-icons/io5";
-import CarCard from "../components/Car/CarCard";
-import { FaList } from "react-icons/fa";
-import { useEffect, useState } from "react";
 import axios from "axios";
+import { useEffect, useState } from "react";
+import { FaList } from "react-icons/fa";
+import { IoGrid } from "react-icons/io5";
 import { toast } from "react-toastify";
+import CarCard from "../components/Car/CarCard";
 import CarListCard from "../components/Car/CarListCard";
-import Loader from "../components/Loader/Loader";
+import CarCardSkeleton from "../components/Skeleton/CarCardSkeleton";
+import CarListCardSkeleton from "../components/Skeleton/CarListCardSkeleton";
 
 const AvailableCars = () => {
   useEffect(() => {
@@ -21,7 +22,9 @@ const AvailableCars = () => {
   const [sortByDate, setSortByDate] = useState("");
   const [sortByPrice, setSortByPrice] = useState("");
   const [cars, setCars] = useState([]);
+
   const api_url = import.meta.env.VITE_API_URL;
+
   useEffect(() => {
     const fetchCars = async () => {
       try {
@@ -30,8 +33,12 @@ const AvailableCars = () => {
         );
         setCars(data);
         setLoader(false);
-      } catch {
-        toast.error("Something Went Wrong");
+      } catch (error) {
+        toast.error(
+          `Error Caught: ${
+            error?.message || "Something Went Wrong While Fetching Data"
+          }`
+        );
       }
     };
     fetchCars();
@@ -43,7 +50,7 @@ const AvailableCars = () => {
     setSortByDate("");
     setSortByPrice("");
   };
-  // console.log(cars);
+
   return (
     <div className="bg-[#f9f9f9] dark:bg-black">
       <div className="mx-auto w-11/12 max-w-[1400px] py-12 space-y-6 lg:space-y-0 lg:flex gap-8">
@@ -72,7 +79,6 @@ const AvailableCars = () => {
               </button>
             </div>
           </div>
-          {/* Layout toggle */}
           {/* Search */}
           <div>
             <h1 className="text-xl font-bold text-[#2a2a2a]  dark:text-white  my-2">
@@ -95,7 +101,6 @@ const AvailableCars = () => {
               </button>
             </div>
           </div>
-          {/* Search */}
           {/* Sort By Date & Price */}
           <div>
             <h1 className="text-xl font-bold text-[#2a2a2a]  dark:text-white  mt-2 mb-4">
@@ -130,7 +135,6 @@ const AvailableCars = () => {
               <option value={"dsc"}>Highest First</option>
             </select>
           </div>
-          {/* Sort By Date & Price */}
           {/* Reset Button */}
           <div>
             <button
@@ -146,7 +150,11 @@ const AvailableCars = () => {
         <div className="w-full lg:w-9/12">
           {layout ? (
             loader ? (
-              <Loader></Loader>
+              <div className="grid gap-6 grid-cols-1 lg:grid-cols-2">
+                {[0, 1, 2, 3, 4, 5].map((_, i) => (
+                  <CarCardSkeleton key={i} />
+                ))}
+              </div>
             ) : (
               <div className="grid gap-6 grid-cols-1 lg:grid-cols-2">
                 {cars.map((car) => (
@@ -155,7 +163,11 @@ const AvailableCars = () => {
               </div>
             )
           ) : loader ? (
-            <Loader></Loader>
+            <div className="space-y-6">
+              {[0, 1, 2, 3, 4, 5].map((_, i) => (
+                <CarListCardSkeleton key={i} />
+              ))}
+            </div>
           ) : (
             <div className="space-y-6">
               {cars.map((car) => (

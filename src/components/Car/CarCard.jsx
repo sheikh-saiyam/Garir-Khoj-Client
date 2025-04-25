@@ -2,6 +2,7 @@ import { IoCalendarNumberOutline } from "react-icons/io5";
 import { format } from "date-fns";
 import { FaSearchLocation } from "react-icons/fa";
 import { Link } from "react-router-dom";
+
 const CarCard = ({ car }) => {
   const {
     _id,
