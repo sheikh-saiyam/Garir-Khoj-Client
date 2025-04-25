@@ -97,7 +97,7 @@ const Register = () => {
   return (
     <div className="bg-base-200 dark:bg-black h-full py-7">
       <div className="w-11/12 mx-auto md:w-10/12 max-w-screen-2xl flex flex-col-reverse md:flex md:flex-row justify-center items-center h-screen">
-        <div className="bg-white py-8 px-8 w-full md:w-10/12  lg:w-6/12">
+        <div className="bg-white dark:bg-[#1b1b1b] py-8 px-8 w-full md:w-10/12  lg:w-6/12">
           <div className="mb-4">
             <Link
               to={"/"}
@@ -120,12 +120,12 @@ const Register = () => {
               <FaGoogle className="text-xl"></FaGoogle> Register By Google
             </button>
           </div>
-          <div className="divider font-semibold">Or</div>
+          <div className="divider font-semibold dark:text-white">Or</div>
           <form onSubmit={handleRegister} className="card-body p-0 gap-0">
             {/* name & photo */}
             <div className="grid grid-cols-1 gap-4 md:grid-cols-2 ">
               <div className="form-control">
-                <label className="label px-0">
+                <label className="label px-0 dark:text-white">
                   <span className="font-semibold">Name</span>
                 </label>
                 <input
@@ -137,7 +137,7 @@ const Register = () => {
                 />
               </div>
               <div className="form-control">
-                <label className="label px-0">
+                <label className="label px-0 dark:text-white">
                   <span className="font-semibold">Photo Url</span>
                 </label>
                 <input
@@ -152,7 +152,7 @@ const Register = () => {
             {/* name & photo */}
             {/* email & password */}
             <div className="form-control">
-              <label className="label px-0">
+              <label className="label px-0 dark:text-white">
                 <span className="font-semibold">Email</span>
               </label>
               <input
@@ -164,7 +164,7 @@ const Register = () => {
               />
             </div>
             <div className="form-control">
-              <label className="label px-0">
+              <label className="label px-0 dark:text-white">
                 <span className="font-semibold">Password</span>
               </label>
               <div className="relative">

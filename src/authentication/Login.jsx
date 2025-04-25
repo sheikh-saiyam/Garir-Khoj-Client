@@ -96,22 +96,22 @@ const Login = () => {
               Login To Start!
             </h1>
           </div>
-          <div className="bg-white ">
+          <div className="bg-white dark:bg-[#1b1b1b]">
             <div>
               <button
                 onClick={handleGoogleLogin}
-                className="btn bg-yellow-400 border-none w-full rounded-full 
+                className="btn bg-yellow-400 hover:bg-yellow-500 border-none w-full rounded-full 
                 flex gap-3 items-center text-lg text-white font-semibold"
               >
                 <FaGoogle className="text-xl"></FaGoogle> Log in Google
               </button>
             </div>
-            <div className="divider font-semibold">
+            <div className="divider font-semibold dark:text-white">
               Or Login with Email & Password
             </div>
             <form onSubmit={handleLogin} className="card-body p-0 gap-0">
               <div className="form-control">
-                <label className="label px-0">
+                <label className="label px-0 dark:text-white">
                   <span className="font-semibold">Email</span>
                 </label>
                 <input
@@ -123,7 +123,7 @@ const Login = () => {
                 />
               </div>
               <div className="form-control">
-                <label className="label px-0">
+                <label className="label px-0 dark:text-white">
                   <span className="font-semibold">Password</span>
                 </label>
                 <div className="relative">
@@ -143,7 +143,7 @@ const Login = () => {
                     {passwordVisible ? <IoEyeSharp /> : <IoEyeOffSharp />}
                   </label>
                 </div>
-                <label className="label">
+                <label className="label dark:text-white">
                   <p className="font-semibold underline link link-hover my-2">
                     Forget password?
                   </p>
@@ -155,7 +155,7 @@ const Login = () => {
                 </label>
               )}
               <div className="form-control">
-                <button className="btn w-full text-lg font-bold text-white bg-primary">
+                <button className="btn w-full text-lg font-bold text-white bg-primary dark:border-none hover:bg-[#ff0011]">
                   Login
                 </button>
               </div>
