@@ -80,9 +80,9 @@ const Login = () => {
   };
   // for toggle password
   return (
-    <div className="bg-base-200 dark:bg-black">
+    <div className="bg-base-200 dark:bg-black h-screen">
       <div className="w-11/12 mx-auto md:w-10/12 max-w-screen-2xl py-7 flex flex-col-reverse md:flex md:flex-row justify-center items-center h-screen">
-        <div className="bg-white border-2 dark:bg-[#1b1b1b] py-7 px-8 w-full md:w-10/12 lg:w-6/12">
+        <div className="bg-white dark:bg-[#1b1b1b] py-7 px-8 w-full md:w-10/12 lg:w-6/12">
           <div className="mb-4">
             <Link
               to={"/"}
