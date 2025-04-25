@@ -1,13 +1,12 @@
 import { useState } from "react";
-import logo from "../assets/logoWhite.png";
-import { LuLogIn } from "react-icons/lu";
 import { FaGoogle } from "react-icons/fa";
-import { IoEyeOffSharp, IoEyeSharp } from "react-icons/io5";
-import { Link, useNavigate } from "react-router-dom";
-import { MdOutlineError } from "react-icons/md";
-import useAuth from "../hooks/useAuth";
-import Swal from "sweetalert2";
 import { IoMdArrowRoundBack } from "react-icons/io";
+import { IoEyeOffSharp, IoEyeSharp } from "react-icons/io5";
+import { LuLogIn } from "react-icons/lu";
+import { MdOutlineError } from "react-icons/md";
+import { Link, useNavigate } from "react-router-dom";
+import Swal from "sweetalert2";
+import useAuth from "../hooks/useAuth";
 const Register = () => {
   const { setUser, createNewUser, googleLogin, updateUserProfile } = useAuth();
   const navigate = useNavigate();
